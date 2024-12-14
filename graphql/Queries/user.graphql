@@ -1,0 +1,13 @@
+type Query @guard {
+    me: User! @auth
+
+    notifications: [Notification!]!
+        @guard
+        @whereAuth(relation: "user")
+        @orderBy(column: created_at, order: "desc")
+        @paginate(
+            defaultCount: 10
+            maxCount: 100
+            builder: "App\\GraphQL\\Queries\\Notifications"
+        )
+}

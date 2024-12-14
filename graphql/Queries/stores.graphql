@@ -1,0 +1,9 @@
+extend type Query  {
+    stores(latitude:String,longitude:String,category_id:Int,search:String,type:StoreType): [Store!]!
+        @orderBy(column: position, direction: DESC)
+        @paginate(
+            defaultCount: 30
+            maxCount: 100
+            builder: "App\\GraphQL\\Queries\\Store\\Index"
+        )
+}

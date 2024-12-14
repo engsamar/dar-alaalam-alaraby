@@ -1,0 +1,65 @@
+type Product {
+    id: ID!
+    title: String!
+    image_path:String
+    active: Int
+    position: Int
+    price: Float!
+    price_after: Float
+    discount: Float
+    category: Category @belongsTo
+    sub_category: Category @belongsTo
+    brand:Brand @belongsTo
+    store: Store @belongsTo
+    images: [String]
+    weight:Float
+    sizes: [Size]
+    description:String
+    isFavourite: Boolean
+
+}
+type Category {
+    id: ID!
+    title: String!
+    image_path:String
+    active: Int!
+    position: Int!
+}
+
+type Brand {
+    id: ID!
+    title: String!
+    image_path:String
+    active: Int!
+    position: Int!
+}
+type Cart {
+    id: ID!
+    quantity:Int!
+    product: Product @belongsTo
+    size: Size @belongsTo
+    color: Color @belongsTo
+    total_price:Float!
+}
+
+type Size {
+    id:ID!
+    title:String!
+    weight:Float
+    price:Float
+    quantity: Float
+    colors: [Color]
+}
+
+
+type Color {
+    id:ID!
+    title:String!
+    color_code:String
+}
+
+type PriceBetween{
+    from: Float
+    to: Float
+}
+

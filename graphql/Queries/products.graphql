@@ -1,0 +1,47 @@
+extend type Query  {
+    products(store_id:Int,category_id:Int,sub_category_id:Int,
+    brand_id:Int,search:String,in_top_selling:Boolean,
+    in_new:Boolean,from_price:Float,to_price:Float,sortBy:String,sortType:String): [Product!]!
+        @paginate(
+            defaultCount: 20
+            maxCount: 100
+            builder: "App\\GraphQL\\Queries\\Product\\Index"
+        )
+
+    productById(id: ID! @eq): Product!
+        @find(model: "App\\Models\\Product\\Product")
+
+    carts: [Cart!]!
+        @orderBy(column: created_at, direction: DESC)
+        @guard
+        @paginate(
+            defaultCount: 20
+            maxCount: 100
+            builder: "App\\GraphQL\\Queries\\Product\\UserCart"
+        )
+
+    favourites: [Product!]!
+        @orderBy(column: created_at, direction: DESC)
+        @guard
+        @paginate(
+            defaultCount: 20
+            maxCount: 100
+            builder: "App\\GraphQL\\Queries\\Product\\GetFavourite"
+        )
+
+    categories(category_id:Int): [Category!]!
+        @orderBy(column: position, direction: DESC)
+        @paginate(
+            defaultCount: 30
+            maxCount: 100
+            builder: "App\\GraphQL\\Queries\\Product\\GetCategory"
+        )
+
+    brands: [Brand!]!
+        @orderBy(column: position, direction: DESC)
+        @paginate(
+            defaultCount: 30
+            maxCount: 100
+            builder: "App\\GraphQL\\Queries\\Product\\GetBrand"
+        )
+}

@@ -1,0 +1,13 @@
+input AddToFavouriteInput {
+    product_id: Int! @rules(apply: ["required","exists:products,id"])
+}
+
+extend type Mutation {
+    addOrRemoveFavourite(input: AddToFavouriteInput @spread): Result
+        @guard
+        @localization
+        @field(
+            resolver: "App\\GraphQL\\Mutations\\Product\\FavouriteMutation@addOrRemoveFavourite"
+        )
+
+}

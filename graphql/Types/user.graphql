@@ -1,0 +1,48 @@
+type AccessToken {
+    token: String!
+    result:Result
+}
+
+type User {
+    id: ID!
+    name: String
+    email: String
+    mobile: String
+    lang: String
+    gender: String
+    birth_date: String
+    imagePath: String
+    noOrders: Int
+    rate: Int
+    status: Int
+}
+
+type Address {
+    id: ID!
+    title: String
+    notes: String
+    mobile: String
+    latitude: String
+    longitude: String
+    address: String
+    city: City @belongsTo
+    area: City @belongsTo
+    is_main: Boolean
+    type: AddressType @belongsTo
+}
+
+type Notification {
+    id: ID!
+    title: String!
+    message: String!
+    seen: Boolean
+    created_at: Date
+}
+
+type AddressType {
+    id: ID!
+    title: String!
+    active: Int
+    position: Int
+}
+

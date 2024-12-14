@@ -1,0 +1,10 @@
+input ValidateCoupon {
+    coupon: String
+        @rules(apply: ["sometimes", "nullable", "exists:coupons,code"])
+}
+
+extend type Mutation {
+    validateCartCoupon(input: ValidateCoupon @spread): CouponResult!
+        @guard
+        @field(resolver: "App\\GraphQL\\Mutations\\Ordering\\ValidateCoupon")
+}

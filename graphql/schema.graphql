@@ -1,0 +1,38 @@
+type Query
+type Mutation
+#import scalar.graphql
+
+#import Types/content.graphql
+#import Types/user.graphql
+#import Types/order.graphql
+#import Types/result.graphql
+#import Types/setting.graphql
+
+#import Types/product.graphql
+#import Types/store.graphql
+
+#import Queries/user.graphql
+#import Queries/setting.graphql
+#import Queries/questions.graphql
+#import Queries/cities.graphql
+#import Queries/address.graphql
+#import Queries/ordering.graphql
+
+#import Queries/stores.graphql
+#import Queries/products.graphql
+
+#import Mutations/User/user.graphql
+#import Mutations/User/password.graphql
+#import Mutations/User/address.graphql
+#import Mutations/User/verify-account.graphql
+
+#import Mutations/feedback.graphql
+#import Mutations/promotions.graphql
+
+#import Mutations/Ordering/order.graphql
+
+#import Mutations/Product/cart.graphql
+#import Mutations/Product/favourite.graphql
+
+
+#import Mutations/upload.graphql

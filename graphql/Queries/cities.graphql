@@ -1,0 +1,9 @@
+extend type Query @localization {
+    cities: [City!]!
+        @paginate(model: "App\\Models\\City", defaultCount:100, scopes: ["publish", "city"])
+        @orderBy(column: position, order: "asc")
+
+    areas(city_id: Int! @eq): [City!]!
+        @paginate(model: "App\\Models\\City", defaultCount:100, scopes: ["publish", "area"])
+        @orderBy(column: position, order: "asc")
+}

@@ -1,0 +1,26 @@
+input CreateOrderInput @validator {
+    details: String
+    coupon: String
+        @rules(apply: ["sometimes", "nullable", "exists:coupons,code"])
+
+    address: Int!
+        @rules(apply: ["required", "exists:addresses,id"])
+
+    payment_method: PaymentMethod! @rules(apply: ["required"])
+}
+
+input CancelOrderInput {
+    order_id: Int! @rules(apply: ["required"])
+}
+
+
+extend type Mutation {
+    createOrder(input: CreateOrderInput @spread): OrderResult!
+        @guard
+        @field(resolver: "App\\GraphQL\\Mutations\\Ordering\\CreateOrder")
+
+    cancelOrder(input: CancelOrderInput @spread): Result!
+        @guard
+        @field(resolver: "App\\GraphQL\\Mutations\\Ordering\\CancelOrder")
+
+}

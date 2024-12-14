@@ -1,0 +1,15 @@
+extend type Query @localization {
+    orderByStatus(status: [Int!]!, page: Int!): [Order!]!
+        @guard
+        @orderBy(column: created_at, order: "desc")
+        @paginate(
+            defaultCount: 30
+            maxCount: 100
+            builder: "App\\GraphQL\\Queries\\Ordering\\ListOrders"
+        )
+
+    orderById(id: ID! @eq): Order!
+        @guard
+        @whereAuth(relation: "user")
+        @find(model: "App\\Models\\Ordering\\Order")
+}
