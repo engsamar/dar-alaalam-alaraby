@@ -332,7 +332,7 @@
 
 .patoi-nav .navbar .navbar-nav .nav-item a {
     position: relative;
-    color: var(--white-color);
+    color: var(--dark-color);
     -webkit-transition: var(--transition);
     transition: var(--transition);
     font-family: var(--fontFamily);
@@ -935,7 +935,7 @@
 }
 
 .center-header-area {
-    padding: 22px 0;
+    padding: 5px 0;
 }
 
 .logo-h {
@@ -943,7 +943,7 @@
 }
 
 .logo-h img {
-    max-height: 80px;
+    max-height: 110px;
 }
 
 @media (min-width: 1470px) {
@@ -1027,7 +1027,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: var(--main-color);
+    background-color: var(--sec-color);
     color: #ffffff;
     font-size: 12px;
     display: -webkit-box;
@@ -1055,7 +1055,36 @@
     font-size: 16px;
 }
 
+.others-option ul {
+    display: flex;
+    align-items: center;
+    -webkit-align-items: center;
+    padding: 0;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 0;
+}
 
+.others-option ul li {
+    display: block;
+    list-style: none;
+    padding: 0 24px;
+    border-inline-start: 1px #ccc solid;
+}
+
+.others-option ul li a {
+    font-size: 25px;
+    line-height: 15px;
+}
+
+.others-option ul li:last-child {
+    padding-inline-end: 0;
+}
+
+.others-option ul li:first-child {
+    border: none;
+    padding-inline-start: 0;
+}
 
 /* End Style Hadeer */
 
