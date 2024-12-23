@@ -56,6 +56,15 @@
 <!-- End Brands Area -->
 
 <!-- Start Offer Area -->
+@includeIf('website.home.sections.offer-two')
+
+<!-- End Offer Area -->
+
+<!-- Start Offer Area -->
+@includeIf('website.home.sections.banner')
+@includeIf('website.home.sections.best-sellers-2')
+
+<!-- End Offer Area -->
 
 <!-- Start Products Area -->
 @includeIf('website.home.sections.special-offers')
@@ -68,4 +77,8 @@
 
 @includeIf('website.home.sections.testimonials')
 
+<!-- Start Blog Area -->
+@includeIf('website.home.sections.blog')
+
+<!-- End Blog Area -->
 @endsection

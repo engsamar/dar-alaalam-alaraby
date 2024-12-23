@@ -20,13 +20,14 @@ return new class() extends Migration {
             $table->integer('position')->default(0)->nullable();
             $table->string('sku')->default(0)->nullable();
             $table->float('price')->default(0)->nullable();
-            $table->float('discount')->default(0)->nullable();
-            $table->float('weight')->nullable(); //default
-            $table->integer('no_views')->nullable(); //default
+            $table->float('discount')->default(value: 0)->nullable();
+            $table->integer('no_views')->default(0); //default
             $table->boolean('in_new')->default(0)->nullable();
+            $table->boolean('most_read')->default(0)->nullable();
             $table->boolean('in_top_selling')->default(0)->nullable();
             $table->date('offer_expired_at')->nullable();
             $table->boolean('in_special_offer')->default(0)->nullable();
+
             $table
                 ->foreignId('brand_id')
                 ->nullable()

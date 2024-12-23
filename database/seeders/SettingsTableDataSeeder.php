@@ -35,8 +35,8 @@ class SettingsTableDataSeeder extends Seeder
             ],
 
             'footer' => [
-                'en' => '© 2023 daralaalamalaraby. Crafted with by daralaalamalaraby',
-                'ar' => '© 2023 daralaalamalaraby. Crafted with by daralaalamalaraby'
+                'en' => '© 2025 daralaalamalaraby. Crafted with by daralaalamalaraby',
+                'ar' => '© 2025 daralaalamalaraby. Crafted with by daralaalamalaraby'
             ]
 
         ]);

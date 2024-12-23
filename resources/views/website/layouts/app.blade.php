@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Link of CSS files -->
-        <title>{{ $setting->title ?? '' }} | @yield('title')</title>
+        <title>{{ ! empty($setting ) ? $setting->title : '' }} | @yield('title')</title>
         <link rel="icon" type="image/png" href="{{ asset('/assets/img/favicon.ico') }}">
         @includeIf('website.layouts.css')
     </head>

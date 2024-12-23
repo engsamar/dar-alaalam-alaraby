@@ -35,7 +35,9 @@ class Product extends Model implements HasMedia
         'in_special_offer',
         'offer_expired_at',
         'in_new',
-        'stock' //no of available items
+        'stock', //no of available items
+        'most_read',
+        'no_views'
     ];
 
     public function tags()
@@ -100,11 +102,11 @@ class Product extends Model implements HasMedia
     {
         return $query->where('in_top_selling', 1);
     }
-    //Bold
-    public function scopeBold($query)
+    //MostRead
+    public function scopeMostRead($query)
     {
         return $query->whereHas('brand', function ($q) {
-            $q->where('slug', 'bold');
+            $q->where('most_read', 1);
         });
     }
     public function scopeSpecialOffers($query)
@@ -115,6 +117,7 @@ class Product extends Model implements HasMedia
 
     public function getUrlAttribute()
     {
+
         return route('website.store.show', ['locale' => app()->getLocale(), 'slug' => $this->slug]);
     }
 

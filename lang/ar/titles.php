@@ -144,7 +144,7 @@ return [
     'searchText' => 'اكتب نص البحث...',
     'AddToWishlist' => 'أضف إلى المفضلة',
     'AddToCart' => 'أضف إلى السلة',
-    'RecentlyAdded' => 'منتجات بولد',
+    'RecentlyAdded' => 'منتجات الأكثر قراءة',
     'PopularProducts' => 'أشهر المنتجات',
     'testimonials' => 'أراء العملاء',
     'RelatedProducts' => 'منتجات مشابهة',
@@ -161,6 +161,8 @@ return [
     "verifyAccount" => "تفعيل الحساب",
     "forgot" => 'نسيت كلمة المرور',
     'PasswordsSent' => 'تم إرسال رمز إعادة تعيين كلمة المرور بنجاح',
+    'authors' => 'authors',
+    'publishers' => 'publishers',
 
 
 ];

@@ -172,7 +172,7 @@ return [
     'searchText' => 'Type your search text...',
     'AddToWishlist' => 'Add To Wishlist',
     'AddToCart' => 'Add To Cart',
-    'RecentlyAdded' => 'Bold Products',
+    'RecentlyAdded' => 'Most Reading Products',
     'PopularProducts' => 'Popular Items',
     'testimonials' => 'Testimonials',
     'RelatedProducts' => 'Related Products',
@@ -183,7 +183,9 @@ return [
     'SoldOut' => 'Sold Out',
     'sliders' => 'Sliders',
     "verifyAccount" => "Verify account",
-    "forgot" => 'Forgot password'
+    "forgot" => 'Forgot password',
+    'authors' => 'authors',
+    'publishers' => 'publishers',
 
 
 ];

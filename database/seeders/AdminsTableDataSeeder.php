@@ -16,7 +16,7 @@ class AdminsTableDataSeeder extends Seeder
     {
         //php artisan db:seed --class=AdminsTableDataSeeder
 
-        Admin::updateOrCreate(
+        $user = Admin::updateOrCreate(
             [
                 'email' => 'admin@admin.com',
             ],
@@ -27,5 +27,6 @@ class AdminsTableDataSeeder extends Seeder
                 'gender' => 'female'
             ]
         );
+        $user->assignRole('super-admin');
     }
 }

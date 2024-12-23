@@ -3,11 +3,11 @@
     --fontFamily: 'Marcellus', sans-serif;
     --headingFontFamily: 'Fredoka One', cursive;
     --extraFontFamily: 'Luckiest Guy', cursive;
-    --main-color: #2a4d6e;
-    --sec-color: #ff5e00;
+    --main-color: #1a1a13;
+    --sec-color: #e3342d;
     --white-color: #ffffff;
     --bg-color: #f3f7fa;
-    --black-color: #162945;
+    --black-color: #1a1a13;
     --transition: .5s;
     --fontSize: 16px;
 }

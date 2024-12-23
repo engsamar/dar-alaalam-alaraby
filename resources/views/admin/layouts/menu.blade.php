@@ -16,26 +16,28 @@
 
                 </li>
 
-                <li>
+                {{-- <li>
                     <a href="{{ route('admin.stores.index') }}" class="waves-effect">
                         <i class="bx bx-buildings"></i>
                         <span key="t-stores">@lang('titles.stores')</span>
                     </a>
 
-                </li>
+                </li> --}}
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-layout"></i>
-                        <span key="t-layouts">@lang('titles.products')</span>
+                        <span key="t-products">@lang('titles.products')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('admin.products.index') }}" key="t-default">@lang('titles.products')</a></li>
-                        <li><a href="{{ route('admin.brands.index') }}" key="t-saas">@lang('titles.brands')</a></li>
-                        <li><a href="{{ route('admin.categories.index') }}" key="t-saas">@lang('titles.categories')</a></li>
-                        <li><a href="{{ route('admin.sub_categories.index') }}" key="t-crypto">@lang('titles.sub_categories')</a></li>
-                        <li><a href="{{ route('admin.colors.index') }}" key="t-crypto">@lang('titles.colors')</a></li>
-                        <li><a href="{{ route('admin.sizes.index') }}" key="t-crypto">@lang('titles.sizes')</a></li>
+                        <li><a href="{{ route('admin.products.index') }}" key="t-products">@lang('titles.products')</a></li>
+                        <li><a href="{{ route('admin.authors.index') }}" key="t-customers">@lang('titles.authors')</a></li>
+                        <li><a href="{{ route('admin.publishers.index') }}" key="t-customers">@lang('titles.publishers')</a></li>
+                        <li><a href="{{ route('admin.brands.index') }}" key="t-products">@lang('titles.brands')</a></li>
+                        <li><a href="{{ route('admin.categories.index') }}" key="t-products">@lang('titles.categories')</a></li>
+                        <li><a href="{{ route('admin.sub_categories.index') }}" key="t-products">@lang('titles.sub_categories')</a></li>
+                        {{-- <li><a href="{{ route('admin.colors.index') }}" key="t-products">@lang('titles.colors')</a></li>
+                        <li><a href="{{ route('admin.sizes.index') }}" key="t-products">@lang('titles.sizes')</a></li> --}}
 
                     </ul>
 
@@ -44,15 +46,15 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-layout"></i>
-                        <span key="t-website">@lang('titles.website_setting')</span>
+                        <span key="t-default">@lang('titles.website_setting')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('admin.features.index') }}" key="t-default">@lang('titles.features')</a></li>
-                        <li><a href="{{ route('admin.catalogues.index') }}" key="t-catalogues">@lang('titles.catalogues')</a></li>
-                        <li><a href="{{ route('admin.articles.index') }}" key="t-saas">@lang('titles.articles')</a></li>
-                        <li><a href="{{ route('admin.clients.index') }}" key="t-crypto">@lang('titles.clients')</a></li>
-                        <li><a href="{{ route('admin.questions.index') }}" key="t-faqs">@lang('titles.questions')</a></li>
-                        <li><a href="{{ route('admin.pages.index') }}" key="t-pages">@lang('titles.pages')</a></li>
+                        <li><a href="{{ route('admin.catalogues.index') }}" key="t-default">@lang('titles.catalogues')</a></li>
+                        <li><a href="{{ route('admin.articles.index') }}" key="t-default">@lang('titles.articles')</a></li>
+                        <li><a href="{{ route('admin.clients.index') }}" key="t-default">@lang('titles.clients')</a></li>
+                        <li><a href="{{ route('admin.questions.index') }}" key="t-default">@lang('titles.questions')</a></li>
+                        <li><a href="{{ route('admin.pages.index') }}" key="t-default">@lang('titles.pages')</a></li>
 
                     </ul>
 
@@ -67,11 +69,11 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{ route('admin.orders.index', ['status' => 'new']) }}" key="t-tui-calendar">New
+                            <a href="{{ route('admin.orders.index', ['status' => 'new']) }}" key="t-dashboards">New
                                 Orders</a>
                             </li>
                         <li>
-                            <a href="{{ route('admin.orders.index', ['status' => 'past']) }}" key="t-full-calendar">Past
+                            <a href="{{ route('admin.orders.index', ['status' => 'past']) }}" key="t-dashboards">Past
                                 Orders</a>
                         </li>
                     </ul>
@@ -94,7 +96,8 @@
                         <span key="t-customers">@lang('titles.customers')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('admin.users.index') }}" key="t-users">@lang('titles.users')</a></li>
+                        <li><a href="{{ route('admin.users.index') }}" key="t-customers">@lang('titles.users')</a></li>
+
 
                     </ul>
 
@@ -121,9 +124,10 @@
                         <span key="t-website">@lang('titles.promotions')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('admin.banners.index') }}" key="t-banners">@lang('titles.banners')</a></li>
-                        <li><a href="{{ route('admin.coupons.index') }}" key="t-coupons">@lang('titles.coupons')</a></li>
-                        <li><a href="{{ route('admin.notifications.index') }}" key="t-notifications">@lang('titles.notifications')</a></li>
+                        <li><a href="{{ route('admin.banners.index') }}" key="t-website">@lang('titles.banners')</a></li>
+                        <li><a href="{{ route('admin.sliders.index') }}" key="t-website">@lang('titles.sliders')</a></li>
+                        <li><a href="{{ route('admin.coupons.index') }}" key="t-website">@lang('titles.coupons')</a></li>
+                        <li><a href="{{ route('admin.notifications.index') }}" key="t-website">@lang('titles.notifications')</a></li>
                     </ul>
 
                 </li>

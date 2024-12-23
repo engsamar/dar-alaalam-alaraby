@@ -32,6 +32,10 @@ Route::group(['namespace' => 'App\\Http\\Controllers\\Admin', 'as' => 'admin.', 
         Route::resource('admins', 'AdminsController');
         Route::resource('users', 'UsersController');
         Route::post('block-users/{id}', 'UsersController@block')->name('users.block');
+
+        Route::resource('authors', 'Product\\AuthorsController');
+        Route::resource('publishers', 'Product\\PublishersController');
+
         Route::resource('questions', 'Content\\QuestionsController');
         Route::resource('features', 'Content\\FeaturesController');
         Route::resource('clients', 'Content\\ClientsController');

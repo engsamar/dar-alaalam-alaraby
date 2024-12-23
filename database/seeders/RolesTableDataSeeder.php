@@ -15,8 +15,7 @@ class RolesTableDataSeeder extends Seeder
      */
     public function run()
     {
-        //php artisan db:seed --class=RolesTableDataSeeder
-        Role::updateOrCreate(['name' => 'admin','guard_name'=>'admin','title'=>['en' => 'Super Admin','ar'=>'الأدمن العام']]);
-
+        // php artisan db:seed --class=RolesTableDataSeeder
+        Role::updateOrCreate(['name' => 'super-admin', 'guard_name' => 'admin', 'title' => ['en' => 'Super Admin', 'ar' => 'الأدمن العام']]);
     }
 }

@@ -6,7 +6,7 @@ use App\Models\Model;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Publisher extends Model
+class Author extends Model
 {
     use HasFactory;
     use HasTranslations;

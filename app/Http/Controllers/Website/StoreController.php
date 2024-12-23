@@ -74,6 +74,8 @@ class StoreController extends Controller
             abort(404);
         }
 
+        $result['item']->increment('no_views');
+
         $shareComponent = \Share::page(
             $result['item']->url,
             $result['item']->title

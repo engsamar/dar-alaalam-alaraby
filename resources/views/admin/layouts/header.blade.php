@@ -5,19 +5,19 @@
             <div class="navbar-brand-box">
                 <a href="{{ route('admin.home') }}" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{ imagePath($setting->logo) }}" alt="" height="60">
+                        <img src="{{ ! empty($setting) ? imagePath($setting->logo) : '' }}" alt="" height="60">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ imagePath($setting->logo) }}" alt="" height="60">
+                        <img src="{{ ! empty($setting) ? imagePath($setting->logo) : ''  }}" alt="" height="60">
                     </span>
                 </a>
 
                 <a href="{{ route('admin.home') }}" class="logo logo-light">
                     <span class="logo-sm">
-                        <img class="logo-white" src="{{ imagePath($setting->logo_white) }}" alt="" height="60">
+                        <img class="logo-white" src="{{ ! empty($setting) ? imagePath($setting->logo_white) : ''  }}" alt="" height="60">
                     </span>
                     <span class="logo-lg">
-                        <img class="logo-white" src="{{ imagePath($setting->logo_white) }}" alt="" height="140" width="200">
+                        <img class="logo-white" src="{{ ! empty($setting) ? imagePath($setting->logo_white) : ''  }}" alt="" height="140" width="200">
                     </span>
                 </a>
             </div>

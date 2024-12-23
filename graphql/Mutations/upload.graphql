@@ -1,4 +1,0 @@
-type Mutation {
-    "Upload a file that is publicly available."
-    upload(file: Upload!): String
-}

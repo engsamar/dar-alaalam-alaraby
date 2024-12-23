@@ -1,3 +1,0 @@
-extend type Query @localization {
-    aboutUs: Setting! @first(model: "App\\Models\\Setting")
-}

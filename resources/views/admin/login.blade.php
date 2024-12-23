@@ -4,10 +4,10 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Login | {{ $setting->title ?? '' }}</title>
+    <title>Login | {{ ! empty($setting ) ? $setting->title : '' }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="" name="description" />
-    <meta content="{{ $setting->title ?? '' }}" name="author" />
+    <meta content="{{ ! empty($setting ) ? $setting->title : '' }}" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('/panel/images/favicon.ico') }}">
 
