@@ -82,14 +82,14 @@
 	// Categories Slides
 	$('.categories-slides').owlCarousel({
 		nav: true,
-		margin: 15,
-		loop: true,
+		margin: 10,
+		loop: false,
 		dots: false,
 		autoplay: true,
 		autoplayHoverPause: true,
 		navText: [
-			"<i class='bx bx-chevron-left'></i>",
-			"<i class='bx bx-chevron-right'></i>",
+			"<i class='fa fa-angle-left'></i>",
+			"<i class='fa fa-angle-right'></i>",
 		],
 		responsive: {
 			0: {
@@ -102,10 +102,10 @@
 				items: 4
 			},
 			992: {
-				items: 7
+				items: 6
 			},
 			1200: {
-				items: 7
+				items: 6
 			}
 		}
 	});
@@ -113,7 +113,7 @@
 	// Products Slides
 	$('.products-slides').owlCarousel({
 		nav: true,
-		margin: 25,
+		margin: 10,
 		loop: true,
 		dots: false,
 		autoplay: true,
@@ -133,10 +133,10 @@
 				items: 2
 			},
 			992: {
-				items: 3
+				items: 4
 			},
 			1200: {
-				items: 3
+				items: 4
 			}
 		}
 	});

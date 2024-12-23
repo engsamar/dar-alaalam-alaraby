@@ -1,6 +1,6 @@
 @if(! empty($result['two_banners']) && count($result['two_banners']) > 0 )
 
-<div class="offer-area pb-75">
+<div class="offer-area pb-50">
     <div class="container">
         <div class="row justify-content-center">
             @foreach ($result['two_banners'] as $item )

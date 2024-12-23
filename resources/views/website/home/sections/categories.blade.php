@@ -1,10 +1,10 @@
 @if(! empty($result['categories']) && count($result['categories']) > 0)
 
-<div class="categories-area pb-75 pt-75">
+<div class="categories-area pb-50 pt-50">
     <div class="container">
-        <div class="section-title">
+        {{-- <div class="section-title">
             <h2>@lang('titles.shop_by_categories')</h2>
-        </div>
+        </div> --}}
         <div class="categories-slides owl-carousel owl-theme">
 
             @foreach ($result['categories'] as $item)

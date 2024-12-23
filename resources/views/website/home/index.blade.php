@@ -6,19 +6,39 @@
 
 <!-- End Main Banner Area -->
 
-<!-- Start Facility Area -->
-@includeIf('website.home.sections.features')
+<!-- Start Categories Area -->
+@includeIf('website.home.sections.categories')
+<!-- End Categories Area -->
 
-<!-- End Facility Area -->
+<!-- Start Offer Area -->
+@includeIf('website.home.sections.offer-two')
+
+<!-- End Offer Area -->
+
+<!-- Start Products Area -->
+@includeIf('website.home.sections.best-sellers')
+
+<!-- End Products Area -->
 
 <!-- Start Products Area -->
 @includeIf('website.home.sections.new-arrivals')
 
 <!-- End Products Area -->
 
-<!-- Start Categories Area -->
-@includeIf('website.home.sections.categories')
-<!-- End Categories Area -->
+{{-- @includeIf('website.home.sections.banner') --}}
+@includeIf('website.home.sections.best-sellers-2')
+
+<!-- End Offer Area -->
+
+<!-- Start Blog Area -->
+@includeIf('website.home.sections.blog')
+
+<!-- End Blog Area -->
+
+<!-- Start Facility Area -->
+@includeIf('website.home.sections.features')
+
+<!-- End Facility Area -->
 
 
 <!-- Start Offer Area -->
@@ -35,21 +55,7 @@
 
 <!-- End Brands Area -->
 
-<!-- Start Products Area -->
-@includeIf('website.home.sections.best-sellers')
-
-<!-- End Products Area -->
-
 <!-- Start Offer Area -->
-@includeIf('website.home.sections.offer-two')
-
-<!-- End Offer Area -->
-
-<!-- Start Offer Area -->
-{{-- @includeIf('website.home.sections.banner') --}}
-@includeIf('website.home.sections.best-sellers-2')
-
-<!-- End Offer Area -->
 
 <!-- Start Products Area -->
 @includeIf('website.home.sections.special-offers')
@@ -62,8 +68,4 @@
 
 @includeIf('website.home.sections.testimonials')
 
-<!-- Start Blog Area -->
-{{-- @includeIf('website.home.sections.blog') --}}
-
-<!-- End Blog Area -->
 @endsection

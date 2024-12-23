@@ -8,15 +8,24 @@
             <li><button type="button" class="addToFavourite" data-slug="{{ $item->slug }}"><i
                         class='bx bx-heart'></i></button></li>
             <li><a class="btn" href="{{ $item->url }}"><i class='bx bx-link-alt'></i></a></li>
+            <li>
+                <button type="button" class="addToCart " data-slug="{{ $item->slug }}">
+                    <i class='fa fa-cart-shopping'></i>
+                    {{-- <span class="">@lang('titles.addToCart')</span> --}}
+                </button>
+            </li>
         </ul>
     </div>
     <div class="content">
         <div class="pro-name">
             <h3><a href="{{ $item->url }}">{{ $item->title }}</a></h3>
-            <button type="button" class="addToCart " data-slug="{{ $item->slug }}">
-                <i class='bx bx-cart-alt'></i>
-                <span class="">@lang('titles.addToCart')</span>
-            </button>
+        </div>
+        <div class="rating">
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
         </div>
         <div class="price">
 
@@ -31,12 +40,25 @@
                 </ins>
             </div>
         </div>
-        <div class="rating">
-            <i class='bx bxs-star'></i>
-            <i class='bx bxs-star'></i>
-            <i class='bx bxs-star'></i>
-            <i class='bx bxs-star'></i>
-            <i class='bx bxs-star'></i>
+        <div class="foot-block">
+            <div class="auth-h">
+                <i class="fa fa-user"></i>
+                <span>Name</span>
+            </div>
+            <div class="tags-h">
+                <a href="#">
+                    tag 1
+                </a>
+                <a href="#">
+                    tag 2
+                </a>
+                <a href="#">
+                    tag 3
+                </a>
+                <a href="#">
+                    tag 4
+                </a>
+            </div>
         </div>
     </div>
 </div>
