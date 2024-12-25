@@ -734,6 +734,8 @@ Offer Area CSS
 .single-offer-box {
     margin-bottom: 25px;
     overflow: hidden;
+    height: 280px;
+    overflow: hidden;
 }
 
 .single-offer-box img {
@@ -5373,8 +5375,8 @@ label {
 }
 
 .offers-h.offers-new-h .container {
-    display: flex;
-    flex-wrap: wrap;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
 }
 
 .offers-h.offers-new-h .row:nth-child(1) .item {
@@ -5515,6 +5517,7 @@ label {
     width: 100%;
     height: 7px;
     background: linear-gradient(90deg, rgb(42 77 110 / 69%) 0%, rgba(255, 255, 255, 0) 100%);
+    display: none;
 }
 
 .text-about p {
@@ -6689,6 +6692,7 @@ section.cart-page.body-inner {
 .banner-book {
     height: 480.55px;
     overflow: hidden;
+    position: relative;
 }
 
 .banner-book a {
@@ -6700,7 +6704,7 @@ section.cart-page.body-inner {
 .banner-book a img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
 }
 
@@ -6710,4 +6714,296 @@ section.cart-page.body-inner {
 
 .pt-50 {
     padding-top: 50px;
+}
+
+.single-offer-box a {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.single-offer-box a>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    inset: 0;
+}
+
+.single-offer-box .box-text {
+    max-width: 310px;
+    margin-inline-start: auto;
+    position: relative;
+    z-index: 2;
+    min-height: 280px;
+    padding: 50px;
+}
+
+.single-offer-box .box-text h3 {
+    font-size: 36px;
+    text-transform: capitalize;
+    line-height: 44px;
+    letter-spacing: -2px;
+    color: #FFF;
+    margin-bottom: 20px;
+}
+
+.single-offer-box .box-text p {
+    font-size: 14px;
+    color: #FFF;
+}
+
+.single-offer-box .icon-sale {
+    position: absolute;
+    top: 30%;
+    margin-inline-start: 30px;
+}
+
+.banner-book .box-text {
+    position: absolute;
+    inset: 0;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.banner-book .box-text h3 {
+    color: #FFF;
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: -2px;
+}
+
+.banner-book .box-text p {
+    font-size: 14px;
+    line-height: 1.714;
+    font-weight: 300;
+    color: #fff;
+}
+
+.banner-book .box-text p strong {
+    display: block;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    margin-bottom: 10px;
+}
+
+.title-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    -webkit-align-items: center;
+    margin-bottom: 40px;
+}
+
+.title-flex .title {
+    margin: 0;
+}
+
+.title h3 {
+    color: var(--dark-color);
+    padding: 0;
+    font-size: 36px;
+    font-weight: 600;
+    text-transform: capitalize;
+    line-height: 44px;
+    letter-spacing: -2px;
+}
+
+.btn {
+    background-color: var(--sec-color);
+    font-size: 14px;
+    font-weight: 600;
+    color: #FFF;
+    border-radius: 0;
+    padding: 17px 31px 17px 31px;
+    transition: all .4s;
+}
+
+.btn:hover {
+    background: var(--main-color);
+    color: #fff;
+}
+
+.blogs-h {
+    padding: 80px 0;
+    background: #F0F1F5;
+}
+
+.blog-small {
+    display: flex;
+    align-items: center;
+    -webkit-align-items: center;
+    margin-bottom: 20px;
+}
+
+.link-block {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+}
+
+.blog-small .img {
+    width: 186px;
+    height: 124px;
+    /* border-radius: 15px; */
+    overflow: hidden;
+}
+
+.blog-small .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.blog-small .details {
+    width: calc(100% - 186px);
+    padding-inline-start: 24px;
+}
+
+.blog-small .details span {
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1.6666666667;
+    color: #999;
+}
+
+.blog-small .details h3 {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 600;
+    transition: all .4s;
+}
+
+.blog-small:hover .details h3 {
+    color: var(--sec-color);
+}
+
+.blog-big {
+    height: 442px;
+}
+
+.blog-big .img {
+    width: 100%;
+    height: 100%;
+}
+
+.blog-big .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.blog-big .img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(360deg, #000000 0%, rgba(0, 0, 0, 0) 62.73%);
+}
+
+.blog-big  .details {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 30px;
+    z-index: 4;
+}
+
+.blog-big .details>span {
+    display: flex;
+    color: #fff;
+    gap: 8px;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1.6666666667;
+}
+
+.blog-big .details>span a {
+    color: #fff;
+}
+
+.blog-big .details h3 {
+    color: #fff;
+    font-size: 26px;
+    line-height: 32px;
+    transition: all .4s;
+}
+
+.blog-big:hover .details h3 {
+    color: var(--sec-color);
+}
+
+.blog-big .foot-block {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px solid #e6e6e6;
+}
+
+.blog-big .foot-block span {
+    font-size: 12px;
+    line-height: 1.6666666667;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.blog-big .foot-block span a {
+    color: var(--sec-color);
+    margin-inline-start: 3px;
+}
+
+.blog-big .foot-block .readMore {
+    display: inline-flex;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    padding: 0;
+    border-radius: 0;
+    color: #fff;
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+.blog-big .foot-block .readMore i {
+    font-size: 16px;
+    margin-inline-start: 10px;
+    overflow: hidden;
+    color: var(--sec-color);
+    transition: all .4s;
+}
+
+.blog-big:hover .foot-block .readMore i {
+    animation: toRightFromLeft 0.3s forwards;
+}
+
+
+@keyframes toRightFromLeft {
+    49% {
+        transform: translate(100%)
+    }
+
+    50% {
+        opacity: 0;
+        transform: translate(-100%)
+    }
+
+    51% {
+        opacity: 1
+    }
 }

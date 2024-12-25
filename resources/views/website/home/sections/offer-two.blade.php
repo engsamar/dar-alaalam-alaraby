@@ -8,6 +8,18 @@
                     <div class="single-offer-box">
                         <a href="{{ route('website.store.index',['locale'=> $locale]) }}" class="d-block">
                             <img src="{{ imagePath($item->image) }}" alt="offer-image">
+                            <div class="box-text">
+                                <h3>
+                                    Books make  great gifts
+                                </h3>
+                                <p>
+                                    Why not send the gift of a
+                                    book to family & friends.
+                                </p>
+                            </div>
+                            <div class="icon-sale">
+                                <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/sale.png" alt="#" />
+                            </div>
                         </a>
                     </div>
                 </div>

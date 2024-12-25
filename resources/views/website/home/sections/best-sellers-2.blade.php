@@ -20,8 +20,21 @@
             <div class="col-md-4">
                 <div class="banner-book">
                     <a href="#">
-                        <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/23.jpg"
+                        <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_banner6.jpg"
                             alt="#" />
+                        <div class="box-text">
+                            <h3>
+                                Our Monthly <br />
+                                Picks
+                            </h3>
+                            <p>
+                                <strong>
+                                    Buy One, Get One <br />
+                                    50% Off*
+                                </strong>
+                                *Current Selections Only.
+                            </p>
+                        </div>
                     </a>
                 </div>
             </div>
