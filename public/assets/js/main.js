@@ -141,6 +141,31 @@
 		}
 	});
 
+	// Offers-products-Slides
+	$('.offers-products-slides').owlCarousel({
+		nav: false,
+		margin: 10,
+		loop: false,
+		dots: true,
+		autoplay: true,
+		autoplayHoverPause: true,
+		navText: [
+			"<i class='bx bx-chevron-left'></i>",
+			"<i class='bx bx-chevron-right'></i>",
+		],
+		responsive: {
+			0: {
+				items: 2
+			},
+			576: {
+				items: 2
+			},
+			1200: {
+				items: 2
+			}
+		}
+	});
+
 	// banner Slides
 	$('.banner-slides').owlCarousel({
 		nav: true,
@@ -174,10 +199,12 @@
 	});
 		// testimonials Slides
 		$('.testimonials-slides').owlCarousel({
-			nav: true,
+			nav: false,
 			margin: 40,
-			loop: true,
-			dots: false,
+			loop: false,
+			dots: true,
+            // centerMode: true,
+            // center: true,
 			autoplay: true,
 			autoplayHoverPause: true,
 			navText: [
@@ -191,14 +218,8 @@
 				576: {
 					items: 1
 				},
-				768: {
-					items: 2
-				},
-				992: {
-					items: 4
-				},
 				1200: {
-					items: 4
+					items: 2
 				}
 			}
 		});

@@ -1,4 +1,4 @@
-<div class="products-area best-seller-h pb-75">
+<div class="products-area best-seller-h pb-50 pt-50">
     <div class="container">
         <div class="section-title">
             <h2>@lang('titles.SpecialOffers')</h2>
@@ -54,13 +54,19 @@
                 </div>
                 @endif
             </div>
-                @if(! empty($result['specialOffers']) && count($result['specialOffers']) > 0)
-                    @for ($i=1; $i < count($result['specialOffers']) ;$i++)
-                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                            @includeIf('website.pages.store.item',['item' => $result['specialOffers'][$i]])
-                        </div>
-                    @endfor
-                @endif
+
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                <div class="offers-products-slides owl-carousel owl-theme">
+                    @if(! empty($result['specialOffers']) && count($result['specialOffers']) > 0)
+                        @for ($i=1; $i < count($result['specialOffers']) ;$i++)
+                            <div class="item">
+                                @includeIf('website.pages.store.item',['item' => $result['specialOffers'][$i]])
+                            </div>
+                        @endfor
+                    @endif
+                </div>
+            </div>
 
         </div>
     </div>

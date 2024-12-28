@@ -949,11 +949,11 @@
 @media (min-width: 1470px) {
 .container {
     /* max-width: 1440px; */
-    padding-inline-end: 15px;
-    padding-inline-start: 15px;
-    margin-inline-end: auto;
-    margin-inline-start: auto;
-    width: 100%;
+    /* padding-inline-end: 15px; */
+    /* padding-inline-start: 15px; */
+    /* margin-inline-end: auto; */
+    /* margin-inline-start: auto; */
+    /* width: 100%; */
 }
 }
 

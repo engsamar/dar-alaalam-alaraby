@@ -50,11 +50,6 @@
 
 <!-- End Offer Area -->
 
-<!-- Start Brands Area -->
-@includeIf('website.home.sections.brands')
-
-<!-- End Brands Area -->
-
 <!-- Start Offer Area -->
 
 <!-- Start Products Area -->
@@ -64,8 +59,15 @@
 
 @includeIf('website.home.sections.best-sellers-3')
 
-{{-- Testimonial --}}
+{{-- Start Testimonial --}}
 
 @includeIf('website.home.sections.testimonials')
+
+{{-- End Testimonial --}}
+
+<!-- Start Brands Area -->
+@includeIf('website.home.sections.brands')
+
+<!-- End Brands Area -->
 
 @endsection
