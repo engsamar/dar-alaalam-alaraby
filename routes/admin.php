@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Session;
 
 Route::get('/migrate', function () {
     \Artisan::call('migrate');
+    //artisan db:seed --class=AdminsTableDataSeeder
+    \Artisan::call('db:seed --class=AdminsTableDataSeeder');
     dd('migrated!');
 });
 Route::get('lang/{locale}', function ($locale) {
