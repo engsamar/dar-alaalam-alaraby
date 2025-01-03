@@ -31,8 +31,8 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('admin.products.index') }}" key="t-products">@lang('titles.products')</a></li>
-                        <li><a href="{{ route('admin.authors.index') }}" key="t-customers">@lang('titles.authors')</a></li>
-                        <li><a href="{{ route('admin.publishers.index') }}" key="t-customers">@lang('titles.publishers')</a></li>
+                        <li><a href="{{ route('admin.authors.index') }}" key="t-products">@lang('titles.authors')</a></li>
+                        <li><a href="{{ route('admin.publishers.index') }}" key="t-products">@lang('titles.publishers')</a></li>
                         <li><a href="{{ route('admin.brands.index') }}" key="t-products">@lang('titles.brands')</a></li>
                         <li><a href="{{ route('admin.categories.index') }}" key="t-products">@lang('titles.categories')</a></li>
                         <li><a href="{{ route('admin.sub_categories.index') }}" key="t-products">@lang('titles.sub_categories')</a></li>
@@ -50,8 +50,6 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('admin.features.index') }}" key="t-default">@lang('titles.features')</a></li>
-                        <li><a href="{{ route('admin.catalogues.index') }}" key="t-default">@lang('titles.catalogues')</a></li>
-                        <li><a href="{{ route('admin.articles.index') }}" key="t-default">@lang('titles.articles')</a></li>
                         <li><a href="{{ route('admin.clients.index') }}" key="t-default">@lang('titles.clients')</a></li>
                         <li><a href="{{ route('admin.questions.index') }}" key="t-default">@lang('titles.questions')</a></li>
                         <li><a href="{{ route('admin.pages.index') }}" key="t-default">@lang('titles.pages')</a></li>
@@ -103,6 +101,18 @@
 
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-book"></i>
+                        <span key="t-articles">@lang('titles.articles')</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('admin.articles.index') }}" key="t-articles">@lang('titles.articles')</a></li>
+                        <li><a href="{{ route('admin.catalogues.index') }}" key="t-articles">@lang('titles.catalogues')</a></li>
+
+                    </ul>
+
+                </li>
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">

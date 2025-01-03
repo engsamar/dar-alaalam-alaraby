@@ -186,6 +186,12 @@ return [
     "forgot" => 'Forgot password',
     'authors' => 'authors',
     'publishers' => 'publishers',
-
+    'books' => 'books',
+    'book' => 'book',
+    'author' => 'author',
+    'publisher' => 'publisher',
+    'book_categories' => 'book categories',
+    'book_category' => 'book category',
+    'read_more' => 'Read more',
 
 ];

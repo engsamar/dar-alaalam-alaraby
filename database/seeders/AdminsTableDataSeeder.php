@@ -28,5 +28,19 @@ class AdminsTableDataSeeder extends Seeder
             ]
         );
         $user->assignRole('super-admin');
+
+
+        $user = Admin::updateOrCreate(
+            [
+                'email' => 'admin@daralaalamalaraby.com',
+            ],
+            [
+                'name' => 'Noha Madkour',
+                'mobile' => '+201020746516',
+                'password' => 'Dar@2025#',
+                'gender' => 'female'
+            ]
+        );
+        $user->assignRole('super-admin');
     }
 }

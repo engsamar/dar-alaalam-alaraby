@@ -161,8 +161,8 @@ return [
     "verifyAccount" => "تفعيل الحساب",
     "forgot" => 'نسيت كلمة المرور',
     'PasswordsSent' => 'تم إرسال رمز إعادة تعيين كلمة المرور بنجاح',
-    'authors' => 'authors',
-    'publishers' => 'publishers',
-
+    'authors' => 'المؤلفين',
+    'publishers' => 'الناشرين',
+    'read_more' => 'اقرأ المزيد',
 
 ];

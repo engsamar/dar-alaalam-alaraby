@@ -105,9 +105,7 @@ class Product extends Model implements HasMedia
     //MostRead
     public function scopeMostRead($query)
     {
-        return $query->whereHas('brand', function ($q) {
-            $q->where('most_read', 1);
-        });
+        return $query->where('most_read', 1);
     }
     public function scopeSpecialOffers($query)
     {

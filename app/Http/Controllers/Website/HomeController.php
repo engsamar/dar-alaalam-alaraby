@@ -49,16 +49,17 @@ class HomeController extends Controller
             ->getContents($this->productModel . '\Product', ['publish', 'New'], 12, 'list');
 
         $result['specialOffers'] = $this->contentRepository
-            ->getContents($this->productModel . '\Product', ['publish', 'SpecialOffers'], 5, 'list');
+            ->getContents($this->productModel . '\Product', ['publish', 'SpecialOffers'], 3, 'list');
 
         $result['bestSellers'] = $this->contentRepository
-            ->getContents($this->productModel . '\Product', ['publish', 'BestSeller'],  8, 'list');
+            ->getContents($this->productModel . '\Product', ['publish', 'BestSeller'],   8, 'list');
 
         $result['mostReadProducts'] = $this->contentRepository
             ->getContents($this->productModel . '\Product', ['publish', 'MostRead'], 8, 'list');
 
         $result['categories'] = $this->contentRepository
             ->getContents($this->productModel . '\Category', ['publish', 'category'], 6, 'list');
+
 
         return view('website.home.index', compact('result'));
     }
