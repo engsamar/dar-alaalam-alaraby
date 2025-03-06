@@ -43,10 +43,10 @@
         <div class="foot-block">
             <div class="auth-h">
                 <i class="fa fa-user"></i>
-                <span>Name</span>
+                <span>{{ $item->author->title ?? ''  }}</span>
             </div>
             <div class="tags-h">
-                <a href="#">
+                {{-- <a href="#">
                     tag 1
                 </a>
                 <a href="#">
@@ -57,7 +57,7 @@
                 </a>
                 <a href="#">
                     tag 4
-                </a>
+                </a> --}}
             </div>
         </div>
     </div>
