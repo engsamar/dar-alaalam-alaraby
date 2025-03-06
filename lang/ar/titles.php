@@ -165,4 +165,5 @@ return [
     'read_more' => 'اقرأ المزيد',
     'customer' => 'عميل',
     'countries' => 'البلاد',
+    'share' => 'شارك',
 ];

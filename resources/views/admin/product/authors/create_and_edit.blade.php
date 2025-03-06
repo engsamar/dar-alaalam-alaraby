@@ -120,8 +120,53 @@
                         </div>
 
                     </div>
+                    <div class="row mb-3">
+                        <label class="col-form-label col-lg-2" for="country_id-field">@lang('attributes.country')</label>
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <select class="form-control select2" name="country_id">
+                                    @if (!empty($result['countries']))
+                                        @foreach ($result['countries'] as $country)
+                                            <option {{ old('country_id', $item->country_id) == $country->id ? 'selected' : '' }}
+                                                value="{{ $country->id }}">
+                                                {{ $country->title }}
+                                            </option>
+                                        @endforeach
+                                    @endif
 
-                    
+                                </select>
+                                @if ($errors->has('country_id'))
+                                    <span class="invalid-feedback">{{ $errors->first('country_id') }}</span>
+                                @endif
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row mb-3">
+                        <label class="col-form-label col-lg-2" for="city_id-field">@lang('attributes.city')</label>
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <select class="form-control select2" name="city_id">
+                                    @if (!empty($result['cities']))
+                                        @foreach ($result['cities'] as $city)
+                                            <option {{ old('city_id', $item->city_id) == $city->id ? 'selected' : '' }}
+                                                value="{{ $city->id }}">
+                                                {{ $city->title }}
+                                            </option>
+                                        @endforeach
+                                    @endif
+
+                                </select>
+                                @if ($errors->has('city_id'))
+                                    <span class="invalid-feedback">{{ $errors->first('city_id') }}</span>
+                                @endif
+                            </div>
+                        </div>
+
+                    </div>
+
 
                     <div class="row mb-3">
                         <label class="col-form-label col-lg-2" for="position-field">@lang('attributes.position')</label>

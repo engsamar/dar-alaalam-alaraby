@@ -62,11 +62,11 @@
                     <ul class="products-info">
                         <li><span>SKU:</span> {{ $result['item']->sku  }}</li>
                         @if(! empty($result['item']->category))
-                            <li><span>@lang('titles.category'):</span> <a href="{{ $result['item'] ? $result['item']->category->url : ''}}">{{ $result['item']->category->title ?? ''  }}</a></li>
+                            <li><span>@lang('attributes.category'):</span> <a href="{{ $result['item'] ? $result['item']->category->url : ''}}">{{ $result['item']->category->title ?? ''  }}</a></li>
                         @endif
 
-                        @if(! empty($result['item']->brand))
-                            <li><span>@lang('titles.brand')</span> <a href="{{ $result['item'] ? $result['item']->brand->url : '' }}">{{ $result['item']->brand->title ?? ''  }}</a></li>
+                        @if(! empty($result['item']->author))
+                            <li><span>@lang('attributes.author')</span> <a href="{{ $result['item'] ? $result['item']->author->url : '#' }}">{{ $result['item']->author->title ?? ''  }}</a></li>
                         @endif
                         <li><span>@lang('titles.Availability'):</span> @if( $result['item']->stock > 0) @lang('titles.InStock') ({{ $result['item']->stock }}) @else @lang('titles.SoldOut')  @endif</li>
                         <li><span>@lang('titles.Tags'):</span> @if(! empty($result['tags']))
