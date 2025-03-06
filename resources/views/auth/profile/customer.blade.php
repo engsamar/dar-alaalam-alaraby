@@ -43,7 +43,7 @@
                         <div class="mb10">
                             <label class="heading-color ff-heading fw600 mb10">@lang('attributes.image')</label>
                             <img class="w-100"
-                                src="{{ auth()->user() ? imagePath(auth()->user()->image) : asset('/images/user.png') }}"
+                                src="{{ auth()->user() ? imagePath(auth()->user()->image) : asset('images/user.png') }}"
                                 alt="">
                             <input type="file" type="file" accept="image/png, image/jpeg, image/webp"class="form-control" name="image" />
                         </div>

@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'admins' => 'مسؤولو النظام',
     'questions' => 'أسئلة',
     'banners' => 'لافتات إعلانية',
@@ -148,8 +147,8 @@ return [
     'PopularProducts' => 'أشهر المنتجات',
     'testimonials' => 'أراء العملاء',
     'RelatedProducts' => 'منتجات مشابهة',
-    "EnjoyOFF" => " استمتع بخصم :discount ٪ ",
-    "PlaceOrder" => "اطلب الآن",
+    'EnjoyOFF' => ' استمتع بخصم :discount ٪ ',
+    'PlaceOrder' => 'اطلب الآن',
     'Availability' => 'المتاح',
     'InStock' => 'المتاح',
     'SoldOut' => 'غير متاح',
@@ -158,11 +157,12 @@ return [
     'myAddresses' => 'عناويني',
     'addNewAddress' => 'إضافة عنوان جديد',
     'sliders' => 'السلايدر',
-    "verifyAccount" => "تفعيل الحساب",
-    "forgot" => 'نسيت كلمة المرور',
+    'verifyAccount' => 'تفعيل الحساب',
+    'forgot' => 'نسيت كلمة المرور',
     'PasswordsSent' => 'تم إرسال رمز إعادة تعيين كلمة المرور بنجاح',
     'authors' => 'المؤلفين',
     'publishers' => 'الناشرين',
     'read_more' => 'اقرأ المزيد',
-
+    'customer' => 'عميل',
+    'countries' => 'البلاد',
 ];

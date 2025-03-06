@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ $locale }}" dir="{{ $locale == 'ar' ? 'rtl' : 'ltr' }}">
 
 <head>
 
@@ -9,16 +9,32 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('/panel/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('panel/images/favicon.ico') }}">
 
     <!-- Bootstrap Css -->
-    <link href="{{ asset('/panel/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    @if ($locale == 'ar')
+        <link href="{{ asset('panel/css/bootstrap-rtl.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+
+    @else
+        <link href="{{ asset('panel/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+
+    @endif
     <!-- Icons Css -->
-    <link href="{{ asset('/panel/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('panel/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{ asset('/panel/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('/panel/css/custom.css') }}" id="app-style" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('/panel/libs/select2/css/select2.min.css') }}">
+    @if ($locale == 'ar')
+        <link href="{{ asset('panel/css/app-rtl.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+    @else
+        <link href="{{ asset('panel/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+
+    @endif
+    <link rel="stylesheet" href="{{ asset('panel/libs/select2/css/select2.min.css') }}">
+
+    @if ($locale == 'ar')
+    <link href="{{ asset('panel/css/app-rtl.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+    @else
+    @endif
+    <link href="{{ asset('panel/css/custom.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -71,7 +87,7 @@
     <script src="{{ asset('panel/libs/metismenu/metisMenu.min.js') }}"></script>
     <script src="{{ asset('panel/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('panel/libs/node-waves/waves.min.js') }}"></script>
-    <script src="{{ asset('/panel/libs/select2/js/select2.min.js') }}"></script>
+    <script src="{{ asset('panel/libs/select2/js/select2.min.js') }}"></script>
 
     <!-- apexcharts -->
     {{-- <script src="{{ asset('panel/libs/apexcharts/apexcharts.min.js') }}"></script> --}}
@@ -80,11 +96,13 @@
     <script src="{{ asset('panel/js/app.js') }}"></script>
     @yield('scripts')
     <script>
-        $('.select2').select2();
+        $('.select2').select2({
+            dir: "rtl"
+        });
     </script>
     @yield('js')
 
-    <script src="{{ asset('/panel/libs/toastr.js') }}"></script>
+    <script src="{{ asset('panel/js/pages/toastr.init.js') }}"></script>
     <script>
         @if(Session::has('success'))
             toastr.success("{{ Session::get('success') }}");
@@ -104,6 +122,7 @@
             toastr.error("{{ Session::get('error') }}");
         @endif
     </script>
+
 
 </body>
 

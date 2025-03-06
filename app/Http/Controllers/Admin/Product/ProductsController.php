@@ -74,7 +74,7 @@ class ProductsController extends Controller
             $data['image'] = \App\Helpers\Image::upload($request->file('image'), $this->path);
         }
 
-        $data['slug'] = \Illuminate\Support\Str::slug($data['title']['en'], "-");
+        $data['slug'] = \Illuminate\Support\Str::slug($data['title'][app()->getLocale()], "-");
 
         $item = $this->itemRepository->createItem($this->model, $data);
         //product_categories
@@ -119,7 +119,7 @@ class ProductsController extends Controller
         if ($request->hasFile('image')) {
             $data['image'] = \App\Helpers\Image::upload($request->file('image'), $this->path);
         }
-        $data['slug'] = \Illuminate\Support\Str::slug($data['title']['en'], "-");
+        $data['slug'] = \Illuminate\Support\Str::slug($data['title'][app()->getLocale()], "-");
         $this->itemRepository->updateItem($this->model, $id, $data);
         $item = $this->itemRepository->getItemById($this->model, $id);
 

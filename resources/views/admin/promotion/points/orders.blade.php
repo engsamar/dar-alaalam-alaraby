@@ -26,7 +26,7 @@
                                         <th>@lang('attributes.reference_number')</th>
                                         <th>@lang('attributes.CreationDate')</th>
 
-                          
+
                                     </tr>
                                 </thead>
 
@@ -42,7 +42,7 @@
                                             <td>{!! $item->order->id ?? '' !!}</td>
 
                                             <td>{{ dateFormatted($item->updated_at, 'd M Y @ h:i a') }}</td>
-                                           
+
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -51,7 +51,7 @@
                         {!! $result['items']->withQueryString()->links() !!}
                     @else
                         <div class="text-center">
-                            <img src="{{ asset('/panel/empty-box.png') }}" class="empty-box" />
+                            <img src="{{ asset('panel/empty-box.png') }}" class="empty-box" />
 
                             <hr>
                             <h3 class="text-xs-center text-primary">No data addes !</h3>

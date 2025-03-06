@@ -11,9 +11,7 @@ class StoreRequest extends Request
         switch ($this->method()) {
             // CREATE
             case 'POST':
-            {
-                return [
-
+                $validate =  [
                     'email' => [
                         'required',
                         Rule::unique('stores', 'email'),
@@ -22,45 +20,45 @@ class StoreRequest extends Request
                         'required',
                         Rule::unique('stores', 'phone'),
                     ],
-                    'title.en' => 'required|string',
-                    'title.ar' => 'required|string',
-                    'password' => 'required|confirmed|min:8',
-
-
+                    'password' => 'required|confirmed|min:8'
                 ];
-            }
-            // UPDATE
+]
+                foreach (\Illuminate\Support\Facades\Config::get('app.locales') as $locale) {
+                    array_push($validate, ['title.'.$locale => 'required|string']);
+                }
+
+                return $validate;
+
+                // UPDATE
             case 'PUT':
             case 'PATCH':
-            {
-                return [
-                    // UPDATE ROLES
+                $validate =  [
                     'email' => [
                         'required',
-                        Rule::unique('stores', 'email')->ignore($this->item),
+                        Rule::unique('stores', 'email'),
                     ],
                     'phone' => [
                         'required',
-                        Rule::unique('stores', 'phone')->ignore($this->item),
+                        Rule::unique('stores', 'phone'),
                     ],
-                    'title.ar' => 'required|string',
-                    'title.en' => 'required|string',
-
+                    'password' => 'required|confirmed|min:8'
                 ];
-            }
+]
+                foreach (\Illuminate\Support\Facades\Config::get('app.locales') as $locale) {
+                    array_push($validate, ['title.'.$locale => 'required|string']);
+                }
+
+                return $validate;
             case 'GET':
             case 'DELETE':
             default:
-            {
                 return [];
-            }
         }
     }
 
     public function messages()
     {
         return [
-
         ];
     }
 }

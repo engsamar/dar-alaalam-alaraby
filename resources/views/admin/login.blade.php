@@ -9,19 +9,19 @@
     <meta content="" name="description" />
     <meta content="{{ ! empty($setting ) ? $setting->title : '' }}" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('/panel/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('panel/images/favicon.ico') }}">
 
     <!-- owl.carousel css -->
-    <link rel="stylesheet" href="{{ asset('/panel/libs/owl.carousel/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('panel/libs/owl.carousel/assets/owl.carousel.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('/panel/libs/owl.carousel/assets/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('panel/libs/owl.carousel/assets/owl.theme.default.min.css') }}">
 
     <!-- Bootstrap Css -->
-    <link href="{{ asset('/panel/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('panel/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="{{ asset('/panel/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('panel/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{ asset('/panel/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('panel/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -99,9 +99,9 @@
                             <div class="d-flex flex-column h-100">
                                 <div class="mb-4 mb-md-5">
                                     <a href="{{ route('admin.home') }}" class="d-block auth-logo">
-                                        <img src="{{ asset('/assets/images/logo.png') }}" alt="" height="60"
+                                        <img src="{{ asset('assets/images/logo.png') }}" alt="" height="60"
                                             class="auth-logo-dark">
-                                        <img src="{{ asset('/panel/images/logo-light.png') }}" alt="" height="18"
+                                        <img src="{{ asset('panel/images/logo-light.png') }}" alt="" height="18"
                                             class="auth-logo-light">
                                     </a>
                                 </div>
@@ -191,20 +191,20 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="{{ asset('/panel/libs/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('/panel/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('/panel/libs/metismenu/metisMenu.min.js') }}"></script>
-    <script src="{{ asset('/panel/libs/simplebar/simplebar.min.js') }}"></script>
-    <script src="{{ asset('/panel/libs/node-waves/waves.min.js') }}"></script>
+    <script src="{{ asset('panel/libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('panel/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('panel/libs/metismenu/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('panel/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ asset('panel/libs/node-waves/waves.min.js') }}"></script>
 
     <!-- owl.carousel js -->
-    <script src="{{ asset('/panel/libs/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('panel/libs/owl.carousel/owl.carousel.min.js') }}"></script>
 
     <!-- auth-2-carousel init -->
-    <script src="{{ asset('/panel/js/pages/auth-2-carousel.init.js') }}"></script>
+    <script src="{{ asset('panel/js/pages/auth-2-carousel.init.js') }}"></script>
 
     <!-- App js -->
-    <script src="{{asset('/panel/js/app.js"></script>
+    <script src="{{asset('panel/js/app.js"></script>
 
 </body>
 

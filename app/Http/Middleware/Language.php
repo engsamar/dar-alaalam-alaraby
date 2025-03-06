@@ -2,21 +2,26 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 
 class Language
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
+     * @param Request $request
      */
-    public function handle($request, Closure $next)
+    public function handle($request, \Closure $next)
     {
-        app()->setLocale($request->segment(1));
+        //  check if$locales> 1
+        $locales = Config::get('app.translate_locales');
+        app()->setLocale(app()->getLocale());
+
+        if (count($locales) > 1) {
+            app()->setLocale($request->segment(1));
+        }
+
         return $next($request);
     }
 }

@@ -65,7 +65,7 @@
                         {!! $result['items']->withQueryString()->links() !!}
                     @else
                         <div class="text-center">
-                            <img src="{{ asset('/panel/empty-box.png') }}" class="empty-box" />
+                            <img src="{{ asset('panel/empty-box.png') }}" class="empty-box" />
 
                             <hr>
                             <h3 class="text-xs-center text-primary">No data addes !</h3>

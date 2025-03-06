@@ -1,23 +1,23 @@
 @extends('admin.layouts.app')
-@section('tab_name', trans('titles.areas'))
+@section('tab_name', trans('titles.countries'))
 
 @section('content')
     @include('admin.layouts.title', [
         'subTitle' => $item->id ? trans('common.edit') . '#' . $item->id : trans('common.add'),
-        'title' => trans('titles.areas'),
+        'title' => trans('titles.countries'),
     ])
 
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    
+
                     @if ($item->id)
-                        <form class="needs-validation" action="{{ route('admin.areas.update', $item->id) }}" method="POST"
+                        <form class="needs-validation" action="{{ route('admin.countries.update', $item->id) }}" method="POST"
                             enctype='multipart/form-data' novalidate>
                             <input type="hidden" name="_method" value="PUT">
                         @else
-                            <form class="needs-validation" action="{{ route('admin.areas.store') }}" method="POST"
+                            <form class="needs-validation" action="{{ route('admin.countries.store') }}" method="POST"
                                 enctype='multipart/form-data' novalidate>
                     @endif
                     @csrf
@@ -41,7 +41,8 @@
                                             <div class="invalid-feedback">
                                                 @lang('validation.required', [
                                                     'attribute' =>
-                                                        strtolower($locale) .'' .
+                                                        strtolower($locale) .
+                                                        '' .
                                                         trans('attributes.title'),
                                                 ])
                                             </div>
@@ -51,29 +52,6 @@
                             </div>
                         @endforeach
                     @endif
-{{--
-                    <div class="row mb-3">
-                        <label class="col-form-label col-lg-2" for="city_id-field">@lang('attributes.city')</label>
-                        <div class="col-lg-10">
-                            <div class="form-group">
-                                <select class="form-control select2" name="city_id">
-                                    @if (!empty($result['cities']))
-                                        @foreach ($result['cities'] as $city)
-                                            <option {{ old('city_id', $item->city_id) == $city->id ? 'selected' : '' }}
-                                                value="{{ $city->id }}">
-                                                {{ $city->title }}
-                                            </option>
-                                        @endforeach
-                                    @endif
-
-                                </select>
-                                @if ($errors->has('city_id'))
-                                    <span class="invalid-feedback">{{ $errors->first('city_id') }}</span>
-                                @endif
-                            </div>
-                        </div>
-
-                    </div> --}}
 
 
                     <div class="row mb-3">
@@ -111,7 +89,6 @@
                     </div>
 
 
-
                     <div class="col-md-12">
                         <hr>
                         <button type="submit" name="action" value="save" class="btn btn-primary">
@@ -119,7 +96,7 @@
                         </button>
 
                         <a class="btn btn-danger  {{ $locale == 'en' ? 'pull-right' : 'pull-left' }} text-white" style="float:{{ $locale == 'en' ? 'right' : 'left' }} "
-                            href="{{ route('admin.areas.index') }}">@lang('common.cancel')
+                            href="{{ route('admin.countries.index') }}">@lang('common.cancel')
                             <i class="icon-arrow-left-bold"></i>
                         </a>
                     </div>

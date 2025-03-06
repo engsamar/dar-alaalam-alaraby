@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -70,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Africa/Cairo',
 
     /*
     |--------------------------------------------------------------------------
@@ -83,18 +82,17 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ar',
 
-    'locales' => [
-        'en',
+    'locales' => env('LOCALES', [
+        // 'en',
         'ar',
-    ],
+    ]),
 
-    'translate_locales' => [
-        'en' => 'English',
+    'translate_locales' => env('TRANSLATE_LOCALES', [
+        // 'en' => 'English',
         'ar' => 'Arabic',
-    ],
-
+    ]),
 
     /*
     |--------------------------------------------------------------------------
@@ -107,7 +105,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'ar',
 
     /*
     |--------------------------------------------------------------------------
@@ -197,5 +195,4 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
-
 ];

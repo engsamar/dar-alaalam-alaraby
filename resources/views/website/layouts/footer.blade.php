@@ -66,9 +66,9 @@
                         <div class="d-flex align-items-center">
                             <span>@lang('titles.WeAccept')</span>
                             <ul>
-                                <li><img src="{{ asset('/assets/img/payment/visa.png') }}" alt="visa"></li>
-                                <li><img src="{{ asset('/assets/img/payment/mc.png') }}" alt="master-card"></li>
-                                <li><img src="{{ asset('/assets/img/payment/ae.png') }}" alt="american-express"></li>
+                                <li><img src="{{ asset('assets/img/payment/visa.png') }}" alt="visa"></li>
+                                <li><img src="{{ asset('assets/img/payment/mc.png') }}" alt="master-card"></li>
+                                <li><img src="{{ asset('assets/img/payment/ae.png') }}" alt="american-express"></li>
                             </ul>
                         </div>
                     </div>

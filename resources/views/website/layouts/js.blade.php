@@ -1,21 +1,21 @@
-<script src="{{ asset('/assets/js/jquery.min.js') }}"></script>
-<script src="{{ asset('/assets/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('/assets/js/magnific-popup.min.js') }}"></script>
-<script src="{{ asset('/assets/js/meanmenu.min.js') }}"></script>
-<script src="{{ asset('/assets/js/appear.min.js') }}"></script>
-<script src="{{ asset('/assets/js/countrySelect.min.js') }}"></script>
-<script src="{{ asset('/assets/js/odometer.min.js') }}"></script>
-<script src="{{ asset('/assets/js/loopcounter.js') }}"></script>
-<script src="{{ asset('/assets/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('/assets/js/rangeSlider.min.js') }}"></script>
-<script src="{{ asset('/assets/js/slick.min.js') }}"></script>
-<script src="{{ asset('/assets/js/form-validator.min.js') }}"></script>
-<script src="{{ asset('/assets/js/contact-form-script.js') }}"></script>
-<script src="{{ asset('/assets/js/ajaxchimp.min.js') }}"></script>
-<script src="{{ asset('/assets/js/intlTelInput-jquery.min.js')}}" ></script>
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/js/magnific-popup.min.js') }}"></script>
+<script src="{{ asset('assets/js/meanmenu.min.js') }}"></script>
+<script src="{{ asset('assets/js/appear.min.js') }}"></script>
+<script src="{{ asset('assets/js/countrySelect.min.js') }}"></script>
+<script src="{{ asset('assets/js/odometer.min.js') }}"></script>
+<script src="{{ asset('assets/js/loopcounter.js') }}"></script>
+<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('assets/js/rangeSlider.min.js') }}"></script>
+<script src="{{ asset('assets/js/slick.min.js') }}"></script>
+<script src="{{ asset('assets/js/form-validator.min.js') }}"></script>
+<script src="{{ asset('assets/js/contact-form-script.js') }}"></script>
+<script src="{{ asset('assets/js/ajaxchimp.min.js') }}"></script>
+<script src="{{ asset('assets/js/intlTelInput-jquery.min.js')}}" ></script>
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
 <script src="https://kit.fontawesome.com/1c7f33407d.js" crossorigin="anonymous"></script>
-<script src="{{ asset('/assets/js/main.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>
 
 @yield('js')
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
@@ -86,7 +86,7 @@
                 });
             }
         });
-        
+
     });
 
 </script>

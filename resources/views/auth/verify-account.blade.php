@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="about-image">
-                        <img src="{{  $setting && $setting->login_image ?  imagePath($setting->login_image) :  asset('/assets/img/login.jpeg') }}" alt="about-image">
+                        <img src="{{  $setting && $setting->login_image ?  imagePath($setting->login_image) :  asset('assets/img/login.jpeg') }}" alt="about-image">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -19,7 +19,7 @@
                             @csrf
                             <div class="login-head">
                                 <img width="50%" class="d-block mt-3 m-auto" alt="logo"
-                                    src="{{ asset('/assets/img/logo/logo.png') }}">
+                                    src="{{ asset('assets/img/logo/logo.png') }}">
                                 <h3>@lang('titles.verifyAccount')</h3>
                             </div>
                             <div class="login-content">
@@ -68,5 +68,5 @@
     </section>
 @endsection
 @section('scripts')
-    <script src="{{ asset('/assets/js/validate.js') }}"></script>
+    <script src="{{ asset('assets/js/validate.js') }}"></script>
 @endsection

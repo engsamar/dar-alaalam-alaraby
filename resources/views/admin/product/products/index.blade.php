@@ -54,10 +54,10 @@
                                             <td>{!! $item->active_span !!}</td>
                                             <td>{{ dateFormatted($item->updated_at, 'd M Y @ h:i a') }}</td>
                                             <td class="text-left">
-                                                <a class="btn btn-sm btn-outline-info"
+                                                {{-- <a class="btn btn-sm btn-outline-info"
                                                     href="{{ route('admin.product-settings.edit', $item->id) }}">
                                                     <i class="bx bx-brightness-half font-size-18"></i>
-                                                </a>
+                                                </a> --}}
                                                 <a class="btn btn-sm btn-outline-warning"
                                                     href="{{ route('admin.products.edit', $item->id) }}">
                                                     <i class="mdi mdi-pencil font-size-18"></i>
@@ -83,7 +83,7 @@
                         {!! $result['items']->render() !!}
                     @else
                         <div class="text-center">
-                            <img src="{{ asset('/panel/images/empty-box.png') }}" class="empty-box" />
+                            <img src="{{ asset('panel/images/empty-box.png') }}" class="empty-box" />
 
                             <hr>
                             <h3 class="text-xs-center text-info">No data addes !</h3>

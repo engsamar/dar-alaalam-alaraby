@@ -1,8 +1,6 @@
 @extends('admin.layouts.app')
 @section('tab_name', trans('titles.orders'))
-@section('css')
-    <link rel="stylesheet" href="{{ asset('/panel/vendors/dropify/dropify.min.css') }}">
-@endsection
+
 @section('content')
     @include('admin.layouts.title', [
         'subTitle' => $item->id ? trans('attributes.edit') . '#' . $item->id : trans('attributes.add'),
@@ -152,7 +150,7 @@
                             @lang('attributes.Save')
                         </button>
 
-                        <a class="btn btn-danger pull-right text-white" style="float: right;"
+                        <a class="btn btn-danger  {{ $locale == 'en' ? 'pull-right' : 'pull-left' }} text-white" style="float:{{ $locale == 'en' ? 'right' : 'left' }} "
                             href="{{ route('admin.orders.index') }}">@lang('attributes.Cancel')
                             <i class="icon-arrow-left-bold"></i>
                         </a>
@@ -166,7 +164,7 @@
 
 @endsection
 @section('scripts')
-    <script src="{{ asset('/panel/js/validate.js') }}"></script>
-    <script src="{{ asset('/panel/vendors/dropify/dropify.min.js') }}"></script>
-    <script src="{{ asset('/panel/js/dropify.js') }}"></script>
+    <script src="{{ asset('panel/js/validate.js') }}"></script>
+    <script src="{{ asset('panel/vendors/dropify/dropify.min.js') }}"></script>
+    <script src="{{ asset('panel/js/dropify.js') }}"></script>
 @endsection

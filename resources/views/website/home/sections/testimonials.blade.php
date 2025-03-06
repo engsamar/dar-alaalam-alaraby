@@ -21,7 +21,7 @@
                                                 class="testimonials">
                                             <div class="user-in">
                                                 <h3>{{ $item->title }}</h3>
-                                                <span>customer</span>
+                                                <span>@lang('titles.customer')</span>
                                             </div>
                                         </div>
                                         <!-- ///star  -->

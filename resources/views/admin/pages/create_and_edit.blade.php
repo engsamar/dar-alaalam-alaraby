@@ -1,8 +1,6 @@
 @extends('admin.layouts.app')
 @section('tab_name', trans('titles.pages'))
-@section('css')
-    <link rel="stylesheet" href="{{ asset('/panel/vendors/dropify/dropify.min.css') }}">
-@endsection
+
 @section('content')
     @include('admin.layouts.title', [
         'subTitle' => $item->id ? trans('common.edit') . '#' . $item->id : trans('common.add'),
@@ -13,10 +11,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">
-                        {{ $item->id ? trans('common.edit') . '#' . $item->id : trans('common.add') }}
-                    </h4>
-                    <hr>
+
                     @if ($item->id)
                         <form class="needs-validation" action="{{ route('admin.pages.update', $item->id) }}"
                             method="POST" enctype='multipart/form-data' novalidate>
@@ -104,7 +99,7 @@
                             @lang('common.save')
                         </button>
 
-                        <a class="btn btn-danger pull-right text-white" style="float: right;"
+                        <a class="btn btn-danger  {{ $locale == 'en' ? 'pull-right' : 'pull-left' }} text-white" style="float:{{ $locale == 'en' ? 'right' : 'left' }} "
                             href="{{ route('admin.pages.index') }}">@lang('common.cancel')
                             <i class="icon-arrow-left-bold"></i>
                         </a>
@@ -118,5 +113,5 @@
 
 @endsection
 @section('scripts')
-    <script src="{{ asset('/panel/js/pages/form-validation.init.js') }}"></script>
+    <script src="{{ asset('panel/js/pages/form-validation.init.js') }}"></script>
 @endsection

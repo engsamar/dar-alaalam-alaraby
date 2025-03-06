@@ -12,6 +12,10 @@
     --fontSize: 16px;
 }
 
+
+body[data-sidebar=dark] .vertical-menu {
+    background: var(--main-color);
+}
 body[data-sidebar=dark] .navbar-brand-box {
     background: var(--main-color);
 }
@@ -43,7 +47,9 @@ body[data-sidebar=dark] .vertical-menu {
 }
 
 .bg-secondary {
-    background: var(--black-color) !important;
+    background: #d7b758 !important;
+    color: white;
+    padding: 4px;
 }
 
 .btn-primary {
@@ -71,4 +77,16 @@ body[data-sidebar=dark] .vertical-menu {
 .btn-success, .btn-success:hover {
     background-color: var(--sec-color);
     border-color: var(--sec-color);
+}
+
+.select2-container[dir=rtl] .select2-selection--single .select2-selection__rendered {
+    padding-right: .75rem;
+    direction: ltr;
+}
+
+
+img.empty-box {
+    max-width: 100px;
+    margin: 0 auto;
+    display: block;
 }

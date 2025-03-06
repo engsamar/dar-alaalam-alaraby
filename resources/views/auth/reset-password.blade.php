@@ -102,7 +102,7 @@
 
                 <div class="col-lg-6 col-md-12">
                     <div class="about-image">
-                        <img src="{{  $setting && $setting->register_image ?  imagePath($setting->register_image) : asset('/assets/img/login.jpeg') }}" alt="about-image">
+                        <img src="{{  $setting && $setting->register_image ?  imagePath($setting->register_image) : asset('assets/img/login.jpeg') }}" alt="about-image">
                     </div>
                 </div>
             </div>
@@ -110,5 +110,5 @@
     </div>
 @endsection
 @section('js')
-    <script src="{{ asset('/assets/js/validate.js') }}"></script>
+    <script src="{{ asset('assets/js/validate.js') }}"></script>
 @endsection
