@@ -37,6 +37,7 @@ Route::group([
     Route::get('services', 'HomeController@showServices')->name('services.index');
     Route::get('faqs', 'HomeController@showFaqs')->name('faqs.index');
     // Route::get('brands', 'HomeController@showBrands')->name('brands.index');
+    Route::get('authors', 'HomeController@showAuthors')->name('authors.index');
     Route::get('terms-conditions', 'HomeController@showTerms')->name('terms.show');
     Route::get('return-conditions', 'HomeController@showReturn')->name('return.show');
     Route::get('privacy-policy', 'HomeController@showPrivacy')->name('privacy.show');

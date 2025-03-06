@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Website;
 
-use App\Models\ContactUs;
-use App\Models\NewsLetter;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactRequest;
 use App\Http\Requests\SubscribeRequest;
 use App\Interfaces\ContentRepositoryInterface;
 use App\Models\Feedback;
+use App\Models\NewsLetter;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -26,10 +25,11 @@ class HomeController extends Controller
     private $testimonialModel = '\App\Models\Testimonial';
 
     public function __construct(
-        ContentRepositoryInterface $contentRepository
+        ContentRepositoryInterface $contentRepository,
     ) {
         $this->contentRepository = $contentRepository;
     }
+
     public function index(Request $request)
     {
         $result = [];
@@ -43,23 +43,22 @@ class HomeController extends Controller
         $result['faqs'] = $this->contentRepository->getContents($this->contentModel, ['publish', $this->faqScope], 4, 'list');
         $result['testimonials'] = $this->contentRepository->getContents($this->testimonialModel, ['publish'], 4, 'list');
         $result['brands'] = $this->contentRepository
-            ->getContents($this->productModel . '\Brand', ['publish'], 10, 'list');
+            ->getContents($this->productModel.'\Brand', ['publish'], 10, 'list');
 
         $result['newArrivals'] = $this->contentRepository
-            ->getContents($this->productModel . '\Product', ['publish', 'New'], 12, 'list');
+            ->getContents($this->productModel.'\Product', ['publish', 'New'], 12, 'list');
 
         $result['specialOffers'] = $this->contentRepository
-            ->getContents($this->productModel . '\Product', ['publish', 'SpecialOffers'], 3, 'list');
+            ->getContents($this->productModel.'\Product', ['publish', 'SpecialOffers'], 3, 'list');
 
         $result['bestSellers'] = $this->contentRepository
-            ->getContents($this->productModel . '\Product', ['publish', 'BestSeller'],   8, 'list');
+            ->getContents($this->productModel.'\Product', ['publish', 'BestSeller'], 8, 'list');
 
         $result['mostReadProducts'] = $this->contentRepository
-            ->getContents($this->productModel . '\Product', ['publish', 'MostRead'], 8, 'list');
+            ->getContents($this->productModel.'\Product', ['publish', 'MostRead'], 8, 'list');
 
         $result['categories'] = $this->contentRepository
-            ->getContents($this->productModel . '\Category', ['publish', 'category'], 6, 'list');
-
+            ->getContents($this->productModel.'\Category', ['publish', 'category'], 6, 'list');
 
         return view('website.home.index', compact('result'));
     }
@@ -103,21 +102,31 @@ class HomeController extends Controller
 
         return view('website.pages.faqs', compact('result'));
     }
-    //
+
     public function showBrands(Request $request)
     {
         $result = [];
         $result['items'] = $this->contentRepository
-            ->getContents($this->productModel . '\Brand', ['publish'], 30, 'paginate');
+            ->getContents($this->productModel.'\Brand', ['publish'], 30, 'paginate');
 
         return view('website.pages.brands', compact('result'));
+    }
+
+    // showAuthors
+    public function showAuthors(Request $request)
+    {
+        $result = [];
+        $result['items'] = $this->contentRepository
+            ->getContents($this->productModel.'\Author', ['publish'], 30, 'paginate');
+
+        return view('website.pages.authors', compact('result'));
     }
 
     public function showcategories(Request $request)
     {
         $result = [];
         $result['items'] = $this->contentRepository
-            ->getContents($this->productModel . '\Category', ['publish', 'Category'], 30, 'paginate');
+            ->getContents($this->productModel.'\Category', ['publish', 'Category'], 30, 'paginate');
 
         return view('website.pages.categories', compact('result'));
     }
@@ -125,30 +134,30 @@ class HomeController extends Controller
     public function showContactUs(Request $request)
     {
         $result = [];
+
         return view('website.pages.contact', compact('result'));
     }
 
     public function showTerms(Request $request)
     {
         $result = [];
+
         return view('website.pages.terms', compact('result'));
     }
 
     public function showReturn(Request $request)
     {
         $result = [];
+
         return view('website.pages.return', compact('result'));
     }
 
     public function showPrivacy(Request $request)
     {
         $result = [];
+
         return view('website.pages.privacy', compact('result'));
     }
-
-
-
-
 
     public function contactUs(ContactRequest $request, $locale)
     {

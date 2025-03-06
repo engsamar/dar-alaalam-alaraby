@@ -66,7 +66,7 @@
 {{-- End Testimonial --}}
 
 <!-- Start Brands Area -->
-@includeIf('website.home.sections.brands')
+{{-- @includeIf('website.home.sections.brands') --}}
 
 <!-- End Brands Area -->
 
