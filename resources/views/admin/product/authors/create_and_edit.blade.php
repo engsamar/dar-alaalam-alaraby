@@ -1,23 +1,23 @@
 @extends('admin.layouts.app')
-@section('tab_name', trans('titles.areas'))
+@section('tab_name', trans('titles.authors'))
 
 @section('content')
     @include('admin.layouts.title', [
         'subTitle' => $item->id ? trans('common.edit') . '#' . $item->id : trans('common.add'),
-        'title' => trans('titles.areas'),
+        'title' => trans('titles.authors'),
     ])
 
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    
+
                     @if ($item->id)
-                        <form class="needs-validation" action="{{ route('admin.areas.update', $item->id) }}" method="POST"
+                        <form class="needs-validation" action="{{ route('admin.authors.update', $item->id) }}" method="POST"
                             enctype='multipart/form-data' novalidate>
                             <input type="hidden" name="_method" value="PUT">
                         @else
-                            <form class="needs-validation" action="{{ route('admin.areas.store') }}" method="POST"
+                            <form class="needs-validation" action="{{ route('admin.authors.store') }}" method="POST"
                                 enctype='multipart/form-data' novalidate>
                     @endif
                     @csrf
@@ -119,7 +119,7 @@
                         </button>
 
                         <a class="btn btn-danger  {{ $locale == 'en' ? 'pull-right' : 'pull-left' }} text-white" style="float:{{ $locale == 'en' ? 'right' : 'left' }} "
-                            href="{{ route('admin.areas.index') }}">@lang('common.cancel')
+                            href="{{ route('admin.authors.index') }}">@lang('common.cancel')
                             <i class="icon-arrow-left-bold"></i>
                         </a>
                     </div>
