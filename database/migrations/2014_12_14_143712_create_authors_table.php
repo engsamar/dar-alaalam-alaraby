@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -14,7 +13,7 @@ return new class extends Migration
         Schema::create('authors', function (Blueprint $table) {
             $table->id();
             $table->text('title')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('fax')->nullable();
             $table->string('image')->nullable();
@@ -23,8 +22,10 @@ return new class extends Migration
             $table->boolean('active')->default(1);
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
-            $table->integer('position')->default(0)->nullable(); //rank
-            $table->integer('no_views')->nullable(); //default
+            $table->integer('position')->default(0)->nullable(); // rank
+            $table->integer('no_views')->nullable(); // default
+            $table->enum('gender', ['male', 'female'])->nullable(); // default
+            $table->date('birth_date')->nullable();
 
             $table->string('slug')->nullable();
             $table

@@ -75,6 +75,53 @@
 
                     </div> --}}
 
+                    <div class="row mb-3">
+                        <label class="col-form-label col-lg-2" for="email-field">@lang('attributes.E-mail')</label>
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <input type="email"
+                                    class="form-control @if ($errors->has('email')) is-invalid @endif" name="email"
+                                    value="{{ old('email', $item->email) ?? '' }}" />
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback">{{ $errors->first('email') }}</span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-form-label col-lg-2" for="mobile-field">@lang('attributes.Mobile')</label>
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <input type="tel" min="10"
+                                    class="form-control @if ($errors->has('mobile')) is-invalid @endif" name="mobile"
+                                    value="{{ old('mobile', $item->mobile) ?? '' }}" />
+                                @if ($errors->has('mobile'))
+                                    <span class="invalid-feedback">{{ $errors->first('mobile') }}</span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-form-label col-lg-2" for="gender-field">@lang('attributes.Gender')</label>
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <select class="form-control select2" name="gender">
+                                    <option value="male" {{ old('gender', $item->gender) ? '' : 'selected' }}>
+                                        @lang('attributes.Male')</option>
+                                    <option value="female" {{ old('gender', $item->gender) ? '' : 'selected' }}>
+                                        @lang('attributes.Female')</option>
+
+                                </select>
+                                @if ($errors->has('gender'))
+                                    <span class="invalid-feedback">{{ $errors->first('gender') }}</span>
+                                @endif
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
 
                     <div class="row mb-3">
                         <label class="col-form-label col-lg-2" for="position-field">@lang('attributes.position')</label>
@@ -89,6 +136,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row mb-3">
                         <label class="col-form-label col-lg-2" for="active-field">@lang('attributes.active')</label>
                         <div class="col-lg-10">

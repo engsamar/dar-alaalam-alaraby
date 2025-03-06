@@ -3,8 +3,8 @@
 namespace App\Models\Product;
 
 use App\Models\Model;
-use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Translatable\HasTranslations;
 
 class Author extends Model
 {
@@ -17,8 +17,15 @@ class Author extends Model
         'position',
         'active',
         'image',
-        'slug'
-    ];
+        'birth_date',
+        'slug',
+        'country_id',
+        'city_id',
+        'category_id',
+        'nationality_id',
+        'email',
+        'phone',
+        'fax', ];
 
     public function getUrlAttribute()
     {
