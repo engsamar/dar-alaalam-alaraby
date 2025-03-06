@@ -52,7 +52,7 @@ class Product extends Model implements HasMedia
 
     public function tags()
     {
-        return $this->hasMany(ProductTag::class);
+        return $this->belongsToMany(Tag::class, 'product_tags', 'tag_id', 'product_id');
     }
 
     public function store()
@@ -63,6 +63,11 @@ class Product extends Model implements HasMedia
     public function brand()
     {
         return $this->belongsTo(Brand::class, 'brand_id');
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(Author::class, 'author_id');
     }
 
     public function category()

@@ -41,11 +41,23 @@
             </div>
         </div>
         <div class="foot-block">
+            @if ( $item->author)
+
             <div class="auth-h">
                 <i class="fa fa-user"></i>
                 <span>{{ $item->author->title ?? ''  }}</span>
             </div>
+            @endif
+
             <div class="tags-h">
+                @if (! empty($item->tags))
+                    @foreach ($item->tags as $tag )
+                    <a href="#">
+                        {{ $tag->title ?? '' }}
+                    </a>
+                    @endforeach
+
+                @endif
                 {{-- <a href="#">
                     tag 1
                 </a>
