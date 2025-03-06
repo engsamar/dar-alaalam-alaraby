@@ -1,4 +1,4 @@
-<form action="{{ route('admin.areas.index') }}" method="GET">
+<form action="{{ route('admin.publishers.index') }}" method="GET">
     <div class="row mb-3 mt-2">
         <div class="col-md-3 col-sm-6 col-xs-12 form-group">
             <input type="text" name="search" class="form-control" placeholder="@lang('common.searchNow')" />
