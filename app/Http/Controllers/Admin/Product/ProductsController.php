@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Product;
 
-use Illuminate\Http\Request;
-use App\Models\Product\Product;
-use App\Http\Requests\ItemRequest;
 use App\Http\Controllers\Controller;
-use App\Models\Product\ProductCategory;
+use App\Http\Requests\ItemRequest;
 use App\Interfaces\CRUDRepositoryInterface;
+use App\Models\Product\Product;
+use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
@@ -35,8 +34,9 @@ class ProductsController extends Controller
             'items' => $items,
             'counts' => $counts,
         ];
+
         return view(
-            'admin.' . $this->folderPath . $this->path . '.index',
+            'admin.'.$this->folderPath.$this->path.'.index',
             compact('result')
         );
     }
@@ -44,7 +44,8 @@ class ProductsController extends Controller
     public function show($id)
     {
         $item = $this->itemRepository->getItemById($this->model, $id);
-        return view('admin.' . $this->folderPath . $this->path . '.show', compact('item'));
+
+        return view('admin.'.$this->folderPath.$this->path.'.show', compact('item'));
     }
 
     /**
@@ -54,17 +55,19 @@ class ProductsController extends Controller
     {
         $result['categories'] = $this->itemRepository
             ->getAllItemsWithScope('App\Models\Product\Category', 'Category');
-        $result['brands'] = $this->itemRepository
-            ->getAllItems('App\Models\Product\Brand');
+        // $result['brands'] = $this->itemRepository
+        //     ->getAllItems('App\Models\Product\Brand');
 
         $result['stores'] = $this->itemRepository
             ->getAllItemsWithScope('App\Models\Store\Store', 'Publish');
 
+        $result['authors'] = $this->itemRepository
+        ->getAllItems('App\Models\Product\Author');
 
         $result['tags'] = $this->itemRepository
             ->getAllItemsWithScope('App\Models\Product\Tag', 'Product');
 
-        return view('admin.' . $this->folderPath . $this->path . '.create_and_edit', compact('item', 'result'));
+        return view('admin.'.$this->folderPath.$this->path.'.create_and_edit', compact('item', 'result'));
     }
 
     public function store(ItemRequest $request)
@@ -74,18 +77,18 @@ class ProductsController extends Controller
             $data['image'] = \App\Helpers\Image::upload($request->file('image'), $this->path);
         }
 
-        $data['slug'] = \Illuminate\Support\Str::slug($data['title'][app()->getLocale()], "-");
+        $data['slug'] = \Illuminate\Support\Str::slug($data['title'][app()->getLocale()], '-');
 
         $item = $this->itemRepository->createItem($this->model, $data);
-        //product_categories
+        // product_categories
 
         foreach ($request->input('document', []) as $file) {
-            $item->addMedia(storage_path('tmp/uploads/' . $file))
+            $item->addMedia(storage_path('tmp/uploads/'.$file))
                 ->toMediaCollection('document');
         }
         $request->session()->flash('success', __('titles.AddedMessage'));
 
-        return redirect()->route('admin.' . $this->path . '.index');
+        return redirect()->route('admin.'.$this->path.'.index');
     }
 
     public function edit($id)
@@ -97,11 +100,15 @@ class ProductsController extends Controller
             ->getAllItemsWithScope('App\Models\Product\Tag', 'Product');
         $result['stores'] = $this->itemRepository
             ->getAllItemsWithScope('App\Models\Store\Store', 'Publish');
-        $result['brands'] = $this->itemRepository
-            ->getAllItems('App\Models\Product\Brand');
+        // $result['brands'] = $this->itemRepository
+        //     ->getAllItems('App\Models\Product\Brand');
         $result['sub_categories'] = $this->itemRepository
             ->getAllItemsWithScope('App\Models\Product\Category', 'SubCategory', ['category_id' => $item->category_id]);
-        return view('admin.' . $this->folderPath . $this->path . '.create_and_edit', compact('item', 'result'));
+
+        $result['authors'] = $this->itemRepository
+        ->getAllItems('App\Models\Product\Author');
+
+        return view('admin.'.$this->folderPath.$this->path.'.create_and_edit', compact('item', 'result'));
     }
 
     public function copy($id)
@@ -109,7 +116,8 @@ class ProductsController extends Controller
         $item = $this->itemRepository->getItemById($this->model, $id);
         $newItem = $item->replicate();
         $newItem->save();
-        return redirect()->route('admin.' . $this->path . '.edit', $newItem->id);
+
+        return redirect()->route('admin.'.$this->path.'.edit', $newItem->id);
     }
 
     public function update(ItemRequest $request, $id)
@@ -119,7 +127,7 @@ class ProductsController extends Controller
         if ($request->hasFile('image')) {
             $data['image'] = \App\Helpers\Image::upload($request->file('image'), $this->path);
         }
-        $data['slug'] = \Illuminate\Support\Str::slug($data['title'][app()->getLocale()], "-");
+        $data['slug'] = \Illuminate\Support\Str::slug($data['title'][app()->getLocale()], '-');
         $this->itemRepository->updateItem($this->model, $id, $data);
         $item = $this->itemRepository->getItemById($this->model, $id);
 
@@ -135,7 +143,7 @@ class ProductsController extends Controller
 
         foreach ($request->input('document', []) as $file) {
             if (count($media) === 0 || !in_array($file, $media)) {
-                $item->addMedia(storage_path('tmp/uploads/' . $file))
+                $item->addMedia(storage_path('tmp/uploads/'.$file))
                     ->addCustomHeaders([
                         'ACL' => 'public-read',
                     ])
@@ -145,7 +153,7 @@ class ProductsController extends Controller
 
         $request->session()->flash('success', __('titles.UpdatedMessage'));
 
-        return redirect()->route('admin.' . $this->path . '.index');
+        return redirect()->route('admin.'.$this->path.'.index');
     }
 
     public function destroy(Request $request, $id)
@@ -153,6 +161,6 @@ class ProductsController extends Controller
         $this->itemRepository->deleteItem($this->model, $id);
         $request->session()->flash('success', __('titles.DeletedMessage'));
 
-        return redirect()->route('admin.' . $this->path . '.index');
+        return redirect()->route('admin.'.$this->path.'.index');
     }
 }
