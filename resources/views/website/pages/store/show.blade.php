@@ -78,7 +78,8 @@
                     <div class="products-share">
                         <ul class="social">
                             <li><span>@lang('titles.share'):</span></li>
-                            <li><span>@lang('titles.share')</span></li>
+
+
                                 <li><a class="whatsapp" target="_blank" href="{{ $result['share']['whatsapp'] ?? '#' }}">
                                     <i class="bx bxl-whatsapp"></i>
                                 </a>

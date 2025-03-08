@@ -20,6 +20,11 @@ Route::get('/migrate', function () {
     // \Artisan::call('db:seed --class=AdminsTableDataSeeder');
     dd('migrated!');
 });
+Route::get('/seeder', function () {
+});
+
+Artisan::call('db:seed --class=AuthorsTableDataSeeder');
+
 Route::get('lang/{locale}', function ($locale) {
     Session::put('lang', $locale);
     app()->setLocale($locale);
