@@ -68,7 +68,7 @@
                         @if(! empty($result['item']->author))
                             <li><span>@lang('attributes.author')</span> <a href="{{ $result['item'] ? $result['item']->author->url : '#' }}">{{ $result['item']->author->title ?? ''  }}</a></li>
                         @endif
-                        <li><span>@lang('titles.Availability'):</span> @if( $result['item']->stock > 0) @lang('titles.InStock') ({{ $result['item']->stock }}) @else @lang('titles.SoldOut')  @endif</li>
+                        {{-- <li><span>@lang('titles.Availability'):</span> @if( $result['item']->stock > 0) @lang('titles.InStock') ({{ $result['item']->stock }}) @else @lang('titles.SoldOut')  @endif</li> --}}
                         <li><span>@lang('titles.Tags'):</span> @if(! empty($result['tags']))
                             @foreach ($result['tags'] as $tag )
                                 <a href="{{ $tag->url }}" rel="tag">{{ $tag->title }}</a>
@@ -79,7 +79,7 @@
                         <ul class="social">
                             <li><span>@lang('titles.share'):</span></li>
 
-
+{{--
                                 <li><a class="whatsapp" target="_blank" href="{{ $result['share']['whatsapp'] ?? '#' }}">
                                     <i class="bx bxl-whatsapp"></i>
                                 </a>
@@ -87,7 +87,7 @@
                                 <li><a  class="twitter" target="_blank" href="{{ $result['share']['twitter'] ?? '#' }}">
                                     <i class="bx bxl-twitter"></i>
                                 </a>
-                                </li>
+                                </li> --}}
 
                                 <li><a class="instagram" target="_blank" href="{{ $result['share']['facebook'] ?? '#' }}">
                                     <i class="bx bxl-facebook"></i>
