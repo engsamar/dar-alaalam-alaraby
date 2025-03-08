@@ -69,12 +69,11 @@
                             <li><span>@lang('attributes.author')</span> <a href="{{ $result['item'] ? $result['item']->author->url : '#' }}">{{ $result['item']->author->title ?? ''  }}</a></li>
                         @endif
                         {{-- <li><span>@lang('titles.Availability'):</span> @if( $result['item']->stock > 0) @lang('titles.InStock') ({{ $result['item']->stock }}) @else @lang('titles.SoldOut')  @endif</li> --}}
-                        <li><span>@lang('titles.Tags'):</span> @if(! empty($result['tags']))
+                        <li><span>@lang('titles.Tags'):</span>
                             <a href="#" rel="tag">#ثقافة</a>
                             <a href="#" rel="tag">#نشر</a>
                             <a href="#" rel="tag">#كتب</a>
-
-
+                            @if(! empty($result['tags']))
                             @foreach ($result['tags'] as $tag )
                                 <a href="{{ $tag->url }}" rel="tag">{{ $tag->title }}</a>
                             @endforeach
