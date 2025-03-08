@@ -70,6 +70,11 @@
                         @endif
                         {{-- <li><span>@lang('titles.Availability'):</span> @if( $result['item']->stock > 0) @lang('titles.InStock') ({{ $result['item']->stock }}) @else @lang('titles.SoldOut')  @endif</li> --}}
                         <li><span>@lang('titles.Tags'):</span> @if(! empty($result['tags']))
+                            <a href="#" rel="tag">#ثقافة</a>
+                            <a href="#" rel="tag">#نشر</a>
+                            <a href="#" rel="tag">#كتب</a>
+
+
                             @foreach ($result['tags'] as $tag )
                                 <a href="{{ $tag->url }}" rel="tag">{{ $tag->title }}</a>
                             @endforeach
