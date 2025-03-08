@@ -15,6 +15,10 @@ class AuthorsTableDataSeeder extends Seeder
     public function run()
     {
         // php artisan db:seed --class=AuthorsTableDataSeeder
+
+        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        \DB::table('authors')->truncate();
+        \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         $authors = [
             'على مصباح الصلف',
             'محمد الفرجاني حصن',
@@ -29,7 +33,6 @@ class AuthorsTableDataSeeder extends Seeder
             'مهندس. موسى الرباني',
             'د. سوسن ضليمي د. ماجد محمد أبو شرحة',
             'أ. د. محمد الهادي الدرهوبي',
-            'د. سمية سيد صديق',
             'د. سمية سيد صديق',
             'ا. د. محمد فتحي عبد الهادي',
             'د. حسن شحاتة ',
@@ -262,12 +265,13 @@ class AuthorsTableDataSeeder extends Seeder
             'تبسيط د .إسماعيل عبد الفتاح',
         ];
 
-        foreach ($authors as $author) {
+        foreach ($authors as $key => $author) {
             Author::updateOrCreate([
                 'title' => [
                     'ar' => $author,
                 ],
                 'active' => 1,
+                'email' => "author-{$key}@.com",
                 'position' => 1,
                 'slug' => \Illuminate\Support\Str::slug($author, '-'),
             ]);

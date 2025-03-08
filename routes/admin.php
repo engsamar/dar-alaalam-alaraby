@@ -21,9 +21,8 @@ Route::get('/migrate', function () {
     dd('migrated!');
 });
 Route::get('/seeder', function () {
+    Artisan::call('db:seed --class=AuthorsTableDataSeeder');
 });
-
-Artisan::call('db:seed --class=AuthorsTableDataSeeder');
 
 Route::get('lang/{locale}', function ($locale) {
     Session::put('lang', $locale);
