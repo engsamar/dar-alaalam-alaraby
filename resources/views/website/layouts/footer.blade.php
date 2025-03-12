@@ -1,7 +1,7 @@
 <footer class="footer-area">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6 up">
+            <div class="col-lg-4 col-md-6 col-sm-6 up">
                 <div class="single-footer-widget">
                     <a href="" class="logo">
                         <img src="{{ isset($setting->logo_white) ? $setting->imagePath('logo_footer') : '' }}" alt="logo" style="max-width: 100px">
@@ -14,20 +14,15 @@
                     </ul>
                     <div class="s-h">
                     <ul>
-                    <li><a href="{{ $setting->facebook ?? '#' }}" target="_blank"><i class='bx bxl-facebook'></i></a></li>
-                    <!-- <li><a href="{{ $setting->twitter ?? '#' }}" target="_blank"><i class='bx bxl-twitter'></i></a></li> -->
-                    <li><a href="{{ $setting->twitter ?? '#' }}" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
-                    <li><a href="{{ $setting->whatsapp ?? '#' }}" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
-                    <li><a href="{{ $setting->snapchat ?? '#' }}" target="_blank"><i class="fa-brands fa-snapchat"></i></a></li>
+                        <li><a href="{{ $setting->facebook ?? '#' }}" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+                        <li><a href="{{ $setting->messanger ?? '#' }}" target="_blank"><i class="fab fa-facebook-messenger"></i></i></a></li>
+                        <li><a href="{{ $setting->map ?? '#' }}" target="_blank"><i class='bx bxs-map'></i></a></li>
 
-                    <li><a href="{{ $setting->instagram ?? '#' }}" target="_blank"><i class='bx bxl-instagram'></i></a></li>
-                    <li><a href="{{ $setting->tiktok ?? '#' }}" target="_blank"><i class='bx bxl-tiktok'></i></a></li>
-                    <!-- <li><a href="{{ $setting->youtube ?? '#' }}" target="_blank"><i class='bx bxl-youtube'></i></a></li> -->
-                </ul>
+                    </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 down">
+            <div class="col-lg-4 col-md-6 col-sm-6 down">
                 <div class="single-footer-widget pl-4">
                     <h3>@lang('titles.Information')</h3>
                     <ul class="custom-links">
@@ -38,30 +33,10 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 down">
-                <div class="single-footer-widget">
-                    <h3>@lang('titles.CustomerService')</h3>
-                    <ul class="custom-links">
-                        <li><a href="{{ route('website.auth.profile.home',['locale' => $locale]) }}">@lang('titles.MyAccount')</a></li>
-                        <li><a href="{{ route('website.faqs.index',['locale' => $locale]) }}">@lang('titles.faqs')</a></li>
 
-                        <li><a href="{{ route('website.auth.orders.index',['locale' => $locale]) }}">@lang('titles.OrderHistory')</a></li>
-                        <li><a href="{{ route('website.auth.favourites.index',['locale' => $locale]) }}">@lang('titles.Wishlist')</a></li>
-                        <li><a href="{{ route('website.auth.addresses.index',['locale' => $locale]) }}">@lang('titles.DeliveryInformation')</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 down">
+            <div class="col-lg-4 col-md-6 col-sm-6 down">
                 <div class="single-footer-widget">
-                    <h3>{{ $subscribe ? $subscribe->title : __('titles.SubscribeTitle') }}</h3>
-                    <p>{!! $subscribe ? $subscribe->description : __('titles.SubscribeMessage') !!}</p>
 
-                    <form class="newsletter-form needs-validation" novalidate action="{{ route('website.subscribe.store',['locale' => $locale]) }}" method="post">
-                        @csrf
-                        <input type="email" name="email" class="input-newsletter" placeholder="@lang('attributes.email')" name="EMAIL" required autocomplete="off">
-                        <button type="submit"><i class='bx bx-paper-plane'></i></button>
-                        <div id="validator-newsletter" class="form-result"></div>
-                    </form>
                     <div class="payment-types">
                         <div class="d-flex align-items-center">
                             <span>@lang('titles.WeAccept')</span>

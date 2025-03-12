@@ -39,6 +39,8 @@
                         @if($result['item']->discount  > 0)
                             <span class="old-price">{{  $result['item']->price }}</span>
                         @endif
+
+                        @lang('titles.currency')
                     </div>
                     <div class="rating">
                         <i class='bx bxs-star'></i>
@@ -60,7 +62,7 @@
                         <button type="button" class="add-to-wishlist" data-slug="{{ $result['item']->slug }}"><i class='bx bx-heart'></i> @lang('titles.AddToWishlist')</button>
                     </div>
                     <ul class="products-info">
-                        <li><span>SKU:</span> {{ $result['item']->sku  }}</li>
+                        <li><span>@lang('attributes.isbn') :</span> {{ $result['item']->isbn  }}</li>
                         @if(! empty($result['item']->category))
                             <li><span>@lang('attributes.category'):</span> <a href="{{ $result['item'] ? $result['item']->category->url : ''}}">{{ $result['item']->category->title ?? ''  }}</a></li>
                         @endif
@@ -81,10 +83,15 @@
                     </ul>
                     <div class="products-share">
                         <ul class="social">
-                            <li><span>@lang('titles.share'):</span></li>
+                            <li><span>@lang('titles.FollowUs'):</span></li>
 
-{{--
-                                <li><a class="whatsapp" target="_blank" href="{{ $result['share']['whatsapp'] ?? '#' }}">
+
+                                <li>
+                                    <a class="facebook" target="_blank" href="{{ $setting->facebook ?? '#' }}">
+                                        <i class="bx bxl-facebook"></i>
+                                    </a>
+                                </li>
+                                {{-- <li><a class="whatsapp" target="_blank" href="{{ $result['share']['whatsapp'] ?? '#' }}">
                                     <i class="bx bxl-whatsapp"></i>
                                 </a>
                                 </li>
@@ -93,10 +100,12 @@
                                 </a>
                                 </li> --}}
 
-                                <li><a class="instagram" target="_blank" href="{{ $result['share']['facebook'] ?? '#' }}">
-                                    <i class="bx bxl-facebook"></i>
-                                </a>
-                                </li>
+
+                                {{-- <li>
+                                    <a class="instagram" target="_blank" href="{{ $result['share']['facebook'] ?? '#' }}">
+                                        <i class="bx bxl-facebook"></i>
+                                    </a>
+                                </li> --}}
 
                         </ul>
                     </div>

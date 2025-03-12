@@ -26,12 +26,12 @@
 <!-- End Products Area -->
 
 {{-- @includeIf('website.home.sections.banner') --}}
-@includeIf('website.home.sections.best-sellers-2')
+{{-- @includeIf('website.home.sections.best-sellers-2') --}}
 
 <!-- End Offer Area -->
 
 <!-- Start Blog Area -->
-@includeIf('website.home.sections.blog')
+{{-- @includeIf('website.home.sections.blog') --}}
 
 <!-- End Blog Area -->
 
@@ -53,7 +53,7 @@
 <!-- Start Offer Area -->
 
 <!-- Start Products Area -->
-@includeIf('website.home.sections.special-offers')
+{{-- @includeIf('website.home.sections.special-offers') --}}
 
 <!-- End Products Area -->
 
@@ -61,7 +61,7 @@
 
 {{-- Start Testimonial --}}
 
-@includeIf('website.home.sections.testimonials')
+{{-- @includeIf('website.home.sections.testimonials') --}}
 
 {{-- End Testimonial --}}
 
