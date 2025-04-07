@@ -64,7 +64,20 @@
                     <ul class="products-info">
                         <li><span>@lang('attributes.isbn') :</span> {{ $result['item']->isbn  }}</li>
                         @if(! empty($result['item']->category))
-                            <li><span>@lang('attributes.category'):</span> <a href="{{ $result['item'] ? $result['item']->category->url : ''}}">{{ $result['item']->category->title ?? ''  }}</a></li>
+                            <li>
+                                <span>@lang('attributes.category'):</span>
+                                <a href="{{ $result['item'] ? $result['item']->category->url : ''}}">
+                                    {{ $result['item']->category->title ?? ''  }}
+                                </a>
+
+                                @if (! empty($result['item']->sub_category))
+
+                                    <a href="{{ $result['item'] ? $result['item']->sub_category->url : ''}}">
+                                        {{ $result['item']->sub_category->title ?? ''  }}
+                                    </a>
+
+                                @endif
+                            </li>
                         @endif
 
                         @if(! empty($result['item']->author))
