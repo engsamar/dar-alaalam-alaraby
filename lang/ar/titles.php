@@ -166,4 +166,5 @@ return [
     'customer' => 'عميل',
     'countries' => 'البلاد',
     'share' => 'شارك',
+    'search' => 'بحث',
 ];

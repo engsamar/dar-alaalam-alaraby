@@ -27,9 +27,12 @@
                     <h3>@lang('titles.Information')</h3>
                     <ul class="custom-links">
                         <li><a href="{{ route('website.about.show',['locale' => $locale]) }}">@lang('titles.about')</a></li>
-                        <li><a href="{{ route('website.terms.show',['locale' => $locale]) }}">@lang('titles.terms_condition')</a></li>
+                        <li><a href="{{ route('website.authors.index',['locale'=> $locale]) }}">@lang('titles.authors')</a></li>
+                        <li><a href="{{ route('website.categories.index',['locale'=> $locale]) }}">@lang('titles.categories')</a></li>
+
+                        {{-- <li><a href="{{ route('website.terms.show',['locale' => $locale]) }}">@lang('titles.terms_condition')</a></li>
                         <li><a href="{{ route('website.privacy.show',['locale' => $locale]) }}">@lang('titles.privacy_condition')</a></li>
-                        <li><a href="{{ route('website.return.show',['locale' => $locale]) }}">@lang('titles.return_condition')</a></li>
+                        <li><a href="{{ route('website.return.show',['locale' => $locale]) }}">@lang('titles.return_condition')</a></li> --}}
                     </ul>
                 </div>
             </div>

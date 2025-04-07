@@ -76,7 +76,7 @@
     <div class="item">
         <a href="{{ route('website.store.index',['locale'=> $locale]) }}" class="search-icon">
             <i class='bx bx-search'></i>
-            <span>@lang('titles.Search')</span>
+            <span>@lang('titles.search')</span>
         </a>
     </div>
     <div class="item">

@@ -33,6 +33,7 @@ Route::group([
 
     Route::get('about-us', 'HomeController@showAboutUs')->name('about.show');
     Route::get('clients', 'HomeController@showClients')->name('clients.index');
+    Route::get('categories', 'HomeController@showCategories')->name('categories.index');
 
     Route::get('services', 'HomeController@showServices')->name('services.index');
     Route::get('faqs', 'HomeController@showFaqs')->name('faqs.index');
@@ -143,18 +144,4 @@ Route::group([
         Route::resource('addresses', 'Auth\\AddressesController');
         Route::resource('wishlist', 'Auth\\WishlistController');
     });
-});
-
-Route::get('/migrate', function () {
-    Artisan::call('optimize:clear');
-    Artisan::call('migrate', [
-        '--force' => true,
-    ]);
-    dd('migrated!');
-});
-
-Route::get('/fcm/{id}', function ($id) {
-    $device = App\Models\User\UserDevice::whereUserId($id)->pluck('fcm_token')->toArray();
-    $sent = App\Services\Firebase::send($device, $message = 'test', $title = 'test', []);
-    dd($sent);
 });
