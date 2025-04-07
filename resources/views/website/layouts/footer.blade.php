@@ -14,9 +14,16 @@
                     </ul>
                     <div class="s-h">
                     <ul>
-                        <li><a href="{{ $setting->facebook ?? '#' }}" target="_blank"><i class='bx bxl-facebook'></i></a></li>
-                        <li><a href="{{ $setting->messanger ?? '#' }}" target="_blank"><i class="fab fa-facebook-messenger"></i></i></a></li>
-                        <li><a href="{{ $setting->map ?? '#' }}" target="_blank"><i class='bx bxs-map'></i></a></li>
+                        <li>
+                            <a href="{{ $setting->facebook ?? '#' }}" target="_blank"><i class='bx bxl-facebook'></i></a>
+                        </li>
+                        <li>
+                            <a href="{{ $setting->messanger ?? '#' }}" target="_blank"><i class="fab fa-facebook-messenger"></i></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ $setting->map ?? '#' }}" target="_blank"><i class='bx bxs-map'></i></a>
+                        </li>
 
                     </ul>
                     </div>

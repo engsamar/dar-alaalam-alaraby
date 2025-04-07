@@ -49,6 +49,15 @@
             </div>
             @endif
 
+            @if ( $item->category)
+
+            <div class="auth-h">
+                <i class="fa fa-tag"></i>
+                <span>{{ $item->category->title ?? ''  }}</span>
+                @if($item->sub_category) / <span>{{ $item->sub_category->title ?? ''  }}</span>@endif
+            </div>
+            @endif
+
             <div class="tags-h">
                 @if (! empty($item->tags))
                     @foreach ($item->tags as $tag )
