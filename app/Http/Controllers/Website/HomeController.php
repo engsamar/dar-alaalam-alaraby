@@ -58,7 +58,7 @@ class HomeController extends Controller
             ->getContents($this->productModel.'\Product', ['publish', 'MostRead'], 8, 'list');
 
         $result['categories'] = $this->contentRepository
-            ->getContents($this->productModel.'\Category', ['publish', 'category'], 6, 'list');
+            ->getContents($this->productModel.'\Category', ['publish', 'category'], 20, 'list');
 
         return view('website.home.index', compact('result'));
     }

@@ -2,9 +2,6 @@
 
 <div class="categories-area pb-50 pt-50">
     <div class="container">
-        {{-- <div class="section-title">
-            <h2>@lang('titles.shop_by_categories')</h2>
-        </div> --}}
         <div class="categories-slides owl-carousel owl-theme">
 
             @foreach ($result['categories'] as $item)
@@ -15,7 +12,7 @@
                         </div>
                         <div class="details">
                             <h3>{{ $item->title }}</h3>
-                            {{-- <span class="cat-count">(10)</span> --}}
+
                         </div>
                     </a>
                 </div>

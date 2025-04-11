@@ -14,7 +14,7 @@ return [
     'car_types' => 'أنواع السيارات',
     'settings' => 'إعدادات التطبيق',
     'delegates' => 'مندوبون',
-    'categories' => 'الفئات',
+    'categories' => 'الأقسام',
     'orders' => 'الطلبيات',
     'products' => 'المنتجات',
     'customers' => 'العملاء',
