@@ -1,4 +1,4 @@
-<div class="page-title-area" style="background: url({{ $setting->imagePath('breadcrumb') }})">
+<div class="page-title-area">
     <div class="container">
         <div class="page-title-content">
             <h1>{{ $title ?? '' }}</h1>

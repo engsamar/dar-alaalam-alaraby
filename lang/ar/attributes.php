@@ -40,7 +40,7 @@ return [
     'Title' => 'العنوان',
     'SubTitle' => 'العنوان الفرعي',
     'Slug' => 'الرابط المختصر',
-    'Position' => 'المنصب',
+    'Position' => 'الترتيب',
     'Publish' => 'نشر',
     'LastUpdate' => 'آخر تحديث',
     'list' => 'قائمة :item',

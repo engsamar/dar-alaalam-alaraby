@@ -4,7 +4,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6 up">
                 <div class="single-footer-widget">
                     <a href="" class="logo">
-                        <img src="{{ isset($setting->logo_white) ? $setting->imagePath('logo_footer') : '' }}" alt="logo" style="max-width: 100px">
+                        <img src="{{ isset($setting->logo_white) ? $setting->imagePath('logo_footer') : asset('logo.png') }}" alt="logo" style="max-width: 100px">
                     </a>
                     <ul class="footer-contact-info">
                         <li><span class="text-capitalize">@lang('attributes.mobile')</span> <a href="tel:{{ $setting->phone }}">{{ $setting->phone }}</a></li>
