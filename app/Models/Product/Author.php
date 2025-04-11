@@ -31,4 +31,16 @@ class Author extends Model
     {
         return route('website.store.index', ['locale' => app()->getLocale(), 'brand' => $this->slug]);
     }
+
+    public function getImagePathAttribute()
+    {
+        $value = $this->image;
+        if ($value != '') {
+            $value = asset($value);
+        } else {
+            $value = asset('profile.png');
+        }
+
+        return $value;
+    }
 }

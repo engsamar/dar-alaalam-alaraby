@@ -66,7 +66,7 @@
             <div class="row">
                 {{-- Col --}}
                 <div class="col-md-6">
-                    <p>{{ $setting->copyrights ?? '' }}</p>
+                    <p>{{ $setting->footer ?? '' }}</p>
                 </div>
                 {{-- /Col --}}
 

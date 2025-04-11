@@ -29,7 +29,7 @@ class Model extends EloquentModel
         if ($value != '') {
             $value = asset($value);
         } else {
-            $value = asset('/default.jpeg');
+            $value = asset('search.jpg');
         }
 
         return $value;
@@ -46,5 +46,4 @@ class Model extends EloquentModel
 
         return $value;
     }
-
 }
