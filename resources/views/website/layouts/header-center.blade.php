@@ -7,10 +7,16 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-3 col-md-3 col-sm-12">
-                <a class="logo-h" href="{{ route('website.home', ['locale' => $locale]) }}">
-                    {{-- <img src="{{ isset($setting->logo) ? $setting->logoPath($locale)  : '' }}" alt="logo"> --}}
-                    <img src="{{ asset('assets/img/logo.jpeg') }}" alt="logo">
-                </a>
+                <div class="res-h">
+                    <a class="logo-h" href="{{ route('website.home', ['locale' => $locale]) }}">
+                        {{-- <img src="{{ isset($setting->logo) ? $setting->logoPath($locale)  : '' }}" alt="logo"> --}}
+                        <img src="{{ asset('assets/img/logo.jpeg') }}" alt="logo">
+                    </a>
+                    <a href="{{ route('website.store.index',['locale'=> $locale]) }}" class="search-icon">
+                        <i class='bx bx-search'></i>
+                        <span>@lang('titles.search')</span>
+                    </a>
+                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="search-h">
@@ -75,8 +81,8 @@
 <div class="header-mobile">
     <div class="item">
         <a href="{{ route('website.store.index',['locale'=> $locale]) }}" class="search-icon">
-            <i class='bx bx-search'></i>
-            <span>@lang('titles.search')</span>
+            <i class='fal fa-grid'></i>
+            <span>@lang('titles.categories')</span>
         </a>
     </div>
     <div class="item">

@@ -7079,6 +7079,10 @@ section.cart-page.body-inner {
     line-height: 27px;
 }
 
+.res-h .search-icon {
+    display: none;
+}
+
 
 @media (max-width: 991px){
     .center-header-area .col-lg-6.col-md-6.col-sm-12, .center-header-area .col-lg-3.col-md-3.col-sm-12 {
@@ -7102,5 +7106,33 @@ section.cart-page.body-inner {
     .top-header-area ul {
         margin: 0;
     }
+
+    .res-h {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        -webkit-align-items: center;
+    }
+
+    .center-header-area .res-h .search-icon {
+        display: block;
+        width: 40px;
+        height: 40px;
+        align-content: center;
+        text-align: center;
+        background: var(--sec-color);
+        color: #fff;
+        font-size: 20px;
+        line-height: 45px;
+        border-radius: 4px;
+    }
+
+    .center-header-area .res-h .search-icon span {
+        display: none;
+    }.main-banner-content {
+    margin-inline-start: -14%;
+    width: 61%;
+    margin-block-start: -80px;
+}
 }
 
