@@ -5729,7 +5729,7 @@ label {
 
     .center-header-area {
         text-align: center;
-        display: none;
+        /* display: none; */
     }
 
     header .col-lg-7.col-md-7.col-sm-12 {}
@@ -5748,7 +5748,7 @@ label {
     }
 
     .logo-h img {
-        max-height: 63px;
+        max-height: 107px;
     }
 
     a.logo-h {
@@ -5772,6 +5772,8 @@ label {
 
     .navbar-area {
         background: #fff;
+        border: none;
+        padding: 0;
     }
 
     .patoi-responsive-nav .mean-container .mean-bar {
@@ -7075,4 +7077,29 @@ section.cart-page.body-inner {
     margin-top: 20px;
     font-size: 17px;
     line-height: 27px;
+}
+
+
+@media (max-width: 991px){
+    .center-header-area .col-lg-6.col-md-6.col-sm-12, .center-header-area .col-lg-3.col-md-3.col-sm-12 {
+        display: none;
+    }
+
+    .center-header-area .col-lg-3.col-md-3.col-sm-12:nth-child(1) {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    a.logo-h {
+        text-align: center;
+    }
+
+    .top-header-area .row .col-lg-6.col-md-6.col-sm-6:nth-child(1) {
+        display: none;
+    }
+
+    .top-header-area ul {
+        margin: 0;
+    }
 }

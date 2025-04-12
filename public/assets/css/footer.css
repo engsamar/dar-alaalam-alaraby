@@ -166,7 +166,7 @@
 }
 .single-footer-widget .logo img{
     max-width: 60px !important;
-
+    filter: brightness(0) invert(1);
 }
 
 .single-footer-widget .footer-contact-info {
