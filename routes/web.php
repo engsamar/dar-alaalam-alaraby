@@ -1,12 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\CartController;
 use App\Http\Controllers\Auth\OrdersController;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\ResetPasswordController;
-
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +18,9 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 |
 */
 
-
 Route::get('/', function () {
     return redirect(app()->getLocale());
 });
-
 
 Route::group([
     'namespace' => 'App\\Http\\Controllers\\Website',
@@ -31,17 +28,17 @@ Route::group([
     'where' => ['locale' => '[a-zA-Z]{2}'],
     'as' => 'website.',
     'middleware' => ['setlocale'],
-
 ], function () {
-
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::get('about-us', 'HomeController@showAboutUs')->name('about.show');
     Route::get('clients', 'HomeController@showClients')->name('clients.index');
+    Route::get('categories', 'HomeController@showCategories')->name('categories.index');
 
     Route::get('services', 'HomeController@showServices')->name('services.index');
     Route::get('faqs', 'HomeController@showFaqs')->name('faqs.index');
-    Route::get('brands', 'HomeController@showBrands')->name('brands.index');
+    // Route::get('brands', 'HomeController@showBrands')->name('brands.index');
+    Route::get('authors', 'HomeController@showAuthors')->name('authors.index');
     Route::get('terms-conditions', 'HomeController@showTerms')->name('terms.show');
     Route::get('return-conditions', 'HomeController@showReturn')->name('return.show');
     Route::get('privacy-policy', 'HomeController@showPrivacy')->name('privacy.show');
@@ -74,15 +71,14 @@ Route::group([
     Route::delete('/delete-from-cart', [CartController::class, 'deleteItemCart'])
         ->name('carts.delete');
 
-    //verify-account
+    // verify-account
     Route::get('verify-account', [AuthController::class, 'verifyAccount'])
         ->name('verify-account');
 
     Route::post('verify-account', [AuthController::class, 'postVerifyAccount'])
         ->name('verify-account.post');
 
-
-    //forgot-password
+    // forgot-password
     Route::get('forgot-account', [ResetPasswordController::class, 'show'])
         ->name('forgot-account');
 
@@ -92,13 +88,11 @@ Route::group([
     Route::post('reset-password', [ResetPasswordController::class, 'confirm'])
         ->name('forgot-password.reset');
 
-
     Route::group(['middleware' => ['guest']], function () {
         Route::get('login', [AuthController::class, 'login'])
             ->name('login');
         Route::post('login', [AuthController::class, 'postLogin'])
             ->name('login.post');
-
 
         Route::get('register', [AuthController::class, 'register'])
             ->name('register.post');
@@ -144,27 +138,10 @@ Route::group([
         Route::get('thanks/checkout/{order_uuid}/{reference_number}', [CartController::class, 'paymentResponse'])
             ->name('cart.checkout.thanks');
 
-
-
         Route::get('orders/{reference_number}', [OrdersController::class, 'show'])
             ->name('orders.show');
 
         Route::resource('addresses', 'Auth\\AddressesController');
         Route::resource('wishlist', 'Auth\\WishlistController');
     });
-});
-
-
-Route::get('/migrate', function () {
-    \Artisan::call('optimize:clear');
-    \Artisan::call('migrate', [
-        '--force' => true
-    ]);
-    dd('migrated!');
-});
-
-Route::get('/fcm/{id}', function ($id) {
-    $device = \App\Models\User\UserDevice::whereUserId($id)->pluck('fcm_token')->toArray();
-    $sent = \App\Services\Firebase::send($device, $message = 'test', $title = 'test', []);
-    dd($sent);
 });

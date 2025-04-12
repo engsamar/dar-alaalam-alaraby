@@ -9,7 +9,7 @@
             <div class="col-lg-3 col-md-3 col-sm-12">
                 <a class="logo-h" href="{{ route('website.home', ['locale' => $locale]) }}">
                     {{-- <img src="{{ isset($setting->logo) ? $setting->logoPath($locale)  : '' }}" alt="logo"> --}}
-                    <img src="{{ asset('/assets/img/logo.jpeg') }}" alt="logo">
+                    <img src="{{ asset('assets/img/logo.jpeg') }}" alt="logo">
                 </a>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
@@ -32,7 +32,7 @@
                 <div class="others-option">
                     <div class="d-flex align-items-center">
                         <ul>
-                            @if (!empty($locales))
+                            @if (!empty($locales) && count($locales) > 1)
                                 <li>
                                     <a
                                         href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $parameters) }}">
@@ -76,7 +76,7 @@
     <div class="item">
         <a href="{{ route('website.store.index',['locale'=> $locale]) }}" class="search-icon">
             <i class='bx bx-search'></i>
-            <span>@lang('titles.Search')</span>
+            <span>@lang('titles.search')</span>
         </a>
     </div>
     <div class="item">

@@ -33,7 +33,7 @@
                         <li><a href="{{ route('admin.products.index') }}" key="t-products">@lang('titles.products')</a></li>
                         <li><a href="{{ route('admin.authors.index') }}" key="t-products">@lang('titles.authors')</a></li>
                         <li><a href="{{ route('admin.publishers.index') }}" key="t-products">@lang('titles.publishers')</a></li>
-                        <li><a href="{{ route('admin.brands.index') }}" key="t-products">@lang('titles.brands')</a></li>
+                        {{-- <li><a href="{{ route('admin.brands.index') }}" key="t-products">@lang('titles.brands')</a></li> --}}
                         <li><a href="{{ route('admin.categories.index') }}" key="t-products">@lang('titles.categories')</a></li>
                         <li><a href="{{ route('admin.sub_categories.index') }}" key="t-products">@lang('titles.sub_categories')</a></li>
                         {{-- <li><a href="{{ route('admin.colors.index') }}" key="t-products">@lang('titles.colors')</a></li>
@@ -63,7 +63,7 @@
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class="bx bx-calendar"></i><span class="badge rounded-pill bg-success float-end">New</span>
-                        <span key="t-dashboards">Orders</span>
+                        <span key="t-dashboards">@lang('titles.orders')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
@@ -79,7 +79,7 @@
 
 
 
-                <li class="menu-title" key="t-settings">App Settings</li>
+                <li class="menu-title" key="t-settings">>@lang('titles.settings')</li>
 
                 <li>
                     <a href="{{ route('admin.settings.index') }}" class="waves-effect">
@@ -137,7 +137,7 @@
                         <li><a href="{{ route('admin.banners.index') }}" key="t-website">@lang('titles.banners')</a></li>
                         <li><a href="{{ route('admin.sliders.index') }}" key="t-website">@lang('titles.sliders')</a></li>
                         <li><a href="{{ route('admin.coupons.index') }}" key="t-website">@lang('titles.coupons')</a></li>
-                        <li><a href="{{ route('admin.notifications.index') }}" key="t-website">@lang('titles.notifications')</a></li>
+                        {{-- <li><a href="{{ route('admin.notifications.index') }}" key="t-website">@lang('titles.notifications')</a></li> --}}
                     </ul>
 
                 </li>
@@ -148,6 +148,10 @@
                         <span key="t-cities">@lang('titles.cities')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
+                        <li>
+                            <a href="{{ route('admin.countries.index') }}" key="t-scrollable">@lang('titles.countries')</a>
+                        </li>
+
                         <li>
                             <a href="{{ route('admin.cities.index') }}" key="t-scrollable">@lang('titles.cities')</a>
                         </li>

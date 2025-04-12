@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('tab_name', __('admin.areas'))
+@section('tab_name', __('admin.publishers'))
 
 @section('content')
     <div class="row">
@@ -7,7 +7,7 @@
             <div class="card ">
                 <div class="card-body">
                     <h4>
-                        @lang('admin.areas') #{{ $item->id }} {!! $item->active_span !!}
+                        @lang('admin.publishers') #{{ $item->id }} {!! $item->active_span !!}
                     </h4>
                     <hr>
                     <table class="table">

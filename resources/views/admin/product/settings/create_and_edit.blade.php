@@ -128,7 +128,7 @@
                             @lang('common.save')
                         </button>
 
-                        <a class="btn btn-danger pull-right text-white" style="float: right;"
+                        <a class="btn btn-danger  {{ $locale == 'en' ? 'pull-right' : 'pull-left' }} text-white" style="float:{{ $locale == 'en' ? 'right' : 'left' }} "
                             href="{{ route('admin.sizes.index') }}">@lang('common.cancel')
                             <i class="icon-arrow-left-bold"></i>
                         </a>
@@ -142,7 +142,7 @@
 
 @endsection
 @section('js')
-    <script src="{{ asset('/panel/js/validate.js') }}"></script>
+    <script src="{{ asset('panel/js/validate.js') }}"></script>
     <script>
         $(function() {
 

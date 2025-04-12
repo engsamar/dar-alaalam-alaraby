@@ -1,12 +1,12 @@
 @extends('admin.layouts.app')
-@section('tab_name', __('admin.areas'))
+@section('tab_name', __('admin.publishers'))
 @section('content')
     @include('admin.layouts.title', [
-        'subTitle' => trans('common.list') . ' ' . trans('titles.areas'),
-        'title' => trans('titles.areas'),
+        'subTitle' => trans('common.list') . ' ' . trans('titles.publishers'),
+        'title' => trans('titles.publishers'),
         'createBtn' => true,
         'btnTitle' => trans('common.add'),
-        'btnUrl' => route('admin.areas.create'),
+        'btnUrl' => route('admin.publishers.create'),
         'count' => $result['counts'] ?? '0',
     ])
     <div class="row">
@@ -14,7 +14,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    @include('admin.areas.search')
+                    @include('admin.product.publishers.search')
                     <hr />
                     @if ($result['items']->count())
                         <div class="table-responsive">
@@ -44,11 +44,11 @@
                                             <td class="text-left">
 
                                                 <a class="btn btn-sm btn-outline-warning"
-                                                    href="{{ route('admin.areas.edit', $item->id) }}">
+                                                    href="{{ route('admin.publishers.edit', $item->id) }}">
                                                     <i class="mdi mdi-pencil font-size-18"></i>
                                                 </a>
 
-                                                <form action="{{ route('admin.areas.destroy', $item->id) }}" method="POST"
+                                                <form action="{{ route('admin.publishers.destroy', $item->id) }}" method="POST"
                                                     style="display: inline;"
                                                     onsubmit="return confirm('Delete? Are you sure?');">
                                                     {{ csrf_field() }}
@@ -68,7 +68,7 @@
                         {!! $result['items']->render() !!}
                     @else
                         <div class="text-center">
-                            <img src="{{ asset('/panel/images/empty-box.png') }}" class="empty-box" />
+                            <img src="{{ asset('panel/images/empty-box.png') }}" class="empty-box" />
 
                             <hr>
                             <h3 class="text-xs-center text-info">No data addes !</h3>

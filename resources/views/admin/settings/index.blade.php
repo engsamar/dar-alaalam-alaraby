@@ -664,7 +664,7 @@
     <script src="https://cdn.tiny.cloud/1/z4r871g6sjhoi8cm8vidvde8cedb47jwuhfdwxfdw1av9wpi/tinymce/5/tinymce.min.js"
         referrerpolicy="origin"></script>
 
-    <script src="{{ asset('/panel/js/pages/form-validation.init.js') }}"></script>
+    <script src="{{ asset('panel/js/pages/form-validation.init.js') }}"></script>
     <script>
         $(document).ready(function() {
             0 < $(".tinyMceExample").length && tinymce.init({

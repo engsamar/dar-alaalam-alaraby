@@ -58,7 +58,7 @@
             </div>
             <div class="col-lg-6 col-md-12">
                 <div class="about-image">
-                    <img src="{{  $setting && $setting->login_image ?  imagePath($setting->login_image) :  asset('/assets/img/login.jpeg') }}" alt="about-image">
+                    <img src="{{  $setting && $setting->login_image ?  imagePath($setting->login_image) :  asset('assets/img/login.jpeg') }}" alt="about-image">
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
 
 @endsection
 @section('js')
-    <script src="{{ asset('/assets/js/validate.js') }}"></script>
+    <script src="{{ asset('assets/js/validate.js') }}"></script>
     <script>
         const input = document.querySelector(".phone");
         window.intlTelInput(input, {

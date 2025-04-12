@@ -39,6 +39,8 @@
                         @if($result['item']->discount  > 0)
                             <span class="old-price">{{  $result['item']->price }}</span>
                         @endif
+
+                        @lang('titles.currency')
                     </div>
                     <div class="rating">
                         <i class='bx bxs-star'></i>
@@ -60,16 +62,33 @@
                         <button type="button" class="add-to-wishlist" data-slug="{{ $result['item']->slug }}"><i class='bx bx-heart'></i> @lang('titles.AddToWishlist')</button>
                     </div>
                     <ul class="products-info">
-                        <li><span>SKU:</span> {{ $result['item']->sku  }}</li>
+                        <li><span>@lang('attributes.isbn') :</span> {{ $result['item']->isbn  }}</li>
                         @if(! empty($result['item']->category))
-                            <li><span>@lang('titles.category'):</span> <a href="{{ $result['item'] ? $result['item']->category->url : ''}}">{{ $result['item']->category->title ?? ''  }}</a></li>
+                            <li>
+                                <span>@lang('attributes.category'):</span>
+                                <a href="{{ $result['item'] ? $result['item']->category->url : ''}}">
+                                    {{ $result['item']->category->title ?? ''  }}
+                                </a>
+
+                                @if (! empty($result['item']->sub_category))
+
+                                    <a href="{{ $result['item'] ? $result['item']->sub_category->url : ''}}">
+                                        {{ $result['item']->sub_category->title ?? ''  }}
+                                    </a>
+
+                                @endif
+                            </li>
                         @endif
 
-                        @if(! empty($result['item']->brand))
-                            <li><span>@lang('titles.brand')</span> <a href="{{ $result['item'] ? $result['item']->brand->url : '' }}">{{ $result['item']->brand->title ?? ''  }}</a></li>
+                        @if(! empty($result['item']->author))
+                            <li><span>@lang('attributes.author')</span> <a href="{{ $result['item'] ? $result['item']->author->url : '#' }}">{{ $result['item']->author->title ?? ''  }}</a></li>
                         @endif
-                        <li><span>@lang('titles.Availability'):</span> @if( $result['item']->stock > 0) @lang('titles.InStock') ({{ $result['item']->stock }}) @else @lang('titles.SoldOut')  @endif</li>
-                        <li><span>@lang('titles.Tags'):</span> @if(! empty($result['tags']))
+                        {{-- <li><span>@lang('titles.Availability'):</span> @if( $result['item']->stock > 0) @lang('titles.InStock') ({{ $result['item']->stock }}) @else @lang('titles.SoldOut')  @endif</li> --}}
+                        <li><span>@lang('titles.Tags'):</span>
+                            <a href="#" rel="tag">#ثقافة</a>
+                            <a href="#" rel="tag">#نشر</a>
+                            <a href="#" rel="tag">#كتب</a>
+                            @if(! empty($result['tags']))
                             @foreach ($result['tags'] as $tag )
                                 <a href="{{ $tag->url }}" rel="tag">{{ $tag->title }}</a>
                             @endforeach
@@ -77,21 +96,29 @@
                     </ul>
                     <div class="products-share">
                         <ul class="social">
-                            <li><span>@lang('titles.share'):</span></li>
-                            <li><span>@lang('titles.share')</span></li>
-                                <li><a class="whatsapp" target="_blank" href="{{ $result['share']['whatsapp'] ?? '#' }}">
+                            <li><span>@lang('titles.FollowUs'):</span></li>
+
+
+                                <li>
+                                    <a class="facebook" target="_blank" href="{{ $setting->facebook ?? '#' }}">
+                                        <i class="bx bxl-facebook"></i>
+                                    </a>
+                                </li>
+                                {{-- <li><a class="whatsapp" target="_blank" href="{{ $result['share']['whatsapp'] ?? '#' }}">
                                     <i class="bx bxl-whatsapp"></i>
                                 </a>
                                 </li>
                                 <li><a  class="twitter" target="_blank" href="{{ $result['share']['twitter'] ?? '#' }}">
                                     <i class="bx bxl-twitter"></i>
                                 </a>
-                                </li>
+                                </li> --}}
 
-                                <li><a class="instagram" target="_blank" href="{{ $result['share']['facebook'] ?? '#' }}">
-                                    <i class="bx bxl-facebook"></i>
-                                </a>
-                                </li>
+
+                                {{-- <li>
+                                    <a class="instagram" target="_blank" href="{{ $result['share']['facebook'] ?? '#' }}">
+                                        <i class="bx bxl-facebook"></i>
+                                    </a>
+                                </li> --}}
 
                         </ul>
                     </div>

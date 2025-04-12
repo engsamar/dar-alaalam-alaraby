@@ -68,7 +68,7 @@
                         {!! $result['items']->render() !!}
                     @else
                         <div class="text-center">
-                            <img src="{{ asset('/panel/images/empty-box.png') }}" class="empty-box" />
+                            <img src="{{ asset('panel/images/empty-box.png') }}" class="empty-box" />
 
                             <hr>
                             <h3 class="text-xs-center text-info">No data addes !</h3>

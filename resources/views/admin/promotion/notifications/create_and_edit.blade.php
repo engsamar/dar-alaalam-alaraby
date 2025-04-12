@@ -234,7 +234,7 @@
 
 @endsection
 @section('js')
-    <script src="{{ asset('/panel/js/validate.js') }}"></script>
+    <script src="{{ asset('panel/js/validate.js') }}"></script>
     <script>
         $(function(){
             $('#topics-field').on('change',function(){

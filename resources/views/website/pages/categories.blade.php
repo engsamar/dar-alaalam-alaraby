@@ -1,7 +1,7 @@
 @extends('website.layouts.app')
-@section('title', __('titles.brands'))
+@section('title', __('titles.categories'))
 @section('content')
-    @includeIf('website.layouts.title', ['title' => __('titles.brands')])
+    @includeIf('website.layouts.title', ['title' => __('titles.categories')])
 
     @if (! empty($result['items']))
         <div class="brands-area ptb-100">

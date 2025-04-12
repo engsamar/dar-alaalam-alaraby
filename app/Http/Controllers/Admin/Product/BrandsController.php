@@ -61,7 +61,7 @@ class BrandsController extends Controller
         if ($request->hasFile('image')) {
             $data['image'] = \App\Helpers\Image::upload($request->file('image'), $this->path);
         }
-        $data['slug'] = \Illuminate\Support\Str::slug($data['title']['en'], "-");
+        $data['slug'] = \Illuminate\Support\Str::slug($data['title'][app()->getLocale()], "-");
 
         $this->itemRepository->createItem($this->model, $data);
         $request->session()->flash('success', __('titles.AddedMessage'));
@@ -83,7 +83,7 @@ class BrandsController extends Controller
         if ($request->hasFile('image')) {
             $data['image'] = \App\Helpers\Image::upload($request->file('image'), $this->path);
         }
-        $data['slug'] = \Illuminate\Support\Str::slug($data['title']['en'], "-");
+        $data['slug'] = \Illuminate\Support\Str::slug($data['title'][app()->getLocale()], "-");
 
         $this->itemRepository->updateItem($this->model, $id, $data);
         $request->session()->flash('success', __('titles.UpdatedMessage'));

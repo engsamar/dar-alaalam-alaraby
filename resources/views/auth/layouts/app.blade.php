@@ -1,9 +1,9 @@
 @extends('website.layouts.app')
 @section('css')
     @if ( $locale == 'ar')
-        <link rel="stylesheet" href="{{ asset('/assets/css/ar/dashboard.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/ar/dashboard.css') }}">
     @else
-        <link rel="stylesheet" href="{{ asset('/assets/css/dashboard.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}">
     @endif
 @endsection
 @section('content')
@@ -163,5 +163,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('/assets/js/dashboard.js') }}"></script>
+    <script src="{{ asset('assets/js/dashboard.js') }}"></script>
 @endsection

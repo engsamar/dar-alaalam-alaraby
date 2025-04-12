@@ -3060,7 +3060,7 @@ Page Title Area CSS
 .page-title-area {
     z-index: 1;
     position: relative;
-    background-color: #f9f9f9;
+    background-color: #e0e0de;
     background-image: url(../img/page-title.jpg);
     background-position: center center;
     background-repeat: no-repeat;
@@ -7103,3 +7103,4 @@ section.cart-page.body-inner {
         margin: 0;
     }
 }
+

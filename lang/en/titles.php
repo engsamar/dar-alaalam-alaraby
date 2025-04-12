@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'admins' => 'System admins',
     'questions' => 'Questions',
     'banners' => 'Banners',
@@ -176,14 +175,14 @@ return [
     'PopularProducts' => 'Popular Items',
     'testimonials' => 'Testimonials',
     'RelatedProducts' => 'Related Products',
-    "EnjoyOFF" => "Enjoy :discount % OFF",
-    "PlaceOrder" => "Place an order now",
+    'EnjoyOFF' => 'Enjoy :discount % OFF',
+    'PlaceOrder' => 'Place an order now',
     'Availability' => 'Availability',
     'InStock' => 'In Stock',
     'SoldOut' => 'Sold Out',
     'sliders' => 'Sliders',
-    "verifyAccount" => "Verify account",
-    "forgot" => 'Forgot password',
+    'verifyAccount' => 'Verify account',
+    'forgot' => 'Forgot password',
     'authors' => 'authors',
     'publishers' => 'publishers',
     'books' => 'books',
@@ -193,5 +192,5 @@ return [
     'book_categories' => 'book categories',
     'book_category' => 'book category',
     'read_more' => 'Read more',
-
-];
+    'customer' => 'Customer',
+    'countries' => 'ئountries', ];

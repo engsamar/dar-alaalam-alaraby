@@ -1,28 +1,23 @@
 @extends('admin.layouts.app')
-@section('tab_name', trans('titles.areas'))
-@section('css')
-    <link rel="stylesheet" href="{{ asset('/panel/vendors/dropify/dropify.min.css') }}">
-@endsection
+@section('tab_name', trans('titles.authors'))
+
 @section('content')
     @include('admin.layouts.title', [
         'subTitle' => $item->id ? trans('common.edit') . '#' . $item->id : trans('common.add'),
-        'title' => trans('titles.areas'),
+        'title' => trans('titles.authors'),
     ])
 
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">
-                        {{ $item->id ? trans('common.edit') . '#' . $item->id : trans('common.add') }}
-                    </h4>
-                    <hr>
+
                     @if ($item->id)
-                        <form class="needs-validation" action="{{ route('admin.areas.update', $item->id) }}" method="POST"
+                        <form class="needs-validation" action="{{ route('admin.authors.update', $item->id) }}" method="POST"
                             enctype='multipart/form-data' novalidate>
                             <input type="hidden" name="_method" value="PUT">
                         @else
-                            <form class="needs-validation" action="{{ route('admin.areas.store') }}" method="POST"
+                            <form class="needs-validation" action="{{ route('admin.authors.store') }}" method="POST"
                                 enctype='multipart/form-data' novalidate>
                     @endif
                     @csrf
@@ -56,9 +51,101 @@
                             </div>
                         @endforeach
                     @endif
+{{--
+                    <div class="row mb-3">
+                        <label class="col-form-label col-lg-2" for="city_id-field">@lang('attributes.city')</label>
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <select class="form-control select2" name="city_id">
+                                    @if (!empty($result['cities']))
+                                        @foreach ($result['cities'] as $city)
+                                            <option {{ old('city_id', $item->city_id) == $city->id ? 'selected' : '' }}
+                                                value="{{ $city->id }}">
+                                                {{ $city->title }}
+                                            </option>
+                                        @endforeach
+                                    @endif
+
+                                </select>
+                                @if ($errors->has('city_id'))
+                                    <span class="invalid-feedback">{{ $errors->first('city_id') }}</span>
+                                @endif
+                            </div>
+                        </div>
+
+                    </div> --}}
 
                     <div class="row mb-3">
-                        <label class="col-form-label col-lg-2" for="city_id-field">@lang('admin.city')</label>
+                        <label class="col-form-label col-lg-2" for="email-field">@lang('attributes.E-mail')</label>
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <input type="email"
+                                    class="form-control @if ($errors->has('email')) is-invalid @endif" name="email"
+                                    value="{{ old('email', $item->email) ?? '' }}" />
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback">{{ $errors->first('email') }}</span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-form-label col-lg-2" for="mobile-field">@lang('attributes.Mobile')</label>
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <input type="tel" min="10"
+                                    class="form-control @if ($errors->has('mobile')) is-invalid @endif" name="mobile"
+                                    value="{{ old('mobile', $item->mobile) ?? '' }}" />
+                                @if ($errors->has('mobile'))
+                                    <span class="invalid-feedback">{{ $errors->first('mobile') }}</span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-form-label col-lg-2" for="gender-field">@lang('attributes.Gender')</label>
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <select class="form-control select2" name="gender">
+                                    <option value="male" {{ old('gender', $item->gender) ? '' : 'selected' }}>
+                                        @lang('attributes.Male')</option>
+                                    <option value="female" {{ old('gender', $item->gender) ? '' : 'selected' }}>
+                                        @lang('attributes.Female')</option>
+
+                                </select>
+                                @if ($errors->has('gender'))
+                                    <span class="invalid-feedback">{{ $errors->first('gender') }}</span>
+                                @endif
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-form-label col-lg-2" for="country_id-field">@lang('attributes.country')</label>
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <select class="form-control select2" name="country_id">
+                                    @if (!empty($result['countries']))
+                                        @foreach ($result['countries'] as $country)
+                                            <option {{ old('country_id', $item->country_id) == $country->id ? 'selected' : '' }}
+                                                value="{{ $country->id }}">
+                                                {{ $country->title }}
+                                            </option>
+                                        @endforeach
+                                    @endif
+
+                                </select>
+                                @if ($errors->has('country_id'))
+                                    <span class="invalid-feedback">{{ $errors->first('country_id') }}</span>
+                                @endif
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row mb-3">
+                        <label class="col-form-label col-lg-2" for="city_id-field">@lang('attributes.city')</label>
                         <div class="col-lg-10">
                             <div class="form-group">
                                 <select class="form-control select2" name="city_id">
@@ -94,6 +181,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row mb-3">
                         <label class="col-form-label col-lg-2" for="active-field">@lang('attributes.active')</label>
                         <div class="col-lg-10">
@@ -123,8 +211,8 @@
                             @lang('common.save')
                         </button>
 
-                        <a class="btn btn-danger pull-right text-white" style="float: right;"
-                            href="{{ route('admin.areas.index') }}">@lang('common.cancel')
+                        <a class="btn btn-danger  {{ $locale == 'en' ? 'pull-right' : 'pull-left' }} text-white" style="float:{{ $locale == 'en' ? 'right' : 'left' }} "
+                            href="{{ route('admin.authors.index') }}">@lang('common.cancel')
                             <i class="icon-arrow-left-bold"></i>
                         </a>
                     </div>
@@ -137,5 +225,5 @@
 
 @endsection
 @section('scripts')
-    <script src="{{ asset('/panel/js/pages/form-validation.init.js') }}"></script>
+    <script src="{{ asset('panel/js/pages/form-validation.init.js') }}"></script>
 @endsection

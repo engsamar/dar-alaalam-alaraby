@@ -41,12 +41,33 @@
             </div>
         </div>
         <div class="foot-block">
+            @if ( $item->author)
+
             <div class="auth-h">
                 <i class="fa fa-user"></i>
-                <span>Name</span>
+                <span>{{ $item->author->title ?? ''  }}</span>
             </div>
+            @endif
+
+            @if ( $item->category)
+
+            <div class="auth-h">
+                <i class="fa fa-tag"></i>
+                <span>{{ $item->category->title ?? ''  }}</span>
+                @if($item->sub_category) / <span>{{ $item->sub_category->title ?? ''  }}</span>@endif
+            </div>
+            @endif
+
             <div class="tags-h">
-                <a href="#">
+                @if (! empty($item->tags))
+                    @foreach ($item->tags as $tag )
+                    <a href="#">
+                        {{ $tag->title ?? '' }}
+                    </a>
+                    @endforeach
+
+                @endif
+                {{-- <a href="#">
                     tag 1
                 </a>
                 <a href="#">
@@ -57,7 +78,7 @@
                 </a>
                 <a href="#">
                     tag 4
-                </a>
+                </a> --}}
             </div>
         </div>
     </div>

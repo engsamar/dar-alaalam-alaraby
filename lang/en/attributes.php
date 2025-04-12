@@ -12,7 +12,7 @@ return [
     'attached' => 'Attached files',
     'reference_number' => 'Reference Number',
     'code' => 'code',
-    "old_password" => "Old Password",
+    'old_password' => 'Old Password',
     'active' => 'Active',
     'position' => 'Position',
     'Mobile' => 'Phone Number',
@@ -42,7 +42,7 @@ return [
     'Slug' => 'Slug',
     'Position' => 'Position',
     'Publish' => 'Publish',
-    'LastUpdate' =>  'Updated Date',
+    'LastUpdate' => 'Updated Date',
     'list' => 'List :item',
     'Active/Block' => 'Active/Block',
     'Block' => 'Block',
@@ -61,7 +61,7 @@ return [
     'delegate' => 'Delegate',
     'details' => 'Details',
     'location' => 'Location',
-    'status'    => 'Status',
+    'status' => 'Status',
     'order' => 'Order',
     'orders' => 'Orders',
     'order_details' => 'Order Details',
@@ -150,7 +150,6 @@ return [
     'delivery_cost' => 'Delivery cost',
     'currency' => 'EG',
     'chooseAddress' => 'Choose Address',
-    "PasswordsSent" => 'Reset password code sent successfully'
-
-
+    'PasswordsSent' => 'Reset password code sent successfully',
+    'author' => 'Author',
 ];

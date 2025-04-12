@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\Product\Cart;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Cookie;
 use App\Interfaces\CRUDRepositoryInterface;
 use App\Models\City;
+use App\Models\Product\Cart;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Ramsey\Uuid\Uuid;
 
 class CartController extends Controller
@@ -26,43 +26,42 @@ class CartController extends Controller
     ) {
         $this->itemRepository = $itemRepository;
     }
+
     public function index()
     {
         $result = $this->calculateCartPrice();
         $result['cities'] = City::all();
+
         return view('website.carts.index', compact('result'));
     }
 
     public function show($locale, $orderUuid, $referenceNumber)
     {
         $result = $this->calculateCartPrice();
-        //order
+        // order
 
         $couponCondition['conditions'] = [
             'order_uuid' => $orderUuid,
             'reference_number' => $referenceNumber,
-            'user_id' =>  auth()->user()->id
+            'user_id' => auth()->user()->id,
         ];
-
 
         $result['order'] = $this->itemRepository
             ->getPaginateItems($this->orderModel, $couponCondition)
             ->first();
-
 
         if ($result['order'] && $result['order']->payment_status == 1) {
             abort(404);
         }
         if (!empty($result['order'])) {
             // dd($orderUuid, $referenceNumber, $result['order']);
-            //redirect to payment
+            // redirect to payment
 
-            //return view('website.carts.checkout', compact('result'));
+            // return view('website.carts.checkout', compact('result'));
         }
 
         return back();
     }
-
 
     public function validateCoupon(Request $request)
     {
@@ -78,12 +77,13 @@ class CartController extends Controller
             return [
                 'status' => true,
                 'sideCart' => $result['sideCart'],
-                'cartItem' => view('website.carts.item', compact('result'))->render()
+                'cartItem' => view('website.carts.item', compact('result'))->render(),
             ];
         }
 
         return ['status' => false];
     }
+
     public function addToCart(Request $request)
     {
         $slug = $request->id;
@@ -93,7 +93,7 @@ class CartController extends Controller
         if (!empty($product)) {
             $product_id = $product->id;
             if ($request->quantity != null) {
-                $quantity = (int)$request->quantity;
+                $quantity = (int) $request->quantity;
             }
 
             if ($user = auth()->user()) {
@@ -126,9 +126,9 @@ class CartController extends Controller
                     ->where('product_id', $product_id)->first();
                 if (!empty($cart)) {
                     $cart->quantity = $cart->quantity + $quantity;
-                    if ($cart->quantity + $quantity > $product->noAvailableCell) {
-                        return ['status' => false, 'type' => 'MaxQty'];
-                    }
+                    // if ($cart->quantity + $quantity > $product->noAvailableCell) {
+                    //     return ['status' => false, 'type' => 'MaxQty'];
+                    // }
                     $cart->save();
                 } else {
                     $data = [
@@ -153,6 +153,7 @@ class CartController extends Controller
             return ['status' => false];
         }
     }
+
     public function increaseCartquantity(Request $request)
     {
         $user = auth()->user();
@@ -166,7 +167,6 @@ class CartController extends Controller
         }
 
         if (!empty($cart)) {
-
             // if ($cart->quantity + 1 > $cart->product->noAvailableCell) {
             //     return ['status' => false, 'type' => 'MaxQty'];
             // }
@@ -177,12 +177,13 @@ class CartController extends Controller
             return [
                 'status' => true,
                 'sideCart' => $result['sideCart'],
-                'cartItem' => view('website.carts.item', compact('result'))->render()
+                'cartItem' => view('website.carts.item', compact('result'))->render(),
             ];
         }
 
         return ['status' => false];
     }
+
     public function decreaseCartquantity(Request $request)
     {
         $user = auth()->user();
@@ -205,12 +206,13 @@ class CartController extends Controller
             return [
                 'status' => true,
                 'sideCart' => $result['sideCart'],
-                'cartItem' => view('website.carts.item', compact('result'))->render()
+                'cartItem' => view('website.carts.item', compact('result'))->render(),
             ];
         }
 
         return ['status' => false];
     }
+
     public function deleteItemCart(Request $request)
     {
         $user = auth()->user();
@@ -228,15 +230,17 @@ class CartController extends Controller
         if (!empty($carts)) {
             $carts->delete();
             $result = $this->calculateCartPrice();
+
             return [
                 'status' => true,
                 'sideCart' => $result['sideCart'],
-                'cartItem' => view('website.carts.item', compact('result'))->render()
+                'cartItem' => view('website.carts.item', compact('result'))->render(),
             ];
         }
 
         return ['status' => false];
     }
+
     public function calculateCartPrice($coupon = null)
     {
         $setting = null;
@@ -268,7 +272,7 @@ class CartController extends Controller
         if (count($result['items']) > 0) {
             foreach ($result['items'] as $item) {
                 $priceItem = $item->product->price_after > 0 ? $item->product->price_after : $item->product->price;
-                $price = $priceItem * (int) ($item->quantity);
+                $price = $priceItem * (int) $item->quantity;
                 $result['total'] = $result['total'] + $price;
                 $result['price'] = $result['price'] + $price;
             }
@@ -304,7 +308,6 @@ class CartController extends Controller
             }
         })->take(5)->get();
 
-
         $sideCart['totalCartPrice'] = $result['total'];
 
         $sideCart['side_cart'] = view('website.layouts.side-cart', compact('sideCart'))
@@ -314,6 +317,7 @@ class CartController extends Controller
 
         return $result;
     }
+
     public function createOrderProducts($result)
     {
         foreach ($result['items'] as $item) {
@@ -325,7 +329,7 @@ class CartController extends Controller
             $itemPrice = $item->product->price_after > 0 ? $item->product->price_after : $item->product->price;
             $vat = $result['vatPerecent'] * $price / 100;
 
-            if (! empty($result['couponCheck'])) {
+            if (!empty($result['couponCheck'])) {
                 $discountValue = (
                     $result['couponCheck']->type == 1 ? $result['couponCheck']->discount : ($result['couponCheck']->discount * $price) / 100);
 
@@ -348,7 +352,6 @@ class CartController extends Controller
         }
     }
 
-
     public function paymentResponse(Request $request, $orderUuid, $referenceNumber)
     {
         $data = $request->all();
@@ -358,24 +361,24 @@ class CartController extends Controller
             "amount" => "63000"
             "message" => "APPROVED"
          */
-        //order
+        // order
         $couponCondition['conditions'] = [
             'order_uuid' => $orderUuid,
             'reference_number' => $referenceNumber,
-            'user_id' =>  auth()->user()->id
+            'user_id' => auth()->user()->id,
         ];
         $result['order'] = $this->itemRepository
             ->getPaginateItems($this->orderModel, $couponCondition)
             ->first();
 
-        if (! empty($result['order']) && $data['status'] == 'paid') {
+        if (!empty($result['order']) && $data['status'] == 'paid') {
             $paymentUpdates = [
                 'transaction_id' => $data['id'],
                 'transaction_type' => 'moyasar',
                 'transaction_status' => $data['status'],
                 'payment_status' => $data['status'] == 'paid' ? 1 : 2,
                 'transaction_message' => $data['message'],
-                'transaction_link' => $data['id']
+                'transaction_link' => $data['id'],
             ];
             $this->itemRepository
                 ->updateItem($this->orderModel, $result['order']->id, $paymentUpdates);
@@ -392,9 +395,10 @@ class CartController extends Controller
             return view('customers.cart.checkout_thanks', compact('result'));
         }
         toastr()->error(__('website.ErrorPayment'));
+
         return redirect()->route(
             'website.auth.cart.checkout.show',
-            ['order_uuid' => $orderUuid, 'reference_number' => $referenceNumber, 'locale' => app()->getLocale(),]
+            ['order_uuid' => $orderUuid, 'reference_number' => $referenceNumber, 'locale' => app()->getLocale()]
         );
     }
 
@@ -402,10 +406,8 @@ class CartController extends Controller
     {
         $result = $this->calculateCartPrice($request->coupon_code);
         $order = null;
-        //create new tmp order and complete order after payment done
-        if (! empty($result) && ! empty($result['items'])) {
-
-
+        // create new tmp order and complete order after payment done
+        if (!empty($result) && !empty($result['items'])) {
             $data = [
                 'user_id' => auth()->user()->id,
                 'reference_number' => floor(microtime(true) * 10000),
@@ -415,9 +417,9 @@ class CartController extends Controller
                 'order_uuid' => Uuid::uuid4()->toString(),
                 'status' => 0,
                 'payment_status' => 0, // waiting
-                'payment_type' => 0, //credit
+                'payment_type' => 0, // credit
                 'price' => $result['total'],
-                'total_price' =>  $result['vatTotal'],
+                'total_price' => $result['vatTotal'],
                 'vat' => $result['vatPerecent'],
                 'vat_value' => $result['vat'],
                 'discount' => $result['couponCheck'] ? $result['couponCheck']->discount : 0,
@@ -428,7 +430,7 @@ class CartController extends Controller
             $order = $this->itemRepository->createItem($this->orderModel, $data);
 
             foreach ($result['items'] as $item) {
-                //create collection order
+                // create collection order
                 $collectionOrderItem = [
                     'product_id' => $item->product_id,
                     'quantity' => $item->quantity,
@@ -438,18 +440,17 @@ class CartController extends Controller
                     'image' => $item->product->image,
                     'description' => $item->product->description,
                     'price_after' => $item->product->price_after,
-                    'total_price' => $item->quantity *  $item->product->price_after,
+                    'total_price' => $item->quantity * $item->product->price_after,
                     'discount' => $item->product->discount,
                     'unit_id' => $item->product->unit_id,
                     'slug' => $item->product->slug,
-
                 ];
 
                 $collectionOrder = $this->itemRepository->createItem($this->orderProductModel, $collectionOrderItem);
             }
         }
 
-        if (! empty($order)) {
+        if (!empty($order)) {
             $orderUuid = $order->order_uuid;
             $referenceNumber = $order->reference_number;
 
@@ -463,6 +464,7 @@ class CartController extends Controller
             );
         }
         dd('ddd');
+
         return redirect()->back();
     }
 }

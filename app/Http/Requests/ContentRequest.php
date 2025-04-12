@@ -9,37 +9,35 @@ class ContentRequest extends Request
         switch ($this->method()) {
             // CREATE
             case 'POST':
-                {
-                    return [
-                        'title.en' => 'required|string',
-                        'title.ar' => 'required|string',
+                $validate = [];
 
-                    ];
+                foreach (\Illuminate\Support\Facades\Config::get('app.locales') as $locale) {
+                    array_push($validate, ['title.'.$locale => 'required|string']);
                 }
+
+                return $validate;
+
                 // UPDATE
             case 'PUT':
             case 'PATCH':
-                {
-                    return [
-                        'title.en' => 'required|string',
-                        'title.ar' => 'required|string',
+                $validate = [];
 
-
-                    ];
+                foreach (\Illuminate\Support\Facades\Config::get('app.locales') as $locale) {
+                    array_push($validate, ['title.'.$locale => 'required|string']);
                 }
+
+                return $validate;
+
             case 'GET':
             case 'DELETE':
             default:
-                {
-                    return [];
-                }
+                return [];
         }
     }
 
     public function messages()
     {
         return [
-
         ];
     }
 }

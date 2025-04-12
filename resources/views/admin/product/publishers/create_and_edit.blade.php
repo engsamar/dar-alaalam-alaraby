@@ -1,28 +1,23 @@
 @extends('admin.layouts.app')
-@section('tab_name', trans('titles.areas'))
-@section('css')
-    <link rel="stylesheet" href="{{ asset('/panel/vendors/dropify/dropify.min.css') }}">
-@endsection
+@section('tab_name', trans('titles.publishers'))
+
 @section('content')
     @include('admin.layouts.title', [
         'subTitle' => $item->id ? trans('common.edit') . '#' . $item->id : trans('common.add'),
-        'title' => trans('titles.areas'),
+        'title' => trans('titles.publishers'),
     ])
 
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">
-                        {{ $item->id ? trans('common.edit') . '#' . $item->id : trans('common.add') }}
-                    </h4>
-                    <hr>
+
                     @if ($item->id)
-                        <form class="needs-validation" action="{{ route('admin.areas.update', $item->id) }}" method="POST"
+                        <form class="needs-validation" action="{{ route('admin.publishers.update', $item->id) }}" method="POST"
                             enctype='multipart/form-data' novalidate>
                             <input type="hidden" name="_method" value="PUT">
                         @else
-                            <form class="needs-validation" action="{{ route('admin.areas.store') }}" method="POST"
+                            <form class="needs-validation" action="{{ route('admin.publishers.store') }}" method="POST"
                                 enctype='multipart/form-data' novalidate>
                     @endif
                     @csrf
@@ -57,29 +52,7 @@
                         @endforeach
                     @endif
 
-                    <div class="row mb-3">
-                        <label class="col-form-label col-lg-2" for="city_id-field">@lang('admin.city')</label>
-                        <div class="col-lg-10">
-                            <div class="form-group">
-                                <select class="form-control select2" name="city_id">
-                                    @if (!empty($result['cities']))
-                                        @foreach ($result['cities'] as $city)
-                                            <option {{ old('city_id', $item->city_id) == $city->id ? 'selected' : '' }}
-                                                value="{{ $city->id }}">
-                                                {{ $city->title }}
-                                            </option>
-                                        @endforeach
-                                    @endif
-
-                                </select>
-                                @if ($errors->has('city_id'))
-                                    <span class="invalid-feedback">{{ $errors->first('city_id') }}</span>
-                                @endif
-                            </div>
-                        </div>
-
-                    </div>
-
+                
 
                     <div class="row mb-3">
                         <label class="col-form-label col-lg-2" for="position-field">@lang('attributes.position')</label>
@@ -123,8 +96,8 @@
                             @lang('common.save')
                         </button>
 
-                        <a class="btn btn-danger pull-right text-white" style="float: right;"
-                            href="{{ route('admin.areas.index') }}">@lang('common.cancel')
+                        <a class="btn btn-danger  {{ $locale == 'en' ? 'pull-right' : 'pull-left' }} text-white" style="float:{{ $locale == 'en' ? 'right' : 'left' }} "
+                            href="{{ route('admin.publishers.index') }}">@lang('common.cancel')
                             <i class="icon-arrow-left-bold"></i>
                         </a>
                     </div>
@@ -137,5 +110,5 @@
 
 @endsection
 @section('scripts')
-    <script src="{{ asset('/panel/js/pages/form-validation.init.js') }}"></script>
+    <script src="{{ asset('panel/js/pages/form-validation.init.js') }}"></script>
 @endsection

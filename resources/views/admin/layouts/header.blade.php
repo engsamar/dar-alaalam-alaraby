@@ -5,34 +5,28 @@
             <div class="navbar-brand-box">
                 <a href="{{ route('admin.home') }}" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{ ! empty($setting) ? imagePath($setting->logo) : '' }}" alt="" height="60">
+                        <img src="{{ asset('logo.png') }}" alt="" height="60">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ ! empty($setting) ? imagePath($setting->logo) : ''  }}" alt="" height="60">
+                        <img src="{{ asset('logo.png')  }}" alt="" height="60">
                     </span>
                 </a>
 
                 <a href="{{ route('admin.home') }}" class="logo logo-light">
                     <span class="logo-sm">
-                        <img class="logo-white" src="{{ ! empty($setting) ? imagePath($setting->logo_white) : ''  }}" alt="" height="60">
+                        <img class="logo-white" src="{{ asset('logo.png') }}" alt="" height="60">
                     </span>
                     <span class="logo-lg">
-                        <img class="logo-white" src="{{ ! empty($setting) ? imagePath($setting->logo_white) : ''  }}" alt="" height="140" width="200">
+                        <img class="logo-white" src="{{ asset('logo.png') }}" alt="" height="140" width="200">
                     </span>
                 </a>
             </div>
 
-            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+            <button type="button" class="btn btn-sm mt-4 px-4 font-size-18 header-item waves-effect" id="vertical-menu-btn">
                 <i class="fa fa-fw fa-bars"></i>
             </button>
 
-            <!-- App Search-->
-            <form class="app-search d-none d-lg-block">
-                <div class="position-relative">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <span class="bx bx-search-alt"></span>
-                </div>
-            </form>
+
 
             <div class="dropdown dropdown-mega d-none d-lg-block ms-2">
 
@@ -67,19 +61,19 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <img id="header-lang-img" src="{{ asset('/panel/images/flags/us.jpg') }}" alt="Header Language"
+                    <img id="header-lang-img" src="{{ asset('panel/images/flags/us.jpg') }}" alt="Header Language"
                         height="16">
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="en">
-                        <img src="{{ asset('/panel/images/flags/us.jpg') }}" alt="user-image" class="me-1"
+                        <img src="{{ asset('panel/images/flags/us.jpg') }}" alt="user-image" class="me-1"
                             height="12"> <span class="align-middle">English</span>
                     </a>
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp">
-                        <img src="{{ asset('/panel/images/flags/arabic.jpg') }}" alt="user-image" class="me-1"
+                        <img src="{{ asset('panel/images/flags/arabic.jpg') }}" alt="user-image" class="me-1"
                             height="12">
                         <span class="align-middle">Arabic</span>
                     </a>
@@ -198,7 +192,7 @@
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user"
-                        src="{{ asset('/panel/images/users/avatar-1.jpg') }}" alt="Header Avatar">
+                        src="{{ asset('panel/images/users/avatar-1.jpg') }}" alt="Header Avatar">
                     <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
