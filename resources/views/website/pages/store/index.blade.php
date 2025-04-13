@@ -75,6 +75,18 @@
                     <div class="col-lg-6 col-md-6 result-count">
                         <p>{!!  __('titles.WeFound',['count' => $result['couts'] ?? 0]) !!} </p>
                     </div>
+                    <div class="col-md-12 res-only">
+                        <form action="#">
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Search..." />
+                                <button type="submit" class="btn">
+                                    <span>
+                                        search
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                     <div class="col-lg-6 col-md-6 ordering">
                         {{-- <div class="select-box">
                             <label>Sort By:</label>
