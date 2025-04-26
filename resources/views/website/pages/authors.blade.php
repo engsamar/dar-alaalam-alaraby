@@ -9,7 +9,7 @@
 
                 <div class="row justify-content-center align-items-center">
                     @foreach ($result['items'] as $item)
-                        <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="col-lg-3 col-md-3 col-sm-12">
                             <div class="single-brands-box">
                                 <a href="{{ route('website.store.index',['locale' => $locale,'author' => $item->slug]) }}" class="d-block">
                                     <img src="{{ $item->image_path}}" alt="{{ $item->title }}">

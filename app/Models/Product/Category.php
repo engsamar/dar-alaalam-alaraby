@@ -2,10 +2,9 @@
 
 namespace App\Models\Product;
 
-use App\Helpers\Constants;
 use App\Models\Model;
-use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Translatable\HasTranslations;
 
 class Category extends Model
 {
@@ -19,7 +18,7 @@ class Category extends Model
         'active',
         'category_id',
         'image',
-        'slug'
+        'slug',
     ];
 
     public function parent()
@@ -44,8 +43,18 @@ class Category extends Model
 
     public function getUrlAttribute()
     {
-        return route('website.store.index', ['locale' => app()->getLocale(),'category' => $this->slug]);
+        return route('website.store.index', ['locale' => app()->getLocale(), 'category' => $this->slug]);
     }
 
+    public function getImagePathAttribute()
+    {
+        $value = $this->image;
+        if ($value != '') {
+            $value = asset($value);
+        } else {
+            $value = asset('logo.png');
+        }
 
+        return $value;
+    }
 }
