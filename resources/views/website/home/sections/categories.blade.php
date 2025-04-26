@@ -8,7 +8,7 @@
                 <div class="single-categories-box">
                     <a href="{{ route('website.store.index',['locale' => $locale,'category' => $item->slug]) }}" class="d-block">
                         <div class="img">
-                            <img src="{{ imagePath($item->image) }}" alt="categories-image">
+                            <img src="{{ $item->image_path }}" alt="categories-image">
                         </div>
                         <div class="details">
                             <h3>{{ $item->title }}</h3>
