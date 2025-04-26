@@ -52,7 +52,7 @@ class Category extends Model
         if ($value != '') {
             $value = asset($value);
         } else {
-            $value = asset('app.png');
+            $value = asset('app.jpg');
         }
 
         return $value;
