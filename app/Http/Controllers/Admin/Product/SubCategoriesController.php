@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Product;
 
-use App\Helpers\Constants;
-use Illuminate\Http\Request;
-use App\Models\Product\Category;
-use App\Http\Requests\ItemRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ItemRequest;
 use App\Interfaces\CRUDRepositoryInterface;
+use App\Models\Product\Category;
+use Illuminate\Http\Request;
 
 class SubCategoriesController extends Controller
 {
@@ -19,7 +18,7 @@ class SubCategoriesController extends Controller
 
     /**
      * Instantiate a new controller instance.
-    */
+     */
     public function __construct(CRUDRepositoryInterface $itemRepository)
     {
         $this->itemRepository = $itemRepository;
@@ -35,6 +34,7 @@ class SubCategoriesController extends Controller
             'items' => $items,
             'counts' => $counts,
         ];
+
         return view(
             'admin.'.$this->folderPath.$this->path.'.index',
             compact('result')
@@ -44,13 +44,14 @@ class SubCategoriesController extends Controller
     public function show($id)
     {
         $item = $this->itemRepository->getItemById($this->model, $id);
+
         return view('admin.'.$this->folderPath.$this->path.'.show', compact('item'));
     }
 
     /**
      * Create a new controller instance.
-    */
-    public function create(Category  $item)
+     */
+    public function create(Category $item)
     {
         $result['categories'] = $this->itemRepository
             ->getAllItemsWithScope($this->model, 'Category');
@@ -63,7 +64,6 @@ class SubCategoriesController extends Controller
         $data = $request->all();
         if ($request->hasFile('image')) {
             $data['image'] = \App\Helpers\Image::upload($request->file('image'), $this->path);
-
         }
 
         $this->itemRepository->createItem($this->model, $data);
@@ -78,12 +78,12 @@ class SubCategoriesController extends Controller
         $result['categories'] = $this->itemRepository
             ->getAllItemsWithScope($this->model, 'Category');
 
-        return view('admin.'.$this->folderPath.$this->path.'.create_and_edit', compact('item','result'));
+        return view('admin.'.$this->folderPath.$this->path.'.create_and_edit', compact('item', 'result'));
     }
 
     public function update(ItemRequest $request, $id)
     {
-        $data = $request->except(['_token', '_method' ]);
+        $data = $request->except(['_token', '_method']);
 
         if ($request->hasFile('image')) {
             $data['image'] = \App\Helpers\Image::upload($request->file('image'), $this->path);
@@ -98,17 +98,16 @@ class SubCategoriesController extends Controller
     {
         $this->itemRepository->deleteItem($this->model, $id);
         $request->session()->flash('success', __('titles.DeletedMessage'));
+
         return redirect()->route('admin.'.$this->path.'.index');
     }
 
-    //searchSubCat search
+    // searchSubCat search
     public function search(Request $request)
     {
-
         $result['categories'] = $this->itemRepository
-            ->getPaginateItems($this->model, ['where'=>['category_id' => $request->category ]], 'SubCategory');
+            ->getPaginateItems($this->model, ['where' => ['category_id' => $request->category]], 'SubCategory');
 
-        return view('admin.'.$this->folderPath.$this->path.'option',compact('result'))->render();
+        return view('admin.'.$this->folderPath.$this->path.'.option', compact('result'))->render();
     }
-
 }
