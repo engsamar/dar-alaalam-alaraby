@@ -13,7 +13,7 @@
                             <div class="single-brands-box">
                                 <a href="{{ route('website.store.index',['locale' => $locale,'author' => $item->slug]) }}" class="d-block">
                                     <img src="{{ $item->image_path}}" alt="{{ $item->title }}">
-                                    <h3>{{ $item->title }}</h3>
+                                    <p>{{ $item->title }}</p>
                                 </a>
                             </div>
                         </div>
