@@ -506,7 +506,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group mb-3 ">
                                                                 <label for="terms_condition_{{ $Key }}-field">
-                                                                    @lang('admin.TermsConditions')
+                                                                    @lang('titles.TermsConditions')
                                                                     {{ strtoupper($Key) }} </label>
                                                                 <textarea id="terms_condition_{{ $Key }}-field"
                                                                     rows="6" class="tinyMceExample form-control @if ($errors->has('terms_condition' . '[' . $Key . ']')) is-invalid @endif"
