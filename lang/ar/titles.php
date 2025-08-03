@@ -175,4 +175,5 @@ return [
     'search_results' => 'نتائج البحث',
     'new_orders' => 'الطلبات الجديدة',
     'past_orders' => 'الطلبات السابقة',
+    'Profile' => 'الصفحة الشخصية',
 ];

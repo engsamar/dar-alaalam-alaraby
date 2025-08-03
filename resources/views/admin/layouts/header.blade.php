@@ -61,7 +61,7 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <img id="header-lang-img" src="{{ asset('panel/images/flags/us.jpg') }}" alt="Header Language"
+                    <img id="header-lang-img" src="{{ asset('eg.png') }}" alt="Header Language"
                         height="16">
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
