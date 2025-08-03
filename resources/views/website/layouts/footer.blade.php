@@ -11,9 +11,12 @@
                             //explode by /
                             $phones = explode('/', $setting->phone );
                         @endphp
-                        <li><span class="text-capitalize">@lang('attributes.mobile')</span> @foreach ($phones as $phone )
-                            <a href="tel:{{ $phone }}">{{ $phone }}</a>
-                        @endforeach</li>
+                        <li>
+                            <span class="text-capitalize">@lang('attributes.mobile')</span>
+                            @foreach ($phones as $phone )
+                                <a href="tel:{{ $phone }}">{{ $phone }} /</a>
+                            @endforeach
+                        </li>
                         {{-- <li><span class="text-capitalize">@lang('attributes.whats_app'):</span> <a href="tel:{{ $setting->whatsApp }}">{{  $setting->whatsApp }}</a></li> --}}
                         <li><span class="text-capitalize">@lang('attributes.email'):</span> <a href="mailto:{{ $setting->email }}">{{ $setting->email }}</a></li>
                         <li><span class="text-capitalize">@lang('attributes.address'):</span> {{ $setting->address }}</li>
