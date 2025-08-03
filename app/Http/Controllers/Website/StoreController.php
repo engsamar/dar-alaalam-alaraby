@@ -57,7 +57,7 @@ class StoreController extends Controller
             ->getContents($productModel.'\Product', ['Available', 'publish'], 18, 'paginate', $condition);
 
         $result['categories'] = $this->__contentRepository
-            ->getContents($productModel.'\Category', ['Category', 'publish']);
+            ->getContents($productModel.'\Category', ['Category', 'publish'], 100, 'all');
 
         $result['brands'] = $this->__contentRepository
             ->getContents($productModel.'\Brand', ['publish']);

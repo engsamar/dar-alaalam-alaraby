@@ -90,3 +90,7 @@ img.empty-box {
     margin: 0 auto;
     display: block;
 }
+
+span.badge.badge-danger {
+    color: #e3352d;
+}
