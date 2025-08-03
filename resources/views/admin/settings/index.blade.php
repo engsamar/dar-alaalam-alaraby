@@ -2,7 +2,7 @@
 
 @section('tab_name', __('admin.EditAppSetting'))
 @section('content')
-    @include('admin.layouts.title',['subTitle' => __('admin.AppSetting') , 'title' => __('admin.EditAppSetting')])
+    @include('admin.layouts.title',['subTitle' => __('titles.AppSetting') , 'title' => __('titles.EditAppSetting')])
     <div class="row">
         <div class="col-12">
             <form class="needs-validation" action="{{ route('admin.settings.update', $setting->id) }}" method="POST"
@@ -38,7 +38,7 @@
                                 <a class="nav-link mb-2" id="terms-tab" data-bs-toggle="pill" href="#terms" role="tab"
                                     aria-controls="terms" aria-selected="false">
                                     <i class="bx bx-store text-successd-block check-nav-icon mt-4 mb-2"></i>
-                                    <p>@lang('admin.TermsConditions')</p>
+                                    <p>@lang('titles.TermsConditions')</p>
                                 </a>
                                 <a class="nav-link" id="upload-tab" data-bs-toggle="pill" href="#uploads-tab" role="tab"
                                     aria-controls="upload-tab" aria-selected="false">
@@ -265,6 +265,23 @@
                                         <div class="tab-pane fade" id="info-2" role="tabpanel"
                                             aria-labelledby="info-tab-vertical">
                                             <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group mb-3">
+                                                        <label for="map-field">@lang('attributes.map')</label>
+                                                        <input id="map-field" type="map"
+                                                            class="form-control @if ($errors->has('map')) is-invalid @endif" name="map"
+                                                        value="{{ old('map', $setting->map) }}" />
+                                                        @if ($errors->has('map'))
+                                                            <span
+                                                                class="invalid-feedback">{{ $errors->first('map') }}</span>
+                                                        @else
+                                                            <div class="invalid-feedback">
+                                                                @lang('validation.required',['attribute'=>
+                                                                trans('attributes.map') ])</div>
+                                                        @endif
+
+                                                    </div>
+                                                </div>
                                                 @if (!empty($locales))
                                                     @foreach ($locales as $Key => $locale)
 

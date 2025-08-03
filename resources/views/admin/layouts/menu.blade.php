@@ -79,7 +79,7 @@
 
 
 
-                <li class="menu-title" key="t-settings">>@lang('titles.settings')</li>
+                <li class="menu-title" key="t-settings">>@lang('titles.website_setting')</li>
 
                 <li>
                     <a href="{{ route('admin.settings.index') }}" class="waves-effect">

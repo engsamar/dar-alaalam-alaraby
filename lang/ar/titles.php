@@ -167,4 +167,6 @@ return [
     'countries' => 'البلاد',
     'share' => 'شارك',
     'search' => 'بحث',
+    'AppSetting' => 'إعدادات الموقع',
+    'TermsConditions' => 'الشروط والأحكام',
 ];
