@@ -664,10 +664,10 @@
                 </div>
                 <div class="col-md-12 mb-2 mt-2">
                     <hr>
-                    <button type="submit" name="action" value="save"
+                    <button type="submit" name="action" value="save" style="width:150px"
                         class="btn text-white btn-primary  waves-effect waves-light">@lang('admin.Save')</button>
 
-                    <a class="btn text-white btn-danger pull-right  waves-effect waves-light"
+                    <a class="btn text-white btn-danger float-end  waves-effect waves-light"
                         href="{{ route('admin.settings.index') }}" style="float: right">
                         @lang('admin.Cancel') <i class="bx bx-exit"></i></a>
                 </div>

@@ -52,7 +52,7 @@
                         @endforeach
                     @endif
 
-                
+
 
                     <div class="row mb-3">
                         <label class="col-form-label col-lg-2" for="position-field">@lang('attributes.position')</label>
@@ -92,11 +92,11 @@
 
                     <div class="col-md-12">
                         <hr>
-                        <button type="submit" name="action" value="save" class="btn btn-primary">
+                        <button type="submit" name="action" value="save" style="width:150px" class="btn btn-primary">
                             @lang('common.save')
                         </button>
 
-                        <a class="btn btn-danger  {{ $locale == 'en' ? 'pull-right' : 'pull-left' }} text-white" style="float:{{ $locale == 'en' ? 'right' : 'left' }} "
+                        <a class="btn btn-danger  {{ $locale == 'en' ? 'float-end' : 'pull-left' }} text-white" style="float:{{ $locale == 'en' ? 'right' : 'left' }} "
                             href="{{ route('admin.publishers.index') }}">@lang('common.cancel')
                             <i class="icon-arrow-left-bold"></i>
                         </a>
