@@ -6,10 +6,9 @@
     @if (! empty($result['items']))
         <div class="brands-area ptb-100">
             <div class="container">
-
                 <div class="row justify-content-center align-items-center">
                     @foreach ($result['items'] as $item)
-                        <div class="col-lg-2 col-md-3 col-sm-12">
+                        <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                             <div class="single-brands-box">
                                 <a href="{{ route('website.store.index',['locale' => $locale,'author' => $item->slug]) }}" class="d-block">
                                     <img src="{{ $item->image_path}}" alt="{{ $item->title }}">

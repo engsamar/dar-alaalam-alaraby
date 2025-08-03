@@ -2,33 +2,39 @@
 
 namespace App\Http\Controllers\Website;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Interfaces\ContentRepositoryInterface;
+use Illuminate\Http\Request;
 
 class StoreController extends Controller
 {
     private ContentRepositoryInterface $__contentRepository;
     private $productModel = 'App\Models\Product\Product';
+
     public function __construct(
-        ContentRepositoryInterface $__contentRepository
+        ContentRepositoryInterface $__contentRepository,
     ) {
         $this->__contentRepository = $__contentRepository;
     }
+
     public function index(Request $request)
     {
         $result = [];
         $data = $request->all();
         $productModel = '\App\Models\Product';
+        $authorModel = '\App\Models\Product\Author';
         $brandModel = '\App\Models\Product\Brand';
         $categoryModel = '\App\Models\Product\Category';
         $tagModel = '\App\Models\Product\Tag';
         // $condition['data'] = $request->all();
         $condition = [];
-        if (isset($data['brand']) && $data['brand'] != '') {
-            $brand = $brandModel::whereSlug($data['brand'])->first();
-            if (!empty($brand)) {
-                $condition['where']['brand_id'] = $brand->id;
+        if (isset($data['search']) && $data['search'] != '') {
+            $condition['search'] = $data['search'];
+        }
+        if (isset($data['author']) && $data['author'] != '') {
+            $author = $authorModel::whereSlug($data['author'])->first();
+            if (!empty($author)) {
+                $condition['where']['author_id'] = $author->id;
             }
         }
 
@@ -48,26 +54,24 @@ class StoreController extends Controller
         }
 
         $result['products'] = $this->__contentRepository
-            ->getContents($productModel . '\Product', ['Available', 'publish'], 18, 'paginate', $condition);
+            ->getContents($productModel.'\Product', ['Available', 'publish'], 18, 'paginate', $condition);
 
         $result['categories'] = $this->__contentRepository
-            ->getContents($productModel . '\Category', ['Category', 'publish']);
+            ->getContents($productModel.'\Category', ['Category', 'publish']);
 
         $result['brands'] = $this->__contentRepository
-            ->getContents($productModel . '\Brand', ['publish']);
+            ->getContents($productModel.'\Brand', ['publish']);
 
         return view('website.pages.store.index', compact('result'));
     }
 
-
     public function show(Request $request, $lang, $slug)
     {
-
         $result = [];
 
         $result['item'] = $this->__contentRepository
             ->getSingleContent($this->productModel, ['Available', 'publish'], [
-                'where' => ['slug' => $slug]
+                'where' => ['slug' => $slug],
             ]);
 
         if (empty($result['item'])) {
@@ -90,7 +94,7 @@ class StoreController extends Controller
         $result['share'] = $shareComponent;
 
         $result['items'] = $this->__contentRepository
-            ->getContents($this->productModel, ['Available', 'publish'], 8, 'list'); //related
+            ->getContents($this->productModel, ['Available', 'publish'], 8, 'list'); // related
 
         return view('website.pages.store.show', compact('result'));
     }

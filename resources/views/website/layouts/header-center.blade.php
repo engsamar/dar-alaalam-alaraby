@@ -22,7 +22,7 @@
                 <div class="search-h">
                     <form action="{{ route('website.store.index', ['locale' => $locale]) }}" method="get"
                         id="searchForm">
-                        <input type="search" name="search" placeholder="@lang('titles.searchText')" />
+                        <input type="search" value="{{ request()->search }}" name="search" placeholder="@lang('titles.searchText')" />
                         <select onchange="this.form.submit()" name="category" id="">
                             <option value="" selected disabled> @lang('titles.categories') </option>
                             @foreach ($topCategories as $cat)
@@ -80,7 +80,7 @@
 
 <div class="header-mobile">
     <div class="item">
-        <a href="{{ route('website.store.index',['locale'=> $locale]) }}" class="search-icon">
+        <a href="{{ route('website.categories.index',['locale'=> $locale]) }}" class="search-icon">
             <i class='fal fa-grid'></i>
             <span>@lang('titles.categories')</span>
         </a>

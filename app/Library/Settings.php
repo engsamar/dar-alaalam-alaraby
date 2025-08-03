@@ -2,20 +2,18 @@
 
 namespace App\Library;
 
-use App\Helpers\Constants;
 use App\Models\Page;
-use App\Models\Setting;
-use Illuminate\View\View;
 use App\Models\Product\Cart;
 use App\Models\Product\Category;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\View\View;
 
 class Settings
 {
     public function compose(
-        View $view
+        View $view,
     ) {
         $this->setting($view);
     }
@@ -28,7 +26,7 @@ class Settings
         $subscribe = Page::whereSlug('subscribe')->first();
         $view->with('subscribe', $subscribe);
 
-        $categories = Category::Category()->take(12)->get();
+        $categories = Category::Category()->get();
         $view->with('topCategories', $categories);
 
         $locales = Config::get('app.translate_locales');
@@ -52,7 +50,6 @@ class Settings
             }
         })->take(5)->get();
 
-
         $cartItems =
             Cart::whereHas('product', function ($q) {
                 $q->publish();
@@ -68,11 +65,10 @@ class Settings
                 }
             })->get();
 
-
         if (count($cartItems) > 0) {
             foreach ($cartItems as $item) {
                 $priceItem = $item->product->price_after > 0 ? $item->product->price_after : $item->product->price;
-                $price = $priceItem * (int) ($item->quantity);
+                $price = $priceItem * (int) $item->quantity;
                 $sideCart['totalCartPrice'] = $sideCart['totalCartPrice'] + $price;
             }
         }

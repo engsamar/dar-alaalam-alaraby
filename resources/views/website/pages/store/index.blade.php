@@ -24,17 +24,7 @@
                         </div>
                     @endif
 
-                    @if(! empty($result['brands']) && count($result['brands']) > 0)
-                        <div class="widget widget_categories">
-                            <h3 class="widget-title"><span>@lang('titles.brands')</span></h3>
-                            <ul>
-                                @foreach ($result['brands'] as $item)
-                                    <li><a href="{{ route('website.store.index',['locale' => $locale,'brand' => $item->slug]) }}">{{ $item->title }}</a></li>
-                                @endforeach
-                             </ul>
 
-                        </div>
-                    @endif
 
                     <div class="widget widget_price_filter">
                         <h3 class="widget-title"><span>@lang('titles.FilterByPrice')</span></h3>
@@ -73,15 +63,15 @@
             <div class="col-lg-9 col-md-12">
                 <div class="patoi-grid-sorting row align-items-center">
                     <div class="col-lg-6 col-md-6 result-count">
-                        <p>{!!  __('titles.WeFound',['count' => $result['couts'] ?? 0]) !!} </p>
+                        <p>{!!  __('titles.WeFound',['count' => count($result['products']) ?? 0]) !!} </p>
                     </div>
                     <div class="col-md-12 res-only">
-                        <form action="#">
+                        <form method="get" action="{{ route('website.store.index', ['locale' => $locale]) }}">
                             <div class="form-group">
-                                <input type="text" name="" placeholder="Search..." />
+                                <input type="text" name="search" placeholder="@lang('common.searchNow')" />
                                 <button type="submit" class="btn">
                                     <span>
-                                        search
+                                        @lang('titles.search')
                                     </span>
                                 </button>
                             </div>

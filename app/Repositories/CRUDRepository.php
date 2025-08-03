@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use Illuminate\Support\Str;
 use App\Interfaces\CRUDRepositoryInterface;
+use Illuminate\Support\Str;
 
 class CRUDRepository implements CRUDRepositoryInterface
 {
@@ -11,19 +11,18 @@ class CRUDRepository implements CRUDRepositoryInterface
     {
         $items = $model::Recent();
 
-        if(isset($data['conditionsWhere']) && $data['conditionsWhere'] != null) {
-            $items =  $items->where($data['conditionsWhere']);
+        if (isset($data['conditionsWhere']) && $data['conditionsWhere'] != null) {
+            $items = $items->where($data['conditionsWhere']);
         }
 
         return $items->get();
     }
 
-    //getAllItemsWithScope
+    // getAllItemsWithScope
     public function getAllItemsWithScope($model, $scope)
     {
         return $model::$scope()->get();
     }
-
 
     public function getPublishItems($model, $page, $list = 'paginate')
     {
@@ -35,8 +34,10 @@ class CRUDRepository implements CRUDRepositoryInterface
         } else {
             $data = $data->paginate($page);
         }
+
         return $data;
     }
+
     public function getPublishItemsByIds($model, $ids, $page, $list = 'paginate')
     {
         $data = $model::whereIn('id', $ids)->Ordered()->publish();
@@ -47,6 +48,7 @@ class CRUDRepository implements CRUDRepositoryInterface
         } else {
             $data = $data->paginate($page);
         }
+
         return $data;
     }
 
@@ -58,14 +60,14 @@ class CRUDRepository implements CRUDRepositoryInterface
         $from_date = $data['from_date'] ?? '';
         $to_date = $data['to_date'] ?? '';
 
-        if(isset($scope) && $scope != null) {
+        if (isset($scope) && $scope != null) {
             $items = $items->$scope();
         }
         if (isset($search) && $search != '') {
             $items = $items->where(
                 function ($q) use ($search) {
-                    $q->where('id', 'like', '%' . $search . '%');
-                    $q->orWhere('title', 'like', '%' . $search . '%');
+                    $q->where('id', 'like', '%'.$search.'%');
+                    $q->orWhere('title', 'like', '%'.$search.'%');
                 }
             );
         }
@@ -79,19 +81,19 @@ class CRUDRepository implements CRUDRepositoryInterface
             $items = $items->where('active', $status);
         }
 
-        if(isset($data['conditionsWhereIn']) && $data['conditionsWhereIn'] != null) {
-            $items =  $items->whereIn($data['conditionsWhereIn']['attribute'], $data['conditionsWhereIn']['value']);
+        if (isset($data['conditionsWhereIn']) && $data['conditionsWhereIn'] != null) {
+            $items = $items->whereIn($data['conditionsWhereIn']['attribute'], $data['conditionsWhereIn']['value']);
         }
 
-        if(isset($data['conditions']) && $data['conditions'] != null) {
-            $items =  $items->where($data['conditions']);
+        if (isset($data['conditions']) && $data['conditions'] != null) {
+            $items = $items->where($data['conditions']);
         }
 
-        //conditionsWhereHas
+        // conditionsWhereHas
 
-        if(isset($data['conditionsWhereHas']) && $data['conditionsWhereHas'] != null) {
-            $cond =  $data['conditionsWhereHas'];
-            $items =  $items->whereHas($cond['relation'], function ($q) use ($cond) {
+        if (isset($data['conditionsWhereHas']) && $data['conditionsWhereHas'] != null) {
+            $cond = $data['conditionsWhereHas'];
+            $items = $items->whereHas($cond['relation'], function ($q) use ($cond) {
                 $q->where($cond['key'], $cond['value']);
             });
         }
@@ -105,28 +107,27 @@ class CRUDRepository implements CRUDRepositoryInterface
     {
         $items = $model::orderBy('id', 'DESC');
 
-        if(isset($scope) && $scope != null) {
+        if (isset($scope) && $scope != null) {
             $items = $items->$scope();
         }
 
-        if($conditons != null) {
-            if(isset($conditons['conditionsWhereIn']) && $conditons['conditionsWhereIn'] != null) {
-                $items =  $items->whereIn($conditons['conditionsWhereIn']['attribute'], $conditons['conditionsWhereIn']['value']);
+        if ($conditons != null) {
+            if (isset($conditons['conditionsWhereIn']) && $conditons['conditionsWhereIn'] != null) {
+                $items = $items->whereIn($conditons['conditionsWhereIn']['attribute'], $conditons['conditionsWhereIn']['value']);
             }
 
-            if(isset($conditons['conditions']) && $conditons['conditions'] != null) {
-                $items =  $items->where($conditons['conditions']);
+            if (isset($conditons['conditions']) && $conditons['conditions'] != null) {
+                $items = $items->where($conditons['conditions']);
             }
 
-
-            if(isset($conditons['conditionsWhereHas']) && $conditons['conditionsWhereHas'] != null) {
-                $cond =  $conditons['conditionsWhereHas'];
-                $items =  $items->whereHas($cond['relation'], function ($q) use ($cond) {
+            if (isset($conditons['conditionsWhereHas']) && $conditons['conditionsWhereHas'] != null) {
+                $cond = $conditons['conditionsWhereHas'];
+                $items = $items->whereHas($cond['relation'], function ($q) use ($cond) {
                     $q->where($cond['key'], $cond['value']);
                 });
             }
-
         }
+
         return $items->count();
     }
 
@@ -145,9 +146,9 @@ class CRUDRepository implements CRUDRepositoryInterface
         $model::destroy($itemId);
     }
 
-    public function createItem($model, $itemDetails, $skipSlug=false)
+    public function createItem($model, $itemDetails, $skipSlug = false)
     {
-        if(isset($itemDetails['title']['en']) && $skipSlug == false ) {
+        if (isset($itemDetails['title']['en']) && $skipSlug == false) {
             $itemDetails['slug'] = Str::slug($itemDetails['title']['en'], '-');
         }
 
@@ -156,10 +157,10 @@ class CRUDRepository implements CRUDRepositoryInterface
 
     public function updateItem($model, $itemId, $newDetails)
     {
-        if(isset($itemDetails['title']['en'])) {
+        if (isset($itemDetails['title']['en'])) {
             $itemDetails['slug'] = Str::slug($newDetails['title']['en'], '-');
         }
+
         return $model::find($itemId)->update($newDetails);
     }
-
 }

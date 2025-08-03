@@ -44,16 +44,23 @@
             @if ( $item->author)
 
             <div class="auth-h">
+                <a href="{{ route('website.store.index', ['locale' => app()->getLocale(), 'author' => $item->author->slug]) }}">
                 <i class="fa fa-user"></i>
                 <span>{{ $item->author->title ?? ''  }}</span>
+                </a>
             </div>
             @endif
 
             @if ( $item->category)
 
             <div class="auth-h">
+                <a href="{{ route('website.store.index', ['locale' => app()->getLocale(), 'category' => $item->category->slug]) }}">
+
                 <i class="fa fa-tag"></i>
                 <span>{{ $item->category->title ?? ''  }}</span>
+                </a>
+
+
                 @if($item->sub_category) / <span>{{ $item->sub_category->title ?? ''  }}</span>@endif
             </div>
             @endif
