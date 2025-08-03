@@ -7,7 +7,13 @@
                         <img src="{{ isset($setting->logo_white) ? $setting->imagePath('logo_footer') : asset('logo.png') }}" alt="logo" style="max-width: 100px">
                     </a>
                     <ul class="footer-contact-info">
-                        <li><span class="text-capitalize">@lang('attributes.mobile')</span> <a href="tel:{{ $setting->phone }}">{{ $setting->phone }}</a></li>
+                        @php
+                            //explode by /
+                            $phones = explode('/', $setting->phone );
+                        @endphp
+                        <li><span class="text-capitalize">@lang('attributes.mobile')</span> @foreach ($phones as $phone )
+                            <a href="tel:{{ $phone }}">{{ $phone }}</a>
+                        @endforeach</li>
                         {{-- <li><span class="text-capitalize">@lang('attributes.whats_app'):</span> <a href="tel:{{ $setting->whatsApp }}">{{  $setting->whatsApp }}</a></li> --}}
                         <li><span class="text-capitalize">@lang('attributes.email'):</span> <a href="mailto:{{ $setting->email }}">{{ $setting->email }}</a></li>
                         <li><span class="text-capitalize">@lang('attributes.address'):</span> {{ $setting->address }}</li>
