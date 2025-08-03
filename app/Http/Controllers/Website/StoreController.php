@@ -57,7 +57,7 @@ class StoreController extends Controller
             ->getContents($productModel.'\Product', ['Available', 'publish'], 18, 'paginate', $condition);
 
         $result['categories'] = $this->__contentRepository
-            ->getContents($productModel.'\Category', ['Category', 'publish'], 100, 'all');
+            ->getContents($productModel.'\Category', ['Category', 'publish', 'HaveBook'], 100, 'all');
 
         return view('website.pages.store.index', compact('result'));
     }

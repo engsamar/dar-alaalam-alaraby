@@ -31,6 +31,18 @@ class Category extends Model
         return $query->whereNull('category_id');
     }
 
+    // HaveBook
+    public function scopeHaveBook($query)
+    {
+        return $query->whereHas('products');
+    }
+
+    // products
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id');
+    }
+
     public function scopeSubCategory($query)
     {
         return $query->whereNotNull('category_id');
