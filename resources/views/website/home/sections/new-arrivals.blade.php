@@ -21,10 +21,12 @@
                 </div>
                 <div class="col-md-4">
                     <div class="banner-book">
-                        <a href="#">
-                            <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/22.jpg"
-                                alt="#" />
-                        </a>
+                        @if(! empty($result['random']))
+                            <a href="{{ $result['random'][0]->url }}">
+                                <img src="{{ $result['random'][0]->image_path }}"
+                                    alt="#" />
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>

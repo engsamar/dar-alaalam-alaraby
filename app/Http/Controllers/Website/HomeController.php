@@ -48,6 +48,9 @@ class HomeController extends Controller
         $result['newArrivals'] = $this->contentRepository
             ->getContents($this->productModel.'\Product', ['publish', 'New'], 12, 'list');
 
+        $result['random'] = $this->contentRepository
+            ->getContents($this->productModel.'\Product', ['publish', 'random'], page: 2, 'list');
+
         $result['specialOffers'] = $this->contentRepository
             ->getContents($this->productModel.'\Product', ['publish', 'SpecialOffers'], 3, 'list');
 

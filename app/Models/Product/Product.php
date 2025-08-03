@@ -149,4 +149,10 @@ class Product extends Model implements HasMedia
 
         return $favourite;
     }
+
+    // random scope
+    public function scopeRandom($query)
+    {
+        return $query->inRandomOrder();
+    }
 }
