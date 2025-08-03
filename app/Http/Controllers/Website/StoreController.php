@@ -59,9 +59,6 @@ class StoreController extends Controller
         $result['categories'] = $this->__contentRepository
             ->getContents($productModel.'\Category', ['Category', 'publish'], 100, 'all');
 
-        $result['brands'] = $this->__contentRepository
-            ->getContents($productModel.'\Brand', ['publish']);
-
         return view('website.pages.store.index', compact('result'));
     }
 
