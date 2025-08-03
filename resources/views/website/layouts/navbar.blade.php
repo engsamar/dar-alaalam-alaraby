@@ -10,11 +10,14 @@
                 <div class="col-md-12">
                     <div class="nav-inner">
                         <div class="menu-left">
-                            <div class="btn-cat">
+                            <div >
+                                <a class="btn-cat" href="{{ route('website.categories.index', ['locale' => $locale]) }}" class="search-icon">
+
                                 <i class="fal fa-grid"></i>
                                 <span>@lang('titles.categories') </span>
+                                </a>
                             </div>
-                            <div class="catogories-list">
+                            {{-- <div class="catogories-list">
                                 <ul>
                                     @foreach ($topCategories as $cat)
                                     <li>
@@ -25,7 +28,7 @@
                                     </li>
                                     @endforeach
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <nav class="navbar navbar-expand-md navbar-light">
