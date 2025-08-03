@@ -173,4 +173,6 @@ return [
     'Arabic' => 'العربية',
     'search_placeholder' => 'ابحث عن منتج أو فئة',
     'search_results' => 'نتائج البحث',
+    'new_orders' => 'الطلبات الجديدة',
+    'past_orders' => 'الطلبات السابقة',
 ];
