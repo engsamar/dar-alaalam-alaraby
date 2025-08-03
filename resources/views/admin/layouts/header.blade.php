@@ -69,13 +69,13 @@
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="en">
                         <img src="{{ asset('panel/images/flags/us.jpg') }}" alt="user-image" class="me-1"
-                            height="12"> <span class="align-middle">English</span>
+                            height="12"> <span class="align-middle">@lang('titles.English')</span>
                     </a>
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp">
-                        <img src="{{ asset('panel/images/flags/arabic.jpg') }}" alt="user-image" class="me-1"
+                        <img src="{{ asset('eg.png') }}" alt="user-image" class="me-1"
                             height="12">
-                        <span class="align-middle">Arabic</span>
+                        <span class="align-middle">@lang('titles.Arabic')</span>
                     </a>
 
                 </div>

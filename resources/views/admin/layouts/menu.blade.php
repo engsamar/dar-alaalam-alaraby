@@ -67,12 +67,12 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{ route('admin.orders.index', ['status' => 'new']) }}" key="t-dashboards">New
-                                Orders</a>
+                            <a href="{{ route('admin.orders.index', ['status' => 'new']) }}" key="t-dashboards">
+                                @lang('titles.new_orders')</a>
                             </li>
                         <li>
-                            <a href="{{ route('admin.orders.index', ['status' => 'past']) }}" key="t-dashboards">Past
-                                Orders</a>
+                            <a href="{{ route('admin.orders.index', ['status' => 'past']) }}" key="t-dashboards">
+                                 @lang('titles.past_orders')</a>
                         </li>
                     </ul>
                 </li>

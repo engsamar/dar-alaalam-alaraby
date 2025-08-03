@@ -169,4 +169,8 @@ return [
     'search' => 'بحث',
     'AppSetting' => 'إعدادات الموقع',
     'TermsConditions' => 'الشروط والأحكام',
+    'English' => 'الإنجليزية',
+    'Arabic' => 'العربية',
+    'search_placeholder' => 'ابحث عن منتج أو فئة',
+    'search_results' => 'نتائج البحث',
 ];
