@@ -83,7 +83,7 @@
                         </div>
 
                         <button type="submit"> @lang('titles.register')</button>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
                             <a href="{{ route('website.login',['locale' => $locale]) }}" class="lost-your-password text-center">
                                 @lang('titles.have_account')</a>
                         </div>
