@@ -14,7 +14,7 @@
                         <li>
                             <span class="text-capitalize">@lang('attributes.mobile')</span>
                             @foreach ($phones as $phone )
-                                <a href="tel:{{ $phone }}">{{ $phone }} /</a>
+                                <a href="tel:{{ $phone }}" class="text-white">{{ $phone }} /</a>
                             @endforeach
                         </li>
                         {{-- <li><span class="text-capitalize">@lang('attributes.whats_app'):</span> <a href="tel:{{ $setting->whatsApp }}">{{  $setting->whatsApp }}</a></li> --}}
