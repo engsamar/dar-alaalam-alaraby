@@ -23,6 +23,13 @@ class ContentRepository implements ContentRepositoryInterface
                 function ($q) use ($search) {
                     $q->where('id', 'like', '%'.$search.'%');
                     $q->orWhere('title', 'like', '%'.$search.'%');
+                    // search in category and author name
+                    $q->orWhereHas('category', function ($q) use ($search) {
+                        $q->where('title', 'like', '%'.$search.'%');
+                    });
+                    $q->orWhereHas('author', function ($q) use ($search) {
+                        $q->where('title', 'like', '%'.$search.'%');
+                    });
                 }
             );
         }
