@@ -42,7 +42,7 @@
         </table>
     </div>
 
-    <div class="cart-buttons">
+    <div class="cart-buttons mt-4 mb-5">
         <div class="row align-items-center">
             <div class="col-lg-7 col-sm-12 col-md-7">
                 <div class="shopping-coupon-code">
@@ -60,10 +60,53 @@
         </div>
     </div>
     <div class="row">
-        <div class="cart-totals  col-lg-4 col-sm-4 col-md-4">
 
-        </div>
-        <div class="cart-totals col-lg-4 col-sm-4 col-md-4">
+        <div class="cart-totals col-lg-6 col-sm-6 col-md-6">
+            <div class="col-sm-12 col-xl-12">
+                <div class="mb20 mt-3">
+                    <label class="heading-color ff-heading fw600 mb10">@lang('attributes.street')</label>
+                    <input required type="text" name="street" id="street"
+                        value="{{ old('street') }}" class="form-control"
+                        placeholder="@lang('attributes.street')">
+                    @if ($errors->has('street'))
+                        <span class="invalid-feedback">{{ $errors->first('street') }}</span>
+                    @else
+                        <div class="invalid-feedback">@lang('validation.required',['attribute' =>
+                            __('attributes.street') ])
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="col-sm-12 col-xl-12">
+                <div class="mb20 mt-3">
+                    <label class="heading-color ff-heading fw600 mb10">@lang('attributes.building_number')</label>
+                    <input required type="text" name="building_number" id="building_number"
+                        value="{{ old('building_number') }}" class="form-control"
+                        placeholder="@lang('attributes.building_number')">
+                    @if ($errors->has('building_number'))
+                        <span class="invalid-feedback">{{ $errors->first('building_number') }}</span>
+                    @else
+                        <div class="invalid-feedback">@lang('validation.required',['attribute' =>
+                            __('attributes.building_number') ])
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="col-sm-12 col-xl-12">
+                <div class="mb20 mt-3">
+                    <label class="heading-color ff-heading fw600 mb10">@lang('attributes.floor_number')</label>
+                    <input required type="text" name="floor_number" id="floor_number"
+                        value="{{ old('floor_number') }}" class="form-control"
+                        placeholder="@lang('attributes.floor_number')">
+                    @if ($errors->has('floor_number'))
+                        <span class="invalid-feedback">{{ $errors->first('floor_number') }}</span>
+                    @else
+                        <div class="invalid-feedback">@lang('validation.required',['attribute' =>
+                            __('attributes.floor_number') ])
+                        </div>
+                    @endif
+                </div>
+            </div>
             <div class="col-sm-12 col-xl-12">
                 <div class="mb20 mt-3">
                     <label class="heading-color ff-heading fw600 mb10">@lang('attributes.address')</label>
@@ -99,7 +142,7 @@
                 </div>
             </div>
         </div>
-        <div class="cart-totals  col-lg-4 col-sm-4 col-md-4">
+        <div class="cart-totals  col-lg-6 col-sm-6 col-md-6">
             <ul>
                 <li>@lang('attributes.withoutVat') <span>{{ $result['total'] ?? 0 }}
                     @lang('titles.currency')</span></li>

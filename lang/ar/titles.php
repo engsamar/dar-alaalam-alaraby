@@ -176,4 +176,9 @@ return [
     'new_orders' => 'الطلبات الجديدة',
     'past_orders' => 'الطلبات السابقة',
     'Profile' => 'الصفحة الشخصية',
+    'RegisterSuccessfully' => 'تم التسجيل بنجاح',
+    'Successfully' => 'تم بنجاح',
+    'AddedToCart' => 'تمت الإضافة إلى السلة',
+    'updateAddress' => 'تحديث العنوان',
+    'deleteAddress' => 'حذف العنوان',
 ];

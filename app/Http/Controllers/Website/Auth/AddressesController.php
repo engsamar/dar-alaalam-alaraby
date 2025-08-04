@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Website\Auth;
 
-use App\Models\User\Address;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddressRequest;
-use App\Interfaces\CRUDRepositoryInterface;
 use App\Interfaces\ContentRepositoryInterface;
+use App\Interfaces\CRUDRepositoryInterface;
+use App\Models\User\Address;
+use Illuminate\Http\Request;
 
 class AddressesController extends Controller
 {
@@ -20,12 +20,11 @@ class AddressesController extends Controller
 
     public function __construct(
         CRUDRepositoryInterface $__itemRepository,
-        ContentRepositoryInterface $__contentRepository
+        ContentRepositoryInterface $__contentRepository,
     ) {
         $this->__itemRepository = $__itemRepository;
         $this->__contentRepository = $__contentRepository;
     }
-
 
     public function index(Request $request)
     {
@@ -38,6 +37,7 @@ class AddressesController extends Controller
             'items' => $items,
             'counts' => $counts,
         ];
+
         return view(
             'auth.addresses.index',
             compact('result')
@@ -48,7 +48,7 @@ class AddressesController extends Controller
     {
         $result['item'] = $address;
         $result['cities'] = $this->__contentRepository
-            ->getContents($this->__city_model, ['City','publish'], 300, 'all');
+            ->getContents($this->__city_model, ['City', 'publish'], 300, 'all');
 
         return view('auth.addresses.create_and_edit', compact('result'));
     }
@@ -63,24 +63,26 @@ class AddressesController extends Controller
         $this->__itemRepository->createItem($this->__model, $data, true);
 
         toastr()->success(__('titles.AddedMessage'));
-        return redirect()->route('addresses.index');
+
+        return redirect()->route('website.auth.addresses.index', ['locale' => app()->getLocale()]);
     }
 
-    public function show($locale,$id)
+    public function show($locale, $id)
     {
         $result = [];
         $result['item'] = $this->__itemRepository->getItemById($this->__model, $id);
+        $result['cities'] = $this->__contentRepository
+                    ->getContents($this->__city_model, ['City', 'publish'], 300, 'all');
 
-        return view('auth.addresses.show', compact('result', 'item'));
+        return view('auth.addresses.create_and_edit', compact('result'));
     }
 
-
-    public function edit($locale,$id)
+    public function edit($locale, $id)
     {
         $result['item'] = $this->__itemRepository->getItemById($this->__model, $id);
 
         $result['cities'] = $this->__contentRepository
-            ->getContents($this->__city_model, ['City','publish'], 300, 'all');
+            ->getContents($this->__city_model, ['City', 'publish'], 300, 'all');
 
         return view('auth.addresses.create_and_edit', compact('result'));
     }
@@ -97,7 +99,8 @@ class AddressesController extends Controller
         $this->__itemRepository->updateItem($this->__model, $id, $data);
 
         toastr()->success(__('titles.UpdatedMessage'));
-        return redirect()->route('addresses.index',['locale' => $locale]);
+
+        return redirect()->route('website.auth.addresses.index', ['locale' => app()->getLocale()]);
     }
 
     public function destroy($id)
@@ -106,7 +109,7 @@ class AddressesController extends Controller
         $item = $this->__itemRepository->getItemById($this->__model, $id);
 
         toastr()->success(__('titles.DeletedMessage'));
-        return redirect()->route('addresses.index');
-    }
 
+        return redirect()->route('website.auth.addresses.index', ['locale' => app()->getLocale()]);
+    }
 }

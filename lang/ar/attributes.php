@@ -157,4 +157,8 @@ return [
     'language' => 'لغة الكتاب',
     'book_type' => 'نوع الكتاب',
     'type' => 'النوع',
+    'floor_number' => 'رقم الطابق',
+    'building_number' => 'رقم المبنى',
+    'street' => 'الشارع',
+    'delivery_price' => 'سعر التوصيل',
 ];

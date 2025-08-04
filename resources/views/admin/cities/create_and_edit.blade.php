@@ -53,6 +53,19 @@
                         @endforeach
                     @endif
 
+                    <div class="row mb-3">
+                        <label class="col-form-label col-lg-2" for="delivery_price-field">@lang('attributes.delivery_price')</label>
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <input type="number" min="0" required
+                                    class="form-control @if ($errors->has('delivery_price')) is-invalid @endif" name="delivery_price"
+                                    value="{{ old('delivery_price', $item->delivery_price) ?? '' }}" />
+                                @if ($errors->has('delivery_price'))
+                                    <span class="invalid-feedback">{{ $errors->first('delivery_price') }}</span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row mb-3">
                         <label class="col-form-label col-lg-2" for="position-field">@lang('attributes.position')</label>

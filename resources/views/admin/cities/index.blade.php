@@ -23,6 +23,7 @@
                                     <tr>
                                         <th class="text-xs-center">#</th>
                                         <th>@lang('attributes.Title')</th>
+                                        <th>@lang('attributes.delivery_price')</th>
                                         <th>@lang('attributes.Position')</th>
 
                                         <th>@lang('attributes.Publish')</th>
@@ -37,6 +38,8 @@
                                             <td class="text-xs-center"><strong>{{ $item->id }}</strong></td>
 
                                             <td>{{ $item->title ?? '' }}</td>
+                                            <td>{{ $item->delivery_price ?? '' }}</td>
+
                                             <td>{!! $item->position !!}</td>
                                             <td>{!! $item->active_span !!}</td>
                                             <td>{{ dateFormatted($item->updated_at, 'd M Y @ h:i a') }}</td>

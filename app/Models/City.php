@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Translatable\HasTranslations;
 
 class City extends Model
 {
@@ -15,7 +15,8 @@ class City extends Model
         'title',
         'position',
         'active',
-        'city_id'
+        'city_id',
+        'delivery_price',
     ];
 
     public function scopeCity($query)
@@ -27,6 +28,4 @@ class City extends Model
     {
         return $query->whereNotNull('city_id');
     }
-
-
 }

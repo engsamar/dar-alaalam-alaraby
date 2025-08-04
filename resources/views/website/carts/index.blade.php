@@ -15,17 +15,6 @@
 @endsection
 
 @section('js')
-<script src="https://nextstagingenv.s3.amazonaws.com/js/v1/paymob.js"></script>
-
-<script>
-  fetch("https://next-stg.paymobsolutions.com/next/api/v1/marketplace/test/intention/").then(function (response) {
-          return response.json();
-      }).then(function (json) {
-          Paymob("pkt_ocyiPARECljo1duevlMSKpn3beCz9z5h").checkoutButton(json.client_secret).mount("#paymob-checkout");
-      }).catch(function (err) {
-          console.error(err);
-      });
-  </script>
 <script>
     $(document).ready(function() {
         let locale = "{{ $locale }}";

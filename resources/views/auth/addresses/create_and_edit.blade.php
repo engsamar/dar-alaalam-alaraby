@@ -17,10 +17,10 @@
                     @method('put')
                 @endif
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="mb20">
                             <label class="heading-color ff-heading fw600 mb10">@lang('attributes.addressTitle')</label>
-                            <input required type="text" name="title" value="{{ old('title', $result['item']->title) }}"
+                            <input required type="text" name="title" value="{{ old('title', $result['item']->title) ?? 'المنزل' }}"
                                 class="form-control" placeholder="@lang('attributes.addressTitle')">
                             @if ($errors->has('title'))
                                 <span class="invalid-feedback">{{ $errors->first('title') }}</span>
@@ -32,21 +32,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-6 col-xl-6">
-                        <div class="mb20">
-                            <label class="heading-color ff-heading fw600 mb10">@lang('attributes.address')</label>
-                            <input required type="text" name="address" id="address"
-                                value="{{ old('address', $result['item']->address) }}" class="form-control"
-                                placeholder="@lang('attributes.address')">
-                            @if ($errors->has('address'))
-                                <span class="invalid-feedback">{{ $errors->first('address') }}</span>
-                            @else
-                                <div class="invalid-feedback">@lang('validation.required',['attribute' =>
-                                    __('attributes.address') ])
-                                </div>
-                            @endif
-                        </div>
-                    </div>
+
                     <div class="col-sm-6 col-xl-6">
                         <div class="mb20">
                             <label class="heading-color ff-heading fw600 mb10">@lang('attributes.city')</label>
@@ -67,7 +53,83 @@
                         </div>
                     </div>
 
+                    <div class="col-sm-6">
+                        <div class="mb20">
+                            <label class="heading-color ff-heading fw600 mb10">@lang('attributes.street')</label>
+                            <input required type="text" name="street" value="{{ old('street', $result['item']->street) }}"
+                                class="form-control" placeholder="@lang('attributes.street')">
+                            @if ($errors->has('street'))
+                                <span class="invalid-feedback">{{ $errors->first('street') }}</span>
+                            @else
+                                <div class="invalid-feedback">@lang('validation.required',['attribute' =>
+                                    __('attributes.street') ])
+                                </div>
+                            @endif
+                        </div>
+                    </div>
 
+                     <div class="col-sm-6">
+                        <div class="mb20">
+                            <label class="heading-color ff-heading fw600 mb10">@lang('attributes.building_number')</label>
+                            <input required type="number" min="1" step="1" name="building_number" value="{{ old('building_number', $result['item']->building_number) }}"
+                                class="form-control" placeholder="@lang('attributes.building_number')">
+                            @if ($errors->has('building_number'))
+                                <span class="invalid-feedback">{{ $errors->first('building_number') }}</span>
+                            @else
+                                <div class="invalid-feedback">@lang('validation.required',['attribute' =>
+                                    __('attributes.building_number') ])
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="mb20">
+                            <label class="heading-color ff-heading fw600 mb10">@lang('attributes.floor_number')</label>
+                            <input required type="number" min="1" step="1" name="floor_number" value="{{ old('floor_number', $result['item']->floor_number) }}"
+                                class="form-control" placeholder="@lang('attributes.floor_number')">
+                            @if ($errors->has('floor_number'))
+                                <span class="invalid-feedback">{{ $errors->first('floor_number') }}</span>
+                            @else
+                                <div class="invalid-feedback">@lang('validation.required',['attribute' =>
+                                    __('attributes.floor_number') ])
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="mb20">
+                            <label class="heading-color ff-heading fw600 mb10">@lang('attributes.address')</label>
+                            <input required type="text" name="title" value="{{ old('title', $result['item']->title) ?? 'المنزل' }}"
+                                class="form-control" placeholder="@lang('attributes.address')">
+                            @if ($errors->has('title'))
+                                <span class="invalid-feedback">{{ $errors->first('title') }}</span>
+                            @else
+                                <div class="invalid-feedback">@lang('validation.required',['attribute' =>
+                                    __('attributes.title') ])
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="mb20">
+                            <label class="heading-color ff-heading fw600 mb10">@lang('attributes.address')</label>
+                            <textarea rows="10" required name="address" id="address"
+                                class="form-control"
+                                placeholder="@lang('attributes.address')">{{ old('address', $result['item']->address) }}</textarea>
+                            @if ($errors->has('address'))
+                                <span class="invalid-feedback">{{ $errors->first('address') }}</span>
+                            @else
+                                <div class="invalid-feedback">@lang('validation.required',['attribute' =>
+                                    __('attributes.address') ])
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+
+{{--
                     <div class="col-sm-6 col-xl-6">
                         <div class="mb30">
                             <label class="heading-color ff-heading fw600 mb10">@lang('attributes.latitude')</label>
@@ -101,7 +163,7 @@
 
                     <div class="col-md-12 col-xs-12 col-sm-12">
                         <div id="mapCanv" style="width:100%;height:400px"></div>
-                    </div>
+                    </div> --}}
                     <div class="col-md-12">
                         <hr>
                     </div>

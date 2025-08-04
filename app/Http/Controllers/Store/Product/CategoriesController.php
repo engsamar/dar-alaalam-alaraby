@@ -68,7 +68,7 @@ class CategoriesController extends Controller
         $data['type'] = Constants::CATEGORY_FOOD;
         $data['store_id'] = auth()->guard('store')->user()->id;
         $this->itemRepository->createItem($this->model, $data);
-        $request->session()->flash('success', __('messages.AddedMessage'));
+        $request->session()->flash('success', __('titles.AddedMessage'));
 
         return redirect()->route('store.'.$this->path.'.index');
     }
@@ -88,7 +88,7 @@ class CategoriesController extends Controller
             $data['image'] = \App\Helpers\Image::upload($request->file('image'), $this->path);
         }
         $this->itemRepository->updateItem($this->model, $id, $data);
-        $request->session()->flash('success', __('messages.UpdatedMessage'));
+        $request->session()->flash('success', __('titles.UpdatedMessage'));
 
         return redirect()->route('store.'.$this->path.'.index');
     }
@@ -96,7 +96,7 @@ class CategoriesController extends Controller
     public function destroy(Request $request, $id)
     {
         $this->itemRepository->deleteItem($this->model, $id);
-        $request->session()->flash('success', __('messages.DeletedMessage'));
+        $request->session()->flash('success', __('titles.DeletedMessage'));
         return redirect()->route('store.'.$this->path.'.index');
     }
 

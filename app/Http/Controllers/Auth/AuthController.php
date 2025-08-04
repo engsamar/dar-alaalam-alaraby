@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
-use App\Models\Product\Cart;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerRequest;
 use App\Http\Requests\WebLoginRequest;
-use Illuminate\Support\Facades\Cookie;
 use App\Interfaces\ContentRepositoryInterface;
+use App\Models\Product\Cart;
+use App\Models\User;
+use Illuminate\Support\Facades\Cookie;
 
 class AuthController extends Controller
 {
@@ -17,10 +17,11 @@ class AuthController extends Controller
     private ContentRepositoryInterface $__contentRepository;
 
     public function __construct(
-        ContentRepositoryInterface $__contentRepository
+        ContentRepositoryInterface $__contentRepository,
     ) {
         $this->__contentRepository = $__contentRepository;
     }
+
     public function login()
     {
         return view('auth.login');
@@ -29,21 +30,21 @@ class AuthController extends Controller
     public function register()
     {
         $result = [];
+
         return view('auth.register', compact('result'));
     }
 
     public function verifyAccount()
     {
         $user = auth()->user();
+
         return view('auth.verify-account', compact('user'));
     }
-
 
     public function postLogin($locale, WebLoginRequest $request)
     {
         $user = auth()->attempt(['mobile' => $request->full, 'password' => $request->password], 1);
         if ($user) {
-
             toastr()->success(__('message.LoginSuccessfully'));
 
             $carts = Cart::whereHas('product', function ($q) {
@@ -80,7 +81,8 @@ class AuthController extends Controller
         $data['mobile'] = $data['full'];
         $user = User::create($data);
         auth()->login($user);
-        toastr()->success(__('message.RegisterSuccessfully'));
+        toastr()->success(__('titles.RegisterSuccessfully'));
+
         return redirect()->route('website.home', ['locale' => $locale]);
     }
 }

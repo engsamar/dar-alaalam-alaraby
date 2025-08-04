@@ -6,7 +6,6 @@ use App\Helpers\Constants;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\App;
 
 class Order extends Model
 {
@@ -47,6 +46,9 @@ class Order extends Model
         'delivery_cost',
         'address_id',
         'address',
+        'floor_number',
+        'building_number',
+        'street',
     ];
 
     public function user()
@@ -66,7 +68,7 @@ class Order extends Model
 
     public function address()
     {
-        return $this->belongsTo(\App\Models\User\Address::class, 'address_id');
+        return $this->belongsTo(User\Address::class, 'address_id');
     }
 
     public function status()
@@ -74,12 +76,12 @@ class Order extends Model
         return $this->belongsTo(Status::class, 'status_id');
     }
 
-
     public function scopeDelivered($query)
     {
-        return $query->where('status_id',  Constants::ORDER_STATUS_DELIVERED);
+        return $query->where('status_id', Constants::ORDER_STATUS_DELIVERED);
     }
-    //cancelled processing
+
+    // cancelled processing
     public function scopeProcessing($query)
     {
         return $query->where('status_id', '>=', Constants::ORDER_STATUS_ACCEPTED);
@@ -104,7 +106,6 @@ class Order extends Model
     {
         return $query->orderBy('id', 'desc');
     }
-
 
     public function getPaymentStatusSpanAttribute($value)
     {
@@ -136,12 +137,13 @@ class Order extends Model
 
         return $value;
     }
+
     public function getDateAttribute()
     {
         return date('Y-m-d', strtotime($this->created_at));
     }
 
-    //products
+    // products
     public function products()
     {
         return $this->hasMany(OrderProduct::class, 'order_id');

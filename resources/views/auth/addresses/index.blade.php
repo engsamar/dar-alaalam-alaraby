@@ -36,7 +36,12 @@
 
                                         <td class="vam">{{ $item->city->title ?? '' }} <br />
                                             {{ $item->region->title ?? '' }} </td>
-                                        <td class="vam">{{ $item->address ?? '' }} </td>
+                                        <td class="vam">
+                                           @lang('attributes.building_number'): {{ $item->building_number ?? '' }} <br />
+
+                                           @lang('attributes.floor_number'): {{ $item->floor_number ?? '' }} <br />
+                                            {{ $item->street ?? '' }} <br />
+                                            {{ $item->address ?? '' }} </td>
                                         <td class="vam">
                                             <div class="icons-h d-flex">
 

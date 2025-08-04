@@ -16,7 +16,7 @@
                             <div class="price-checkOut">
                                 <h2>{{ $result['order']['total_price'] ?? 0 }}</h2>
                                 <span>
-                                    @lang('website.currency')
+                                    @lang('titles.currency')
                                 </span>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                             @endif
                         </select>
                     </div>
-                    @includeIf('payment.paymob')
+
                 </div>
             </div>
         </div>

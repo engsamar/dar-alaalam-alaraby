@@ -75,7 +75,7 @@ class ProductsController extends Controller
             $item->addMedia(storage_path('tmp/uploads/' . $file))
                 ->toMediaCollection('document');
         }
-        $request->session()->flash('success', __('messages.AddedMessage'));
+        $request->session()->flash('success', __('titles.AddedMessage'));
 
         return redirect()->route('store.'.$this->path.'.index');
     }
@@ -119,7 +119,7 @@ class ProductsController extends Controller
             }
         }
 
-        $request->session()->flash('success', __('messages.UpdatedMessage'));
+        $request->session()->flash('success', __('titles.UpdatedMessage'));
 
         return redirect()->route('store.'.$this->path.'.index');
     }
@@ -127,7 +127,7 @@ class ProductsController extends Controller
     public function destroy(Request $request, $id)
     {
         $this->itemRepository->deleteItem($this->model, $id);
-        $request->session()->flash('success', __('messages.DeletedMessage'));
+        $request->session()->flash('success', __('titles.DeletedMessage'));
 
         return redirect()->route('store.'.$this->path.'.index');
     }

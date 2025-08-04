@@ -4,8 +4,8 @@ namespace App\Models\User;
 
 use App\Models\City;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
@@ -23,6 +23,9 @@ class Address extends Model
         'city_id',
         'user_id',
         'area_id',
+        'floor_number',
+        'building_number',
+        'street',
     ];
 
     public function city()
