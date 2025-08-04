@@ -15,6 +15,11 @@ class CitiesTableDataSeeder extends Seeder
     public function run()
     {
         // php artisan db:seed --class=CitiesTableDataSeeder
+        // truncate cities table
+        // stop check foreign
+        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        City::truncate();
 
         // insert all egypt cities
         $cities = [
